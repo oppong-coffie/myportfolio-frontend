@@ -1,0 +1,8 @@
+.swiper {
+    width: 1500px;
+    height: 800px;
+  }
+
+.Swiper-slide:last-child{
+    border-right: none;
+}

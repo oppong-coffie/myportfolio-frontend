@@ -1,0 +1,8 @@
+#heroimage {
+    transform: rotateY(0deg); /* Initial state */
+    transition: transform 3s ease; /* Animation duration of 3 seconds */   
+}
+
+#heroimage:hover {
+    transform: rotateY(180deg) scale(1.1); /* Combine both rotateY and scale */
+}
