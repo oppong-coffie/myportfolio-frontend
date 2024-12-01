@@ -18,7 +18,7 @@ const Voluntery = () => {
       number: 2,
       title: "Coding for Kid",
       description:
-        "I mentored children in coding (HTML/CSS), creating projects to introduce them to programming. Organized by Amalitech.",
+        "I mentored children in coding (HTML/CSS), creating projects to introduce them to programming. Organized by Amalitech and sponsored by Access Bank.",
     },
     {
       number: 3,

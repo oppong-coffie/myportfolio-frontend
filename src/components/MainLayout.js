@@ -12,6 +12,7 @@ import Faq from './Faq'
 import Testimonials from './Testimonials'
 import ToolsSection from './Tools'
 import Gallery from './Gallery'
+import Gallery1 from './Gallery1'
 
 const MainLayout = () => {
   return (
@@ -24,7 +25,8 @@ const MainLayout = () => {
         <ToolsSection />
         <Projects />
         <Voluntery />
-        <Gallery />
+        <Gallery1 />
+        {/* <Gallery /> */}
         <Contact />
         <Faq />
         {/* <Testimonials /> */}

@@ -47,7 +47,7 @@ const Gallery = () => {
             640: { slidesPerView: 2 }, // For tablets
             768: { slidesPerView: 3 }, // For small laptops
             1024: { slidesPerView: 4 }, // For desktops
-            1280: { slidesPerView: 6 }, // For larger screens
+            1280: { slidesPerView: 5 }, // For larger screens
           }}
           modules={[Pagination, Autoplay]}
           className="mySwiper"
