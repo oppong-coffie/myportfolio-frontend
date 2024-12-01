@@ -1,6 +1,12 @@
 import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import zeazn from '../images/zeazn.png'
+import zulupromo from '../images/zulupromr.png'
+import game from '../images/game.png'
+import password from '../images/password.png'
+import news from '../images/news.png'
+import team from '../images/team.png'
 
 const Projects = () => {
   useEffect(() => {
@@ -26,29 +32,34 @@ const Projects = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {[
             {
-              name: "Church Website",
-              link: "https://church-ashen.vercel.app",
-              image: "https://via.placeholder.com/300",
+              name: "Zeazn",
+              link: "https://zeaznai.vercel.app",
+              image: zeazn,
             },
             {
-              name: "Time-Tracking Dashboard",
-              link: "https://time-tracking-dashboard-ts-oppong-coffie.vercel.app",
-              image: "https://via.placeholder.com/300",
+              name: "ZuluDesk Promo Page",
+              link: "https://zulupromo.vercel.app",
+              image: zulupromo,
             },
             {
               name: "Memory Game",
               link: "https://memory-game-oppong-coffie.vercel.app",
-              image: "https://via.placeholder.com/300",
+              image: game,
             },
             {
               name: "Password Generator",
               link: "https://password-generator-oppongcoffies-projects.vercel.app",
-              image: "https://via.placeholder.com/300",
+              image: password,
             },
             {
               name: "News Dashboard",
               link: "https://newsfeed-git-main-oppong-coffie.vercel.app",
-              image: "https://via.placeholder.com/300",
+              image: news,
+            },
+            {
+              name: "TeamAlfy company website",
+              link: "https://team-alfy.vercel.app/",
+              image: team,
             },
           ].map(({ name, link, image }, idx) => (
             <div

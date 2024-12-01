@@ -19,9 +19,9 @@ const MainSection = () => {
     }, []);
 
     return (
-        <div className="bg-slate-900 py-20">
+        <div id='_home' className="bg-slate-900 pt-20">
             {/* Hero Section */}
-            <div className="container mx-auto flex flex-col lg:flex-row items-center gap-10">
+            <div id='' className="container mx-auto flex flex-col lg:flex-row items-center gap-10">
                 {/* Text Content */}
                 <div className="text-content">
                     <h1
@@ -65,7 +65,7 @@ const MainSection = () => {
                 >
                     <img
                         id="heroimage"
-                        className="w-3/4 rounded-xl shadow-2xl transform transition hover:rotate-3 hover:scale-110 duration-500"
+                        className="w-[40vw] md:w-[18vw] rounded-xl transform transition hover:rotate-3 hover:scale-110 duration-500"
                         src={heroImage}
                         alt="Hero"
                     />

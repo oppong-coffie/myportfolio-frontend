@@ -1,5 +1,5 @@
 import React from 'react';
-import profile2 from '../images/heroImage.png';
+import profile2 from '../images/port7.jpg';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -13,7 +13,8 @@ const About = () => {
   }, []);
 
   return (
-    <div id='about' className="bg-gray-50 py-12">
+    <div id='about' className=''>
+  <div className="bg-gray-50 py-12">
       {/* Header Section */}
       <section
         className="text-center px-6 md:px-20 py-12 bg-gradient-to-r from-blue-800 to-purple-800 text-white"
@@ -50,6 +51,8 @@ const About = () => {
 
    
     </div>
+    </div>
+  
   );
 };
 

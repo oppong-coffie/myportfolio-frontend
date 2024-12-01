@@ -1,6 +1,9 @@
 import React, { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import edu1 from '../images/TTU-LOGO.jpg'
+import ipmc from '../images/ipmc.jpg'
+import amalitech from '../images/amalitech.png'
 
 const Education = () => {
   useEffect(() => {
@@ -17,19 +20,19 @@ const Education = () => {
       institution: 'Takoradi Technical University',
       degree: 'Degree in Information Technology',
       date: '07/2020 – 08/2024',
-      image: 'https://via.placeholder.com/100',
+      image: edu1,
     },
     {
       institution: 'IPMC-Takoradi',
       degree: 'Professional in System Engineering',
       date: '02/2022 – 08/2022',
-      image: 'https://via.placeholder.com/100',
+      image: ipmc,
     },
     {
       institution: 'Amalitech Company Limited',
       degree: 'Digital Innovative Program',
       date: '03/2023 – 07/2023',
-      image: 'https://via.placeholder.com/100',
+      image: amalitech,
     },
   ];
 

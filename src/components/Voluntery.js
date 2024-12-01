@@ -55,12 +55,6 @@ const Voluntery = () => {
   return (
     <div id="voluntary" className="bg-gray-100 py-10">
       {/* Header Section */}
-      <div className="text-center mb-8">
-        <h1 className="text-4xl font-bold text-blue-800">Voluntary Works</h1>
-        <p className="text-gray-600 mt-3">
-          A glimpse into my contributions as a mentor and developer, fostering growth and learning in the IT community.
-        </p>
-      </div>
 
       {/* Highlight Image */}
       <div className="flex justify-center mb-10">
@@ -87,51 +81,6 @@ const Voluntery = () => {
         ))}
       </div>
 
-      {/* Gallery Section */}
-      <div id="gallery" className="py-10 bg-blue-800 text-white mt-10">
-        <h2 className="text-center text-3xl font-bold mb-8">Gallery</h2>
-        <div className=''>
-            <Swiper
-                spaceBetween={1}
-                slidesPerView={6}
-                autoplay={{
-                delay: 2500,
-                disableOnInteraction: false,
-            }}
-            pagination={{
-                type: 'fraction', // This will display numbers like "1/3"
-            }}
-            modules={[Autoplay, Pagination]} // Import Pagination module
-            className="mySwiper"
-        >
-            <SwiperSlide>
-                <img src={voluntery1} alt="Voluntary Work 1"/>
-            </SwiperSlide>
-            <SwiperSlide>
-                <img src={voluntery1} alt="Voluntary Work 2"/>
-            </SwiperSlide>
-            <SwiperSlide>
-                <img src={voluntery1} alt="Voluntary Work 3"/>
-            </SwiperSlide>
-            <SwiperSlide>
-                <img src={voluntery1} alt="Voluntary Work 3"/>
-            </SwiperSlide>
-            <SwiperSlide>
-                <img src={voluntery1} alt="Voluntary Work 3"/>
-            </SwiperSlide>
-            <SwiperSlide>
-                <img src={voluntery1} alt="Voluntary Work 3"/>
-            </SwiperSlide>
-            <SwiperSlide>
-                <img src={voluntery1} alt="Voluntary Work 3"/>
-            </SwiperSlide>
-            <SwiperSlide>
-                <img src={voluntery1} alt="Voluntary Work 3"/>
-            </SwiperSlide>
-</Swiper>
-
-            </div>
-      </div>
     </div>
   );
 };

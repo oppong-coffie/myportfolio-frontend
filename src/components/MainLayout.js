@@ -11,10 +11,11 @@ import Projects from './Projects'
 import Faq from './Faq'
 import Testimonials from './Testimonials'
 import ToolsSection from './Tools'
+import Gallery from './Gallery'
 
 const MainLayout = () => {
   return (
-    <div className='bg-slate-900'>
+    <div className='bg-slate-900 h-screen'>
         < Navbar />
         < MainSection />
         <About />
@@ -23,6 +24,7 @@ const MainLayout = () => {
         <ToolsSection />
         <Projects />
         <Voluntery />
+        <Gallery />
         <Contact />
         <Faq />
         {/* <Testimonials /> */}

@@ -1,25 +1,62 @@
-import React from 'react'
+import React, { useState } from 'react';
+import { Link } from 'react-scroll';
 
 const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
-<div className="flex flex-col md:flex-row justify-between items-center text-white px-6 py-4 bg-gradient-to-r from-indigo-950 to-slate-900 shadow-lg">
-  <div id='home' className="font-extrabold text-2xl tracking-widest mb-4 md:mb-0">
-    Oppong
-  </div>
-  <div className="space-x-0 md:space-x-8 text-lg flex flex-col md:flex-row items-center">
-    <a href="#home" className="hover:text-yellow-300 transition duration-300 ease-in-out mb-2 md:mb-0">Home</a>
-    <a href="#about" className="hover:text-yellow-300 transition duration-300 ease-in-out mb-2 md:mb-0">About</a>
-    <a href="#skills" className="hover:text-yellow-300 transition duration-300 ease-in-out">Skills</a>
-    <a href="#tools" className="hover:text-yellow-300 transition duration-300 ease-in-out">Tools</a>
-    <a href="#projects" className="hover:text-yellow-300 transition duration-300 ease-in-out">Projects</a>
-    <a href="#voluntary" className="hover:text-yellow-300 transition duration-300 ease-in-out">Voluntary</a>
-    <a href="#gallery" className="hover:text-yellow-300 transition duration-300 ease-in-out">Gallery</a>
-    <a href="#faq" className="hover:text-yellow-300 transition duration-300 ease-in-out">FAG</a>
-    <a href="#contact" className="hover:text-yellow-300 transition duration-300 ease-in-out">Contact</a>
-  </div>
-</div>
+    <div className="flex flex-col md:flex-row justify-between items-center text-white px-6 py-4 bg-gradient-to-r from-indigo-950 to-slate-900 shadow-lg fixed top-0 left-0 w-full z-50">
+      {/* Logo and Hamburger */}
+      <div className="flex justify-between items-center w-full md:w-auto">
+        {/* Brand Name */}
+        <div id="home" className="font-extrabold text-2xl tracking-tighter">
+          Oppong
+        </div>
 
-  )
-}
+        {/* Hamburger Menu for Mobile */}
+        <button
+          className="md:hidden text-2xl focus:outline-none"
+          onClick={toggleMenu}
+          aria-label="Toggle navigation"
+        >
+          ☰
+        </button>
+      </div>
 
-export default Navbar
+      {/* Navigation Links */}
+      <div
+        className={`${
+          isMenuOpen ? 'flex' : 'hidden'
+        } flex-col md:flex md:flex-row items-center w-full md:w-auto space-y-4 md:space-y-0 space-x-0 md:space-x-8 mt-4 md:mt-0 text-lg`}
+      >
+        {[
+          { name: 'Home', to: '_home' },
+          { name: 'About', to: 'about' },
+          { name: 'Skills', to: 'skills' },
+          { name: 'Projects', to: 'projects' },
+          { name: 'Voluntary', to: 'voluntary' },
+          { name: 'Gallery', to: 'gallery' },
+          { name: 'FAQ', to: 'faq' },
+          { name: 'Contact', to: 'contact' },
+        ].map((link) => (
+          <Link
+            key={link.to}
+            to={link.to}
+            smooth={true}
+            duration={500}
+            className="hover:text-yellow-300 transition duration-300 ease-in-out"
+            onClick={() => setIsMenuOpen(false)} // Close menu on link click
+          >
+            {link.name}
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default Navbar;
