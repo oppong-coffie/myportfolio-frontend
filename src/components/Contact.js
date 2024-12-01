@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { LinkedinIcon, PhoneCall, Github } from "lucide-react";
+import { LinkedinIcon, PhoneCall } from "lucide-react";
 import { Input, Textarea, Button } from "@nextui-org/react";
 
 const Contact = () => {
@@ -10,104 +10,122 @@ const Contact = () => {
   }, []);
 
   return (
-    <div id="contact" className="mt-10 bg-gray-50 py-10">
+    <div id="contact" className="mt-10">
       {/* Section Header */}
-      <div className="text-center mb-10">
+      <div className="flex justify-center">
         <h1
-          className="text-white p-3 font-bold bg-violet-900 w-44 mx-auto rounded text-2xl"
+          className="text-white p-2 font-bold bg-violet-900 w-44 rounded text-center text-2xl"
           data-aos="fade-up"
         >
           Contact Me
         </h1>
-        <p
-          className="text-slate-500 mt-4"
-          data-aos="fade-up"
-          data-aos-delay="200"
-        >
-          Let's connect! Feel free to reach out via email or phone for any
-          inquiries or collaborations.
-        </p>
       </div>
+      <h1
+        className="text-center font-semibold text-slate-400 py-10"
+        data-aos="fade-up"
+        data-aos-delay="200"
+      >
+        Let's connect! Feel free to reach out via email or phone for any
+        inquiries or collaborations.
+      </h1>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 px-6 lg:px-32">
-        {/* Contact Options */}
-        <div className="col-span-1 space-y-8">
-          {[
-            {
-              icon: <PhoneCall size={32} color="white" />,
-              title: "Call Me",
-              value: "+233 246 4141 97",
-            },
-            {
-              icon: <PhoneCall size={32} color="white" />,
-              title: "WhatsApp",
-              value: "+233 246 4141 97",
-            },
-            {
-              icon: <LinkedinIcon size={32} color="white" />,
-              title: "LinkedIn",
-              value: "LinkedIn Profile",
-            },
-       
-          ].map(({ icon, title, value }, idx) => (
-            <div
-              key={idx}
-              className="flex items-center gap-4 p-4 rounded-lg shadow-lg bg-white hover:bg-violet-900 hover:shadow-2xl transition-all duration-300"
-              data-aos="fade-right"
-              data-aos-delay={idx * 200}
-            >
-              <div className="bg-violet-900 p-3 rounded-lg flex items-center justify-center">
-                {icon}
-              </div>
-              <div>
-                <h1 className="font-bold text-slate-600 hover:text-white">
-                  {title}
-                </h1>
-                <p className="text-blue-800 font-semibold hover:text-white">
-                  {value}
-                </p>
-              </div>
+      <div className="grid grid-cols-1 md:grid-cols-3 px-4 md:px-64 gap-10">
+        {/* Contact Details */}
+        <div className="col-span-1" data-aos="fade-right" data-aos-delay="300">
+          <div
+            className="flex gap-4 mb-10"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
+            <div className="bg-violet-900 p-3 rounded-lg shadow-xl">
+              <PhoneCall size={32} color="white" />
             </div>
-          ))}
+            <div>
+              <h1 className="font-bold text-slate-500">Call me</h1>
+              <p className="text-blue-800 font-bold">+233 246 4141 97</p>
+            </div>
+          </div>
+          <div
+            className="flex gap-4 mb-10"
+            data-aos="fade-up"
+            data-aos-delay="600"
+          >
+            <div className="bg-violet-900 p-3 rounded-lg shadow-xl">
+              <PhoneCall size={32} color="white" />
+            </div>
+            <div>
+              <h1 className="font-bold text-slate-500">WhatsApp</h1>
+              <p className="text-blue-800 font-bold">+233 246 4141 97</p>
+            </div>
+          </div>
+          <div
+            className="flex gap-4 mb-10"
+            data-aos="fade-up"
+            data-aos-delay="800"
+          >
+            <div className="bg-violet-900 p-3 rounded-lg shadow-xl">
+              <LinkedinIcon size={32} color="white" />
+            </div>
+            <div>
+              <h1 className="font-bold text-slate-500">Linkedin</h1>
+              <p className="text-blue-800 font-bold">LinkedIn</p>
+            </div>
+          </div>
+          <div
+            className="flex gap-4"
+            data-aos="fade-up"
+            data-aos-delay="1000"
+          >
+            <div className="bg-violet-900 p-3 rounded-lg shadow-xl">
+              <PhoneCall size={32} color="white" />
+            </div>
+            <div>
+              <h1 className="font-bold text-slate-500">GitHub</h1>
+              <p className="text-blue-800 font-bold">GitHub</p>
+            </div>
+          </div>
         </div>
 
-        {/* Contact Form */}
-        <form
-          className="col-span-2 space-y-6"
-          data-aos="fade-up"
-          data-aos-delay="300"
-        >
+        {/* Form Section */}
+        <form className="col-span-2" data-aos="fade-left" data-aos-delay="1200">
           <Input
-            className="mb-4"
+            className="mb-10"
             type="text"
             label="Name"
             color="secondary"
-            placeholder="Your Full Name"
+            data-aos="fade-up"
+            data-aos-delay="1300"
           />
-          <div className="flex flex-col lg:flex-row gap-4">
+          <div className="flex gap-12">
             <Input
+              className="mb-10"
               type="email"
               label="Email"
               color="secondary"
-              placeholder="example@email.com"
+              data-aos="fade-up"
+              data-aos-delay="1500"
             />
             <Input
+              className="mb-10"
               type="phone"
               label="Phone"
               color="secondary"
-              placeholder="+233 123 456 789"
+              data-aos="fade-up"
+              data-aos-delay="1700"
             />
           </div>
           <Textarea
-            label="Message"
+            className="mb-5"
+            label="Description"
             color="secondary"
-            placeholder="Write your message here..."
+            data-aos="fade-up"
+            data-aos-delay="1900"
           />
           <Button
-            className="w-full lg:w-auto px-10 py-3"
+            className="p-6"
             color="secondary"
-            rounded
             data-aos="zoom-in"
+            data-aos-delay="2100"
           >
             Submit Message
           </Button>
