@@ -13,31 +13,30 @@ const About = () => {
   }, []);
 
   return (
-    <div id='about' className=''>
-  <div className="bg-gray-50 py-12">
+    <div id="about" className="bg-gray-50">
       {/* Header Section */}
       <section
-        className="text-center px-6 md:px-20 py-12 bg-gradient-to-r from-blue-800 to-purple-800 text-white"
+        className="text-center px-6 md:px-20 py-12 bg-gradient-to-r from-blue-800 to-purple-800 text-white shadow-lg"
         data-aos="fade-in"
       >
         <h1
-          className="text-5xl font-extrabold mb-4"
+          className="text-4xl sm:text-5xl font-extrabold mb-6"
           data-aos="fade-down"
           data-aos-delay="200"
         >
           About Me
         </h1>
         <p
-          className="text-lg max-w-3xl mx-auto leading-relaxed"
+          className="text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed"
           data-aos="fade-up"
           data-aos-delay="400"
         >
-          A passionate Front-end Developer who transforms ideas into user-friendly digital
-          experiences. I focus on blending creativity with functionality to create impactful
-          solutions.
+          I am a passionate Front-End Developer dedicated to transforming ideas into user-friendly digital
+          experiences. My focus lies in blending creativity with functionality to create impactful
+          and meaningful solutions.
         </p>
         <div
-          className="mt-6"
+          className="mt-8"
           data-aos="zoom-in"
           data-aos-delay="600"
         >
@@ -48,11 +47,7 @@ const About = () => {
           />
         </div>
       </section>
-
-   
     </div>
-    </div>
-  
   );
 };
 

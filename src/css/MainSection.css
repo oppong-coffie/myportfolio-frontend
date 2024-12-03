@@ -6,3 +6,33 @@
 #heroimage:hover {
     transform: rotateY(180deg) scale(1.1); /* Combine both rotateY and scale */
 }
+/* Adjust hero image styles */
+#heroimage {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Floating icons animation */
+.floating-icons {
+    animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .text-content {
+        text-align: center;
+    }
+    .hero-image {
+        justify-content: center;
+    }
+}
