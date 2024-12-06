@@ -23,7 +23,7 @@ const Contact = () => {
     try {
       // Sending the  SMS to me
       const firstSmsResponse = await axios.post(
-        'http://localhost:3000/sms/sendme',
+        'https://myportfolio-backend-nu.vercel.app/sms/sendme',
       { name, phone },
       {
         headers: {
@@ -35,7 +35,7 @@ const Contact = () => {
   
       // Sending the SMS the client
       const secondSmsResponse = await axios.post(
-        'http://localhost:3000/sms/sendsms',
+        'https://myportfolio-backend-nu.vercel.app/sms/sendsms',
       { name, phone },
       {
         headers: {
