@@ -4,6 +4,7 @@ import "aos/dist/aos.css";
 import { LinkedinIcon, MessageCircleMore, PhoneCall } from "lucide-react";
 import { Input, Textarea, Button, Spinner } from "@nextui-org/react";
 import emailjs from "@emailjs/browser";
+import axios from 'axios';
 
 const Contact = () => {
   const [name, setName] = useState("");
@@ -18,34 +19,35 @@ const Contact = () => {
     emailjs.init("T5HMx10wLGbYc1M3F"); // Initialize EmailJS here
   }, []);
 
-  const sendSms = () => {
-    const api = 'd97868cc69d36af20e76';  // Your API key as a string
-    const sms1 = 'Im thrilled you have reached out, lets create something bigger!';
-    const sms2 = name + ' from your portfolio website, view email for details';
-    const sender = 'PrestigeLab';  // Ensure sender is a string
-    const corsProxy = "https://cors-anywhere.herokuapp.com/"; // CORS proxy to bypass CORS issue
+  const sendSms = async () => {
+    try {
+      // Sending the  SMS to me
+      const firstSmsResponse = await axios.post(
+        'http://localhost:3000/sms/sendme',
+      { name, phone },
+      {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+      );
+      console.log('First SMS sent successfully:', firstSmsResponse.data);
   
-    // Sending the first SMS
-    const url1 = `${corsProxy}https://sms.smsnotifygh.com/smsapi?key=${api}&to=${phone}&msg=${encodeURIComponent(sms2)}&sender_id=${sender}`;
-    console.log('Sending SMS 1 to URL:', url1);  // Log the URL to check if it's formed correctly
-    fetch(url1)
-      .then(response => response.text())  // Handle the response as text (not JSON)
-      .then(text => {
-        console.log('SMS 1 sent successfully:', text);  // Log the response text
-      })
-      .catch(error => console.error('Error sending SMS 1:', error));
-  
-    // Sending the second SMS
-    const url2 = `${corsProxy}https://sms.smsnotifygh.com/smsapi?key=${api}&to=0246414197&msg=${sms2}&sender_id=${sender}`;
-    console.log('Sending SMS 2 to URL:', url2);  // Log the URL to check if it's formed correctly
-    fetch(url2)
-      .then(response => response.text())  // Handle the response as text (not JSON)
-      .then(text => {
-        console.log('SMS 2 sent successfully:', text);  // Log the response text
-      })
-      .catch(error => console.error('Error sending SMS 2:', error));
-  };
-  
+      // Sending the SMS the client
+      const secondSmsResponse = await axios.post(
+        'http://localhost:3000/sms/sendsms',
+      { name, phone },
+      {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+    );
+      console.log('Second SMS sent successfully:', secondSmsResponse.data);
+    } catch (error) {
+      console.error('Error sending SMS:', error.message);
+    }
+  }
   
 
   const sendEmail = (event) => {
