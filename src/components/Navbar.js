@@ -31,7 +31,7 @@ const Navbar = () => {
       <div
         className={`${
           isMenuOpen ? 'flex' : 'hidden'
-        } flex-col md:flex md:flex-row items-center w-full md:w-auto space-y-4 md:space-y-0 space-x-0 md:space-x-8 mt-4 md:mt-0 text-lg`}
+        } flex-col md:flex md:flex-row items-center w-full md:w-auto space-y-4 md:space-y-0 space-x-0 md:space-x-16 mt-4 md:mt-0 text-lg`}
       >
         {[
           { name: 'Home', to: '_home' },
@@ -44,11 +44,10 @@ const Navbar = () => {
           { name: 'Contact', to: 'contact' },
         ].map((link) => (
           <Link
-            key={link.to}
             to={link.to}
             smooth={true}
             duration={500}
-            className="hover:text-yellow-300 transition duration-300 ease-in-out"
+            className="hover:text-[#9747FF] transition duration-300 ease-in-out"
             onClick={() => setIsMenuOpen(false)} // Close menu on link click
           >
             {link.name}
