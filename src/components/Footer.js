@@ -52,7 +52,7 @@ const Footer = () => {
                       d="M16.88 3.549A9.969 9.969 0 0112 2c-5.523 0-10 4.477-10 10 0 1.948.566 3.749 1.54 5.27L2 22l4.76-1.48A9.969 9.969 0 0112 22c5.523 0 10-4.477 10-10 0-2.128-.662-4.1-1.789-5.74"
                     />
                   </svg>
-                  <span>Email: info@voluntery.com</span>
+                  <span>Email: oppongcoffie27@gmail.com</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <svg
@@ -69,7 +69,7 @@ const Footer = () => {
                       d="M3 10h11M9 21h3m-9-6h3m2-5h4m3 6h2m3 4h2"
                     />
                   </svg>
-                  <span>Phone: +233 123 456 789</span>
+                  <span>Phone: +233 551144173</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <svg
@@ -86,7 +86,7 @@ const Footer = () => {
                       d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-4m-6-2H7a2 2 0 01-2-2V7a2 2 0 012-2h2m10 8H7"
                     />
                   </svg>
-                  <span>Location: Takoradi, Ghana</span>
+                  <span>Location: Accra, Ghana</span>
                 </li>
               </ul>
             </div>
