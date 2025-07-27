@@ -11,6 +11,9 @@ import gallery34 from "../images/port (34).jpg";
 import teach from "../images/teach.jpg";
 import team1 from "../images/team1.jpg";
 import news2 from "../images/news2.jpg";
+import g1 from "../images/g1.jpg";
+import g2 from "../images/g2.jpg";
+import g3 from "../images/g3.jpg";
 
 const Gallery = () => {
   const images = [
@@ -26,6 +29,9 @@ const Gallery = () => {
     { src: teach, name: "No Computer coding", description: "When coding became a habit for kids, they still want to learn on the board and code on paper" },
     { src: team1, name: "Working with the stars", description: "Sharing ideas on the same project help to bring out the best of all projects" },
     { src: news2, name: "Contect Creator", description: "Gather good and resourceful information for the public is essential for community growth" },
+    { src: g1, name: "Remote Meeting", description: "Distance has never been an obstacles. Always have my team virtually around me" },
+    { src: g2, name: "Logic Flow", description: "Flows are logically planned before startup" },
+    { src: g3, name: "Silence Coding", description: "I alway go to this environment for efficient work" },
   ];
 
   return (

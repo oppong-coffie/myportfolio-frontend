@@ -1,5 +1,5 @@
 import heroImage from '../images/rec.png';
-import heroImage2 from '../images/rec2.png';
+import heroImage2 from '../images/hero3.jpg';
 import '../css/MainSection.css';
 import { SwitchCamera, DownloadCloud, UserPen } from 'lucide-react';
 import { Button } from "@nextui-org/react";
@@ -68,7 +68,7 @@ const MainSection = () => {
              
                         </a>
                         <a 
-    href="/emma.pdf" 
+    href="/emma_cv.pdf" 
     download="emma-CV.pdf"
     className="inline-block"
 >
@@ -91,15 +91,15 @@ const MainSection = () => {
                     className="hero-image flex justify-center lg:justify-end w-full lg:w-1/2"
                     data-aos="zoom-in-left"
                 >
-                    {/* <img
+                    <img
                         id="heroimage"
                         className="w-[60%] md:w-[40%] rounded-xl mx-auto mr[-32px] transform transition hover:rotate-3 hover:scale-110 duration-500"
                         src={heroImage}
                         alt="Hero"
-                    /> */}
+                    />
                     <img
                         id="heroimage"
-                        className="rounded-xl mx-auto mr-16 transform transition hover:rotate-3 hover:scale-110 duration-500"
+                        className="w-72 rounded-xl mx-auto mr-16 transform transition hover:rotate-3 hover:scale-110 duration-500"
                         src={heroImage2}
                         alt="Hero"
                     />

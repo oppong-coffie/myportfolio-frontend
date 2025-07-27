@@ -1,3 +1,5 @@
+import { Link } from 'react-scroll';
+
 const Footer = () => {
     return (
       <footer className="bg-blue-900 text-gray-300 py-10">
@@ -11,24 +13,24 @@ const Footer = () => {
               <h3 className="text-lg font-semibold text-white mb-4">Quick Links</h3>
               <ul className="space-y-2">
                 <li>
-                  <a href="#" className="hover:text-white transition duration-300">
+                  <Link to="_home" className="hover:text-white transition duration-300">
                     Home
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white transition duration-300">
+                  <Link to="projects" className="hover:text-white transition duration-300">
                     Projects
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white transition duration-300">
+                  <Link to="gallery" className="hover:text-white transition duration-300">
                     Gallery
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white transition duration-300">
+                  <Link to="contact" className="hover:text-white transition duration-300">
                     Contact
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>

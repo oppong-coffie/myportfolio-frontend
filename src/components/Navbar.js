@@ -48,7 +48,7 @@ const Navbar = () => {
             smooth={true}
             duration={500}
             className="hover:text-[#9747FF] transition duration-300 ease-in-out"
-            onClick={() => setIsMenuOpen(false)} // Close menu on link click
+            onClick={() => setIsMenuOpen(false)} // Close menu on link click 
           >
             {link.name}
           </Link>

@@ -11,7 +11,6 @@ import Projects from './Projects'
 import Faq from './Faq'
 import Testimonials from './Testimonials'
 import ToolsSection from './Tools'
-import Gallery from './Gallery'
 import Gallery1 from './Gallery1'
 
 

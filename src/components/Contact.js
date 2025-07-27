@@ -119,7 +119,7 @@ const Contact = () => {
             </div>
             <div>
               <h1 className="font-bold text-slate-500">Call me</h1>
-              <p className="text-blue-800 font-bold">+233 246 4141 97</p>
+              <p className="text-blue-800 font-bold">+233 551 1441 73</p>
             </div>
           </div>
           <div
@@ -132,7 +132,7 @@ const Contact = () => {
             </div>
             <div>
               <h1 className="font-bold text-slate-500">WhatsApp</h1>
-              <a href="https://wa.me/0246414197?text=hi Oppong" className="text-blue-800 font-bold">+233 246 4141 97</a>
+              <a href="https://wa.me/233551144173?text=hi%20Oppong" className="text-blue-800 font-bold">+233 551 1441 73</a>
             </div>
           </div>
           <div
@@ -145,7 +145,7 @@ const Contact = () => {
             </div>
             <div>
               <h1 className="font-bold text-slate-500">Linkedin</h1>
-              <a href="https://www.linkedin.com/feed/" className="text-blue-800 font-bold">LinkedIn</a>
+              <a href="https://www.linkedin.com/in/oppong-coffie-3b8538236" className="text-blue-800 font-bold">LinkedIn</a>
             </div>
           </div>
           <div
@@ -158,7 +158,7 @@ const Contact = () => {
             </div>
             <div>
               <h1 className="font-bold text-slate-500">GitHub</h1>
-              <a href="https://github.com/" className="text-blue-800 font-bold">GitHub</a>
+              <a href="https://github.com/oppong-coffie" className="text-blue-800 font-bold">GitHub</a>
             </div>
           </div>
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import profile2 from '../images/port7.jpg';
+import profile2 from '../images/hero4.jpg';
 import eli from '../images/eli.png';
 import eli2 from '../images/eli2.png';
 import AOS from 'aos';
@@ -29,16 +29,19 @@ const About = () => {
           About Me
         </h1>
         <p
-          className="text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed"
-          data-aos="fade-up"
-          data-aos-delay="400"
-        >
-          I'm a passionate Frontend Developer and AI Bot Builder dedicated to crafting intelligent digital solutions. 
-          With expertise in frameworks like React and Vue.js, I specialize in building modern, responsive, and accessible
-          web interfaces. As an AI bot builder, I develop chatbots powered by platforms like BotPress and Gupshup, 
-          enabling businesses to automate customer interactions, book appointments, and provide 24/7 support through website,
-          whatsApp or USSD. Whether it’s building dynamic web applications or conversational bots, Let’s create something amazing together! 🚀
-        </p>
+  className="text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed text-center text-gray-400"
+  data-aos="fade-up"
+  data-aos-delay="400"
+>
+  I'm a creative <span className="font-semibold text-blue-600">Frontend Developer</span> & 
+  <span className="font-semibold text-green-600"> AI Bot Builder</span> passionate about building smart, user-friendly digital products.  
+  <br className="hidden sm:block" />
+  I specialize in <span className="font-medium">responsive web & mobile apps</span> using React, Next, and React Native 📱—and I bring 
+  conversations to life with bots powered by BotPress, Gupshup & WhatsApp 💬.
+  <br className="hidden sm:block" />
+  From booking systems to 24/7 automated support, I help businesses go digital with ease. Let's build something awesome together! 🚀
+</p>
+
         <div
           className="mt-8"
           data-aos="zoom-in"
