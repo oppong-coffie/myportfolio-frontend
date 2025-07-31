@@ -13,22 +13,22 @@ const Footer = () => {
               <h3 className="text-lg font-semibold text-white mb-4">Quick Links</h3>
               <ul className="space-y-2">
                 <li>
-                  <Link to="_home" className="hover:text-white transition duration-300">
+                  <Link to="_home" className="hover:text-white transition duration-300 cursor-pointer ">
                     Home
                   </Link>
                 </li>
                 <li>
-                  <Link to="projects" className="hover:text-white transition duration-300">
+                  <Link to="projects" className="hover:text-white transition duration-300 cursor-pointer">
                     Projects
                   </Link>
                 </li>
                 <li>
-                  <Link to="gallery" className="hover:text-white transition duration-300">
+                  <Link to="gallery" className="hover:text-white transition duration-300 cursor-pointer">
                     Gallery
                   </Link>
                 </li>
                 <li>
-                  <Link to="contact" className="hover:text-white transition duration-300">
+                  <Link to="contact" className="hover:text-white transition duration-300 cursor-pointer">
                     Contact
                   </Link>
                 </li>
@@ -37,7 +37,7 @@ const Footer = () => {
   
             {/* Contact Section */}
             <div>
-              <h3 className="text-lg font-semibold text-white mb-4">Contact Us</h3>
+              <h3 className="text-lg font-semibold text-white mb-4">Contact me</h3>
               <ul className="space-y-2">
                 <li className="flex items-center gap-2">
                   <svg

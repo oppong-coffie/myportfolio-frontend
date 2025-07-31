@@ -1,97 +1,101 @@
 import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import vs from '../images/vs2.png'
-import postman from '../images/postman2.png'
-import trello from '../images/trello.png'
-import vercel from '../images/vercel.png'
-import botpress from '../images/botpress.png'
-import twilio from '../images/twillo.png'
-import gupshup from '../images/gupshup.png'
+
+import cursorLogo from "../images/cursor.avif"; // Replace this with the actual Cursor logo if available
+import postman from "../images/postman2.png";
+import trello from "../images/trello.png";
+import vercel from "../images/vercel.png";
+import botpress from "../images/botpress.png";
+import twilio from "../images/twillo.png";
+import gupshup from "../images/gupshup.png";
 
 const ToolsSection = () => {
   useEffect(() => {
-    AOS.init({ duration: 1200 }); // Initialize AOS with custom settings
+    AOS.init({ duration: 1200 });
   }, []);
 
   const tools = [
     {
-      name: "Visual Studio Code",
+      name: "Cursor",
       description:
-        "A lightweight yet powerful code editor that supports numerous extensions for front-end, back-end, and full-stack development.",
-      logo: vs,
+        "An AI-first code editor built for modern developers. Cursor helps you write, refactor, and debug code with powerful AI assistance.",
+      logo: cursorLogo,
     },
     {
       name: "Postman",
       description:
-        "A popular API testing tool for developers to test and interact with APIs. Postman simplifies API requests, testing, and documentation.",
+        "An API platform for building and using APIs, streamlining testing, debugging, and collaboration.",
       logo: postman,
     },
     {
       name: "Trello",
       description:
-        "A web-based project management tool that allows developers and teams to organize tasks with boards, lists, and cards.",
+        "A flexible task management tool using boards, lists, and cards to visually organize projects and track progress.",
       logo: trello,
     },
     {
       name: "Git",
       description:
-        "A distributed version control system that tracks changes in source code, enabling collaboration and efficient workflows.",
+        "A powerful version control system enabling developers to manage code, track changes, and collaborate seamlessly.",
       logo: "https://upload.wikimedia.org/wikipedia/commons/e/e0/Git-logo.svg",
     },
     {
       name: "Figma",
       description:
-        "A design tool for creating wireframes, prototypes, and user interfaces, enabling seamless collaboration between teams.",
+        "A collaborative design platform used for creating UI/UX designs, prototypes, and real-time team collaboration.",
       logo: "https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg",
     },
     {
       name: "Vercel",
       description:
-        "A platform for creating, deploying, and managing containerized applications in any environment.",
+        "A deployment and hosting platform optimized for frontend frameworks, enabling fast and secure delivery.",
       logo: vercel,
     },
     {
       name: "Slack",
       description:
-        "A communication tool that streamlines team collaboration through channels, direct messages, and integrations.",
+        "A real-time messaging and collaboration tool that helps teams communicate efficiently through channels and integrations.",
       logo: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Slack_icon_2019.svg",
     },
     {
       name: "Gupshup",
       description:
-        "It is commonly used to create chatbots, automate customer interactions, and enable multi-channel messaging for businesses.",
+        "A conversational messaging platform for building chatbots and automating multi-channel business communications.",
       logo: gupshup,
     },
     {
       name: "Twilio",
       description:
-        "A cloud communications platform that enables developers to add messaging, voice, video, and other communication capabilities to their applications using APIs.",
+        "A developer-friendly cloud communication platform for integrating messaging, voice, and video into applications via APIs.",
       logo: twilio,
     },
     {
       name: "GitHub",
       description:
-        "A code hosting platform for version control and collaboration, enabling developers to share and manage projects.",
+        "A popular platform for hosting and managing Git repositories, supporting collaboration, version control, and DevOps workflows.",
       logo: "https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg",
     },
     {
-      name: "Zoom",
+      name: "n8n",
       description:
-        "A video conferencing tool for virtual meetings, webinars, and collaboration with remote teams.",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Zoom_Communications_Logo.svg",
+        "An open-source workflow automation tool that connects apps and services to automate repetitive tasks and processes visually.",
+      logo: "https://avatars.githubusercontent.com/u/45487711?s=280&v=4",
     },
     {
       name: "Botpress",
       description:
-        "A  platform designed for building, deploying, and managing conversational AI chatbots.",
+        "An open-source chatbot framework for building, deploying, and managing intelligent conversational AI systems.",
       logo: botpress,
     },
   ];
 
   return (
-    <section id="tools" className="tools py-20 bg-gradient-to-br from-blue-50 via-white to-gray-100">
-      <div className="container mx-auto text-center">
+    <section
+      id="tools"
+      className="tools py-20 bg-gradient-to-br from-blue-50 via-white to-gray-100"
+    >
+      <div className="container mx-auto text-center px-4">
         <h2
           className="text-4xl font-bold text-gray-800 mb-8"
           data-aos="fade-up"
@@ -103,14 +107,13 @@ const ToolsSection = () => {
           data-aos="fade-up"
           data-aos-delay="100"
         >
-          These are the tools that help me create seamless and efficient
-          solutions.
+          These tools empower me to build fast, scalable, and intelligent digital solutions.
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {tools.map((tool, index) => (
             <div
               key={index}
-              className="tool-card bg-white shadow-lg rounded-lg p-6 text-center transform transition hover:-translate-y-2 hover:shadow-xl"
+              className="tool-card bg-white shadow-lg rounded-xl p-6 text-center transform transition hover:-translate-y-2 hover:shadow-xl"
               data-aos="zoom-in"
               data-aos-delay={index * 100}
             >
@@ -118,7 +121,7 @@ const ToolsSection = () => {
                 <img
                   src={tool.logo}
                   alt={tool.name}
-                  className="w-16 h-16 object-contain"
+                  className="w-16 h-16 object-contain transition-transform duration-300 ease-in-out hover:scale-110"
                 />
               </div>
               <h3 className="text-xl font-semibold text-blue-600">

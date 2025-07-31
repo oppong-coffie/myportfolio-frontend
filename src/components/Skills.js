@@ -2,12 +2,12 @@ import React, { useMemo, useState, useEffect } from 'react';
 import { Tooltip } from 'antd';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-
+import { motion } from "framer-motion";
 import html from '../images/html.png';
 import js from '../images/js.png';
 import react from '../images/react.png';
 import Bootstrap from '../images/Bootstrap.png';
-import css from '../images/css.png';
+import css from '../images/rn.png';
 import Tailwind from '../images/Tailwind.png';
 import node from '../images/node.png';
 import express from '../images/express.png';
@@ -16,7 +16,49 @@ import sql from '../images/sql.jpg';
 import php from '../images/php.png';
 import laravel from '../images/Laravel.svg.png';
 
+const skills = [
+  {
+    title: "🎨 Frontend Development",
+    description: "I build stunning and responsive interfaces using Tailwind CSS, ReactJS.",
+  },
+  {
+    title: "📱 Mobile App Development",
+    description: "I create cross-platform mobile apps using React Native and Expo for smooth user experiences.",
+  },
+  {
+    title: "🤖 AI Automation",
+    description: "I automate workflows using OpenAI, BotPress, and APIs to boost productivity and user interaction.",
+  },
+  {
+    title: "🧠 Problem-Solving",
+    description: "I deliver smart solutions to complex challenges with clean, scalable code.",
+  },
+  {
+    title: "🤝 Team Collaboration",
+    description: "I work effectively with teams using Git, Agile, and clear communication to meet goals.",
+  },
+  {
+    title: "📚 Continuous Learning",
+    description: "I stay current with web trends and technologies to build innovative, future-ready products.",
+  },
+];
 const Skills = () => {
+  
+
+  
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
   const [arrow, setArrow] = useState('Show');
   const mergedArrow = useMemo(() => {
     if (arrow === 'Hide') {
@@ -42,45 +84,45 @@ const Skills = () => {
   return (
     <div id='skills' className="bg-slate-800">
          {/* Skills/Experience Section */}
-         <section
-        className="container mx-auto px-6 md:px-20 py-12"
-        data-aos="fade-up"
-        data-aos-delay="200"
+         <section className="container mx-auto px-6 md:px-20 py-10">
+      <motion.h2
+        className="text-4xl font-bold text-center text-blue-800 mb-10"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
       >
-        <h2 className="text-4xl font-bold text-center text-blue-800 mb-8">
-          My Skills & Expertise
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="bg-white shadow-lg rounded-lg p-6 hover:shadow-2xl transition-shadow duration-300">
-            <h3 className="text-2xl font-semibold mb-4 text-blue-600">Creative Frontend Design</h3>
-            <p className="text-gray-700">
-              I craft visually stunning and responsive websites using tools like Tailwind CSS,
-              React, and Vue.js.
+        🚀 My Skills & Expertise
+      </motion.h2>
+
+      <motion.div
+        className="grid grid-cols-1 md:grid-cols-2 gap-6"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+      >
+        {skills.map((skill, idx) => (
+          <motion.div
+            key={idx}
+            whileHover={{
+              scale: 1.03,
+              boxShadow: "0px 8px 24px rgba(0, 0, 0, 0.1)",
+              transition: { type: "spring ", stiffness: 300 },
+            }}
+            variants={itemVariants}
+            className="bg-white shadow hover:shadow-md transition duration-300 rounded-xl p-6 border border-gray-100 group"
+          >
+            <h3 className="text-xl font-semibold text-blue-700 mb-2 group-hover:text-blue-900 transition-colors">
+              {skill.title}
+            </h3>
+            <p className="text-gray-700 text-sm leading-relaxed">
+              {skill.description}
             </p>
-          </div>
-          <div className="bg-white shadow-lg rounded-lg p-6 hover:shadow-2xl transition-shadow duration-300">
-            <h3 className="text-2xl font-semibold mb-4 text-blue-600">Problem-Solving</h3>
-            <p className="text-gray-700">
-              I develop efficient solutions for complex problems with logical thinking and
-              innovative design patterns.
-            </p>
-          </div>
-          <div className="bg-white shadow-lg rounded-lg p-6 hover:shadow-2xl transition-shadow duration-300">
-            <h3 className="text-2xl font-semibold mb-4 text-blue-600">Team Collaboration</h3>
-            <p className="text-gray-700">
-              Experienced in working with cross-functional teams, ensuring seamless project
-              execution.
-            </p>
-          </div>
-          <div className="bg-white shadow-lg rounded-lg p-6 hover:shadow-2xl transition-shadow duration-300">
-            <h3 className="text-2xl font-semibold mb-4 text-blue-600">Continuous Learning</h3>
-            <p className="text-gray-700">
-              Always staying updated with the latest web technologies to deliver cutting-edge
-              solutions.
-            </p>
-          </div>
-        </div>
-      </section>
+          </motion.div>
+        ))}
+      </motion.div>
+    </section>
+
       {/* Skills Section */}
       <section className="py-12 px-6 bg-white">
         <h2
@@ -122,11 +164,11 @@ const Skills = () => {
             tooltip: "Laravel blade"
           },
           {
-            title: "CSS",
-            content: "Styling of web pages.",
+            title: "React Native",
+            content: "Styling and building mobile apps.",
             icon: css,
-            tooltip: "Cascading Style Sheets (CSS)"
-          },
+            tooltip: "React Native framework for mobile development"
+          },          
           {
             title: "Tailwind CSS",
             content: "Utility-first CSS framework.",
@@ -164,17 +206,27 @@ const Skills = () => {
             tooltip: "SQL Databases"
           }].map(({ title, content, icon, tooltip }, idx) => (
             <div
-              key={idx}
-              className="p-6 bg-gray-100 shadow-lg rounded-lg text-center transition-transform transform hover:scale-105"
-              data-aos="fade-up"
-              data-aos-delay={idx * 200}
-            >
-              <Tooltip title={tooltip} arrowPointAtCenter>
-                <div className="text-5xl mb-4">{<img src={icon} alt={title} className="w-16 h-16 rounded-full"/>}</div>
-              </Tooltip>
-              <h3 className="text-lg font-semibold text-gray-800">{title}</h3>
-              <p className="text-sm text-gray-600 mt-2">{content}</p>
+            key={idx}
+            className="flex flex-col sm:flex-row items-center gap-6 p-6 bg-gradient-to-br from-white to-gray-100 shadow-xl rounded-2xl transition-transform transform hover:scale-105 hover:shadow-2xl duration-300"
+            data-aos="fade-up"
+            data-aos-delay={idx * 200}
+          >
+            <Tooltip title={tooltip} arrowPointAtCenter>
+              <div className="flex-shrink-0">
+                <img
+                  src={icon}
+                  alt={title}
+                  className="w-20 h-20 rounded-full border-4 border-blue-200 shadow-md hover:rotate-3 transition-transform duration-300"
+                />
+              </div>
+            </Tooltip>
+          
+            <div className="text-center sm:text-left">
+              <h3 className="text-lg font-bold text-gray-800 tracking-wide">{title}</h3>
+              <p className="text-sm text-gray-600 mt-2 leading-relaxed">{content}</p>
             </div>
+          </div>
+          
           ))}
         </div>
       </section>

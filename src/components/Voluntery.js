@@ -1,3 +1,4 @@
+import React from "react";
 import voluntery from "../images/voluntery.jpg";
 import voluntery1 from "../images/react.png";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -18,7 +19,7 @@ const Voluntery = () => {
       number: 2,
       title: "Coding for Kid",
       description:
-        "I mentored children in coding (HTML/CSS), creating projects to introduce them to programming. Organized by Amalitech and sponsored by Access Bank.",
+        "I mentored kids in (HTML/CSS), introducing them to programming. Organized by Amalitech and sponsored by Access Bank.",
     },
     {
       number: 3,
@@ -42,45 +43,64 @@ const Voluntery = () => {
       number: 6,
       title: "Pass Question System",
       description:
-        "I developed a question and answer system by providing access to past questions and solutions. The system improved study efficiency.",
+        "I developed a system to provide access to past questions and solutions improving study efficiency.",
     },
     {
       number: 7,
       title: "LogicKids Vacation Classes",
       description:
-        "I taught coding and problem-solving skills to children using HTML/CSS/JS, Python, and Scratch during vacation classes.",
+        "I taught children HTML/CSS/JS, Python, and Scratch during vacation classes.",
     },
+    {
+      number: 8,
+      title: "NextJS Workshop Assistant",
+      description:
+        "Assisted in organizing and delivering a React.js workshop for beginner web developers.",
+    },
+    {
+      number: 9,
+      title: "Starinx Health Connect",
+      description:
+        "I contributed to a health system that connects patients with healthcare and transport systems",
+    }    
   ];
 
   return (
-    <div id="voluntary" className="bg-gray-100 py-10">
-      {/* Header Section */}
-
-      {/* Highlight Image */}
-      <div className="flex justify-center mb-10">
+    <div id="voluntary" className="bg-gray-100 py-14 px-4 sm:px-6 lg:px-12">
+        {/* Highlight Image */}
+        <div className="flex justify-center mb-2">
         <img
           className="w-3/6 rounded-lg shadow-md border-4 border-white"
           src={voluntery}
           alt="Voluntary Highlight"
         />
       </div>
+      {/* Section Header */}
+      <div className="text-center mb-12">
+        <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+          I’ve been fortunate to share my knowledge through community events, workshops, and mentorship programs.
+        </p>
+      </div>
 
-      {/* Works Section */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-6">
+    
+
+      {/* Volunteer Work Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {works.map((work, idx) => (
           <div
             key={idx}
-            className="bg-blue-800 text-white rounded-xl p-6 shadow-lg hover:scale-105 transition-transform duration-300"
+            className="bg-blue-800 text-white rounded-xl p-6 shadow-md hover:shadow-xl hover:scale-105 transition-transform duration-300"
           >
-            <div className="flex items-center gap-4 mb-4">
-              <h1 className="text-4xl font-bold">{work.number}</h1>
-              <h2 className="font-semibold text-xl">{work.title}</h2>
+            <div className="flex items-center gap-4 mb-3">
+              <span className="text-3xl font-bold bg-white text-blue-800 w-10 h-10 flex items-center justify-center rounded-full shadow">
+                {work.number}
+              </span>
+              <h3 className="font-semibold text-xl">{work.title}</h3>
             </div>
-            <p className="text-gray-300">{work.description}</p>
+            <p className="text-gray-200 text-sm">{work.description}</p>
           </div>
         ))}
       </div>
-
     </div>
   );
 };

@@ -11,7 +11,7 @@ const FAQAccordion = () => {
     {
       question: "What technologies do you specialize in?",
       answer:
-        "I specialize in React, Vue.js, JavaScript, Tailwind CSS, and modern web development practices.",
+        "I specialize in ReactJS, NextJS, React Native, Tailwind CSS and modern web development practices.",
     },
     {
       question: "How long does it take to complete a project?",

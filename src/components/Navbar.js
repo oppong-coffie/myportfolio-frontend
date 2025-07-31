@@ -44,10 +44,11 @@ const Navbar = () => {
           { name: 'Contact', to: 'contact' },
         ].map((link) => (
           <Link
+          
             to={link.to}
             smooth={true}
             duration={500}
-            className="hover:text-[#9747FF] transition duration-300 ease-in-out"
+            className="hover:text-[#9747FF] transition duration-300 ease-in-out cursor-pointer"
             onClick={() => setIsMenuOpen(false)} // Close menu on link click 
           >
             {link.name}
