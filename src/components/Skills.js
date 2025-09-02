@@ -34,9 +34,9 @@ const skills = [
     description: "I deliver smart solutions to complex challenges with clean, scalable code.",
   },
   {
-    title: "🤝 Team Collaboration",
-    description: "I work effectively with teams using Git, Agile, and clear communication to meet goals.",
-  },
+    title: "🤝 Team Leadership",
+    description: "I excel at leading and motivating teams, ensuring collaboration through Git, monday.com, and clear communication to achieve project goals efficiently.",
+  },  
   {
     title: "📚 Continuous Learning",
     description: "I stay current with web trends and technologies to build innovative, future-ready products.",

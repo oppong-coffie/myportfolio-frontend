@@ -24,7 +24,7 @@ const Education = () => {
     },
     {
       institution: 'IPMC-Takoradi',
-      degree: 'Professional in System Engineering and Networking',
+      degree: 'Professional in Hardware and Networking',
       date: '02/2022 – 08/2022',
       image: ipmc,
     },

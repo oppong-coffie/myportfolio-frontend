@@ -47,10 +47,10 @@ const Voluntery = () => {
     },
     {
       number: 7,
-      title: "LogicKids Vacation Classes",
+      title: "Director of IT",
       description:
-        "I taught children HTML/CSS/JS, Python, and Scratch during vacation classes.",
-    },
+        "Lead the IT team at Carifika Global, an NGO focused on uniting Africa through technology.",
+    },    
     {
       number: 8,
       title: "NextJS Workshop Assistant",
@@ -59,10 +59,10 @@ const Voluntery = () => {
     },
     {
       number: 9,
-      title: "Starinx Health Connect",
+      title: "Project Manager",
       description:
-        "I contributed to a health system that connects patients with healthcare and transport systems",
-    }    
+        "Lead Starinx team to deliver web and mobile apps on time, ensuring quality and client satisfaction.",
+    }      
   ];
 
   return (
