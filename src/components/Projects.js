@@ -74,6 +74,12 @@ const Projects = () => {
           mainlink: "https://time-tracking-dashboard-ts-sigma.vercel.app",
           image: team,
         },
+        {
+          name: "IPA Website",
+          link: "https://ipa-website.vercel.app",
+          mainlink: "https://ipa-website.vercel.app",
+          image: team,
+        },
       ].map(({ name, link, image, mainlink }, idx) => (
         <div
           key={idx}
