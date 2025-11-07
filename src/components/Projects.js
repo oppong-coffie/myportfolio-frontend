@@ -76,8 +76,8 @@ const Projects = () => {
         },
         {
           name: "IPA Website",
-          link: "https://ipa-website.vercel.app",
-          mainlink: "https://ipa-website.vercel.app",
+          link: "https://ipagh.org",
+          mainlink: "https://ipagh.org",
           image: team,
         },
       ].map(({ name, link, image, mainlink }, idx) => (

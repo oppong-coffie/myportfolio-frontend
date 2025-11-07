@@ -93,13 +93,13 @@ const MainSection = () => {
                 >
                     <img
                         id="heroimage"
-                        className="w-[60%] md:w-[40%] rounded-xl mx-auto mr[-32px] transform transition hover:rotate-3 hover:scale-110 duration-500"
+                        className="w-[60%] hidden md:block md:w-[40%] rounded-xl mx-auto mr[-32px] transform transition hover:rotate-3 hover:scale-110 duration-500"
                         src={heroImage}
                         alt="Hero"
                     />
                     <img
                         id="heroimage"
-                        className="w-72 rounded-xl mx-auto mr-16 transform transition hover:rotate-3 hover:scale-110 duration-500"
+                        className="w-72 rounded-xl mx-auto md:mr-16 transform transition hover:rotate-3 hover:scale-110 duration-500"
                         src={heroImage2}
                         alt="Hero"
                     />

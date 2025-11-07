@@ -12,6 +12,7 @@ import Faq from './Faq'
 import Testimonials from './Testimonials'
 import ToolsSection from './Tools'
 import Gallery1 from './Gallery1'
+import Certs from './Certs'
 
 
 const MainLayout = () => {
@@ -38,6 +39,7 @@ const MainLayout = () => {
       <Education />
       <Skills />
       <ToolsSection />
+      <Certs />
       <Projects />
       <Voluntery />
       <Gallery1 />
