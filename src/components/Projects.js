@@ -1,135 +1,141 @@
-import React, { useEffect } from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-import zeazn from '../images/zeazn.png'
-import zulupromo from '../images/zulupromr.png'
-import game from '../images/game.png'
-import password from '../images/password.png'
-import news from '../images/news.png'
-import team from '../images/team.png'
+import React from 'react';
+import { motion } from 'framer-motion';
+import { ExternalLink } from 'lucide-react';
+import zeazn from '../images/zeazn.png';
+import zulupromo from '../images/zulupromr.png';
+import game from '../images/game.png';
+import password from '../images/password.png';
+import news from '../images/news.png';
+import team from '../images/team.png';
 
 const Projects = () => {
-  useEffect(() => {
-    // Initialize AOS animations
-    AOS.init({
-      duration: 1000,
-      easing: 'ease-in-out',
-      once: true, // Animation happens only once when visible
-    });
-  }, []);
+  const projects = [
+    {
+      name: "Zeazn Limited Website",
+      link: "https://zeazn.com",
+      mainlink: "https://zeazn.com",
+      image: zeazn,
+      tags: ["React", "Tailwind", "Business"],
+    },
+    {
+      name: "ZuluDesk Business Website",
+      link: "https://zulupromo.vercel.app",
+      mainlink: "https://zuludesks.com",
+      image: zulupromo,
+      tags: ["Next.js", "E-commerce"],
+    },
+    {
+      name: "Password Generator",
+      link: "https://password-generator-oppongcoffies-projects.vercel.app",
+      mainlink: "https://password-generator-oppongcoffies-projects.vercel.app",
+      image: password,
+      tags: ["Utility", "React"],
+    },
+    {
+      name: "TeamAlfy Company Website",
+      link: "https://team-alfy.vercel.app/",
+      mainlink: "https://teamalfy.com",
+      image: team,
+      tags: ["Corporate", "Design"],
+    },
+    {
+      name: "Tuaneka Ai",
+      link: "https://tuaneka-v1.vercel.app",
+      mainlink: "https://tuaneka-ai-vitereact.vercel.app",
+      image: team,
+      tags: ["AI", "Chatbot"],
+    },
+    {
+      name: "Ai WhatApp Chatbot",
+      link: "https://fake-whatsapp-chat-virid.vercel.app",
+      mainlink: "https://wa.me/233595394667?text=hi%20Adwoa%2C%20tell%20me%20what%20you%20can%20do",
+      image: team,
+      tags: ["WhatsApp", "Bot"],
+    },
+    {
+      name: "Time Tracking Dashboard",
+      link: "https://time-tracking-dashboard-ts-sigma.vercel.app",
+      mainlink: "https://time-tracking-dashboard-ts-sigma.vercel.app",
+      image: team,
+      tags: ["Dashboard", "TypeScript"],
+    },
+    {
+      name: "IPA Website",
+      link: "https://ipagh.org",
+      mainlink: "https://ipagh.org",
+      image: team,
+      tags: ["NGO", "Website"],
+    },
+  ];
 
   return (
-<div id="projects">
-  <section className="py-16 px-6 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-white">
-    <h2
-      className="text-4xl font-bold text-center mb-12"
-      data-aos="fade-down"
-      data-aos-duration="1500"
-    >
-      🚀 Projects
-    </h2>
+    <section id="projects" className="py-20 px-6 bg-white text-gray-900">
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="text-center mb-16"
+      >
+        <h2 className="text-4xl sm:text-5xl font-bold mb-4 text-gray-900">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
+            Featured Projects
+          </span>
+        </h2>
+        <p className="text-gray-600 max-w-2xl mx-auto">
+          A collection of my recent work, ranging from web applications to AI-powered chatbots.
+        </p>
+      </motion.div>
 
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-      {[
-        {
-          name: "Zeazn Limited Website",
-          link: "https://zeazn.com",
-          mainlink: "https://zeazn.com",
-          image: zeazn,
-        },
-        {
-          name: "ZuluDesk Business Website",
-          link: "https://zulupromo.vercel.app",
-          mainlink: "https://zuludesks.com",
-          image: zulupromo,
-        },
-        {
-          name: "Password Generator",
-          link: "https://password-generator-oppongcoffies-projects.vercel.app",
-          mainlink: "https://password-generator-oppongcoffies-projects.vercel.app",
-          image: password,
-        },
-   
-        {
-          name: "TeamAlfy Company Website",
-          link: "https://team-alfy.vercel.app/",
-          mainlink: "https://teamalfy.com",
-          image: team,
-        },
-        {
-          name: "Tuaneka Ai",
-          link: "https://tuaneka-v1.vercel.app",
-          mainlink: "https://tuaneka-ai-vitereact.vercel.app",
-          image: team,
-        },
-        {
-          name: "Ai WhatApp Chatbot",
-          link: "https://fake-whatsapp-chat-virid.vercel.app",
-          mainlink: "https://wa.me/233595394667?text=hi%20Adwoa%2C%20tell%20me%20what%20you%20can%20do",
-          image: team,
-        },
-        {
-          name: "Time Tracking Dashboard",
-          link: "https://time-tracking-dashboard-ts-sigma.vercel.app",
-          mainlink: "https://time-tracking-dashboard-ts-sigma.vercel.app",
-          image: team,
-        },
-        {
-          name: "IPA Website",
-          link: "https://ipagh.org",
-          mainlink: "https://ipagh.org",
-          image: team,
-        },
-      ].map(({ name, link, image, mainlink }, idx) => (
-        <div
-          key={idx}
-          className="bg-gray-900 p-2 rounded-2xl shadow-2xl hover:shadow-blue-500/30 transition duration-300 ease-in-out"
-          data-aos="fade-up"
-          data-aos-delay={idx * 200}
-          data-aos-duration="1200"
-        >
-          <div className="relative overflow-hidden rounded-xl border border-gray-700 shadow-inner h-[215px]">
-            <div className="transform scale-[0.5] origin-top-left w-[200%] h-[430px]">
-              <iframe
-                src={link}
-                title={name}
-                loading="lazy"
-                className="w-full h-full border-none"
-              />
-            </div>
-          </div>
-
-          <div className="mt-4 text-center space-y-2">
-            <h3 className="text-xl font-bold tracking-wide">{name}</h3>
-            <a
-              href={mainlink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-blue-400 hover:text-blue-300 underline transition"
-            >
-              🌐 Visit Site
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-4 w-4 inline"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M13 7h6m0 0v6m0-6L10 20"
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 container mx-auto">
+        {projects.map((project, idx) => (
+          <motion.div
+            key={idx}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: idx * 0.1 }}
+            className="group bg-gray-50 rounded-2xl overflow-hidden border border-gray-200 hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/20"
+          >
+            <div className="relative h-[250px] overflow-hidden bg-gray-100">
+              {/* Iframe Preview with Overlay */}
+              <div className="absolute inset-0 transform group-hover:scale-105 transition-transform duration-500">
+                <iframe
+                  src={project.link}
+                  title={project.name}
+                  loading="lazy"
+                  className="w-[200%] h-[200%] transform scale-50 origin-top-left border-none pointer-events-none"
+                  tabIndex="-1"
                 />
-              </svg>
-            </a>
-          </div>
-        </div>
-      ))}
-    </div>
-  </section>
-</div>
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-50 to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
+            </div>
 
+            <div className="p-6">
+              <div className="flex flex-wrap gap-2 mb-4">
+                {project.tags.map((tag, i) => (
+                  <span key={i} className="text-xs font-medium px-2.5 py-0.5 rounded-full bg-primary/10 text-primary border border-primary/20">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              <h3 className="text-xl font-bold mb-2 text-gray-900 group-hover:text-primary transition-colors">
+                {project.name}
+              </h3>
+
+              <a
+                href={project.mainlink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-sm font-medium text-gray-500 hover:text-primary transition-colors mt-4"
+              >
+                Visit Project <ExternalLink size={16} className="ml-2" />
+              </a>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </section>
   );
 };
 

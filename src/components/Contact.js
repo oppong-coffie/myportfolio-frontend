@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
-import { LinkedinIcon, MessageCircleMore, PhoneCall } from "lucide-react";
+import { motion } from "framer-motion";
+import { LinkedinIcon, MessageCircleMore, PhoneCall, Github } from "lucide-react";
 import { Input, Textarea, Button, Spinner } from "@nextui-org/react";
 import emailjs from "@emailjs/browser";
 import axios from 'axios';
@@ -11,49 +10,33 @@ const Contact = () => {
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const [loading, setLoading] = useState(false); // For loading state
-  const [feedback, setFeedback] = useState(""); // For feedback message
+  const [loading, setLoading] = useState(false);
+  const [feedback, setFeedback] = useState("");
 
   useEffect(() => {
-    AOS.init({ duration: 1000, easing: "ease-in-out", once: true });
-    emailjs.init("T5HMx10wLGbYc1M3F"); // Initialize EmailJS here
+    emailjs.init("T5HMx10wLGbYc1M3F");
   }, []);
 
   const sendSms = async () => {
     try {
-      // Sending the  SMS to me
-      const firstSmsResponse = await axios.post(
+      await axios.post(
         'https://myportfolio-backend-nu.vercel.app/sms/sendme',
-      { name, phone },
-      {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      }
+        { name, phone },
+        { headers: { 'Content-Type': 'application/json' } }
       );
-      console.log('First SMS sent successfully:', firstSmsResponse.data);
-  
-      // Sending the SMS the client
-      const secondSmsResponse = await axios.post(
+      await axios.post(
         'https://myportfolio-backend-nu.vercel.app/sms/sendsms',
-      { name, phone },
-      {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      }
-    );
-      console.log('Second SMS sent successfully:', secondSmsResponse.data);
+        { name, phone },
+        { headers: { 'Content-Type': 'application/json' } }
+      );
     } catch (error) {
       console.error('Error sending SMS:', error.message);
     }
   }
-  
 
   const sendEmail = (event) => {
     event.preventDefault();
 
-    // Simple validation
     if (!name || !email || !message) {
       setFeedback("Please fill in all required fields.");
       return;
@@ -63,171 +46,165 @@ const Contact = () => {
     setFeedback("");
 
     const params = { name, phone, email, message };
-
     const serviceID = "service_2whq5dc";
     const templateID = "template_5a8k82b";
 
     emailjs
       .send(serviceID, templateID, params)
-      .then((response) => {
-        setFeedback("Email sent successfully!");
+      .then(() => {
+        setFeedback("Message sent successfully!");
         setLoading(false);
         setName("");
         setPhone("");
         setEmail("");
         setMessage("");
+        sendSms();
       })
       .catch((error) => {
-        setFeedback("Failed to send email. Please try again.");
+        setFeedback("Failed to send message. Please try again.");
         console.error("EmailJS error:", error);
         setLoading(false);
       });
-
-      // call the sms function
-      sendSms();
   };
 
   return (
-    <div id="contact" className="mt-10">
-      <div className="flex justify-center">
-        <h1
-          className="text-white p-2 font-bold bg-violet-900 w-44 rounded text-center text-2xl"
-          data-aos="fade-up"
-        >
-          Contact Me
-        </h1>
+    <div id="contact" className="py-20 bg-dark relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+        <div className="absolute top-10 right-10 w-64 h-64 bg-primary/10 rounded-full blur-[80px]"></div>
+        <div className="absolute bottom-10 left-10 w-64 h-64 bg-secondary/10 rounded-full blur-[80px]"></div>
       </div>
-      <h1
-        className="text-center font-semibold text-slate-400 py-10"
-        data-aos="fade-up"
-        data-aos-delay="200"
-      >
-        Let's connect! Feel free to reach out via email or phone for any
-        inquiries or collaborations.
-      </h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 px-4 md:px-64 gap-10">
-          {/* Contact Details */}
-          <div className="col-span-1" data-aos="fade-right" data-aos-delay="300">
-          <div
-            className="flex gap-4 mb-10"
-            data-aos="fade-up"
-            data-aos-delay="400"
-          >
-            <div className="bg-violet-900 p-3 rounded-lg shadow-xl">
-              <PhoneCall size={32} color="white" />
-            </div>
-            <div>
-              <h1 className="font-bold text-slate-500">Call me</h1>
-              <p className="text-blue-800 font-bold">+233 551 1441 73</p>
-            </div>
-          </div>
-          <div
-            className="flex gap-4 mb-10"
-            data-aos="fade-up"
-            data-aos-delay="600"
-          >
-            <div className="bg-violet-900 p-3 rounded-lg shadow-xl">
-              <MessageCircleMore size={32} color="white" />
-            </div>
-            <div>
-              <h1 className="font-bold text-slate-500">WhatsApp</h1>
-              <a href="https://wa.me/233551144173?text=hi%20Oppong" className="text-blue-800 font-bold">+233 551 1441 73</a>
-            </div>
-          </div>
-          <div
-            className="flex gap-4 mb-10"
-            data-aos="fade-up"
-            data-aos-delay="800"
-          >
-            <div className="bg-violet-900 p-3 rounded-lg shadow-xl">
-              <LinkedinIcon size={32} color="white" />
-            </div>
-            <div>
-              <h1 className="font-bold text-slate-500">Linkedin</h1>
-              <a href="https://www.linkedin.com/in/oppong-coffie-3b8538236" className="text-blue-800 font-bold">LinkedIn</a>
-            </div>
-          </div>
-          <div
-            className="flex gap-4"
-            data-aos="fade-up"
-            data-aos-delay="1000"
-          >
-            <div className="bg-violet-900 p-3 rounded-lg shadow-xl">
-              <PhoneCall size={32} color="white" />
-            </div>
-            <div>
-              <h1 className="font-bold text-slate-500">GitHub</h1>
-              <a href="https://github.com/oppong-coffie" className="text-blue-800 font-bold">GitHub</a>
-            </div>
-          </div>
-
-         
-
-        </div>
-
-        <form
-          className="col-span-2"
-          data-aos="fade-left"
-          data-aos-delay="1200"
-          onSubmit={sendEmail}
+      <div className="container mx-auto px-6 md:px-20 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
         >
-          <Input
-            className="mb-10"
-            type="text"
-            label="Name"
-            color="secondary"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-          />
-          <div className="flex gap-12">
-            <Input
-              className="mb-10"
-              type="email"
-              label="Email"
-              color="secondary"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-            <Input
-              className="mb-10"
-              type="phone"
-              label="Phone"
-              color="secondary"
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
-            />
-          </div>
-          <Textarea
-            className="mb-5"
-            label="Message"
-            color="secondary"
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            required
-          />
-          <Button
-            className="p-6"
-            color="secondary"
-            data-aos="zoom-in"
-            data-aos-delay="2100"
-            type="submit"
-            disabled={loading} // Disable while loading
+          <h1 className="text-4xl sm:text-5xl font-bold mb-4 text-white">
+            Get in <span className="text-primary">Touch</span>
+          </h1>
+          <p className="text-gray-400 max-w-xl mx-auto">
+            Let's connect! Feel free to reach out via email or phone for any inquiries or collaborations.
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+          {/* Contact Details */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="col-span-1 space-y-8"
           >
-            {loading ? <Spinner /> : "Submit Message"}
-          </Button>
-          {feedback && (
-            <p
-              className={`mt-4 text-center ${
-                feedback.includes("successfully") ? "text-green-500" : "text-red-500"
-              }`}
-            >
-              {feedback}
-            </p>
-          )}
-        </form>
+            {[
+              { icon: PhoneCall, title: "Call Me", value: "+233 551 1441 73", link: "tel:+233551144173" },
+              { icon: MessageCircleMore, title: "WhatsApp", value: "Chat on WhatsApp", link: "https://wa.me/233551144173?text=hi%20Oppong" },
+              { icon: LinkedinIcon, title: "LinkedIn", value: "Connect on LinkedIn", link: "https://www.linkedin.com/in/oppong-coffie-3b8538236" },
+              { icon: Github, title: "GitHub", value: "View Projects", link: "https://github.com/oppong-coffie" },
+            ].map((item, idx) => (
+              <div key={idx} className="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 transition-colors">
+                <div className="p-3 bg-primary/20 rounded-lg text-primary">
+                  <item.icon size={24} />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-gray-300">{item.title}</h3>
+                  <a href={item.link} className="text-white font-medium hover:text-primary transition-colors">
+                    {item.value}
+                  </a>
+                </div>
+              </div>
+            ))}
+          </motion.div>
+
+          {/* Contact Form */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="col-span-1 lg:col-span-2"
+          >
+            <form onSubmit={sendEmail} className="bg-dark-card p-8 rounded-2xl border border-white/5 shadow-xl">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <Input
+                  type="text"
+                  label="Name"
+                  variant="bordered"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  classNames={{
+                    inputWrapper: "bg-dark border-white/20 group-data-[focus=true]:border-primary",
+                    label: "text-gray-400",
+                    input: "text-white"
+                  }}
+                  required
+                />
+                <Input
+                  type="email"
+                  label="Email"
+                  variant="bordered"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  classNames={{
+                    inputWrapper: "bg-dark border-white/20 group-data-[focus=true]:border-primary",
+                    label: "text-gray-400",
+                    input: "text-white"
+                  }}
+                  required
+                />
+              </div>
+              <div className="mb-6">
+                <Input
+                  type="tel"
+                  label="Phone"
+                  variant="bordered"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  classNames={{
+                    inputWrapper: "bg-dark border-white/20 group-data-[focus=true]:border-primary",
+                    label: "text-gray-400",
+                    input: "text-white"
+                  }}
+                />
+              </div>
+              <div className="mb-8">
+                <Textarea
+                  label="Message"
+                  variant="bordered"
+                  minRows={4}
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  classNames={{
+                    inputWrapper: "bg-dark border-white/20 group-data-[focus=true]:border-primary",
+                    label: "text-gray-400",
+                    input: "text-white"
+                  }}
+                  required
+                />
+              </div>
+
+              <Button
+                type="submit"
+                className="w-full py-6 bg-primary text-white font-bold text-lg rounded-xl shadow-lg shadow-primary/25 hover:bg-primary/90 transition-transform active:scale-95"
+                disabled={loading}
+              >
+                {loading ? <Spinner color="white" /> : "Send Message"}
+              </Button>
+
+              {feedback && (
+                <motion.p
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className={`mt-4 text-center font-medium ${feedback.includes("successfully") ? "text-green-400" : "text-red-400"
+                    }`}
+                >
+                  {feedback}
+                </motion.p>
+              )}
+            </form>
+          </motion.div>
+        </div>
       </div>
     </div>
   );

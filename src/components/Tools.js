@@ -1,8 +1,6 @@
-import React, { useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
-
-import cursorLogo from "../images/cursor.avif"; // Replace this with the actual Cursor logo if available
+import React from "react";
+import { motion } from "framer-motion";
+import cursorLogo from "../images/cursor.avif";
 import postman from "../images/postman2.png";
 import trello from "../images/trello.png";
 import vercel from "../images/vercel.png";
@@ -11,10 +9,6 @@ import twilio from "../images/twillo.png";
 import gupshup from "../images/gupshup.png";
 
 const ToolsSection = () => {
-  useEffect(() => {
-    AOS.init({ duration: 1200 });
-  }, []);
-
   const tools = [
     {
       name: "Cursor",
@@ -93,42 +87,48 @@ const ToolsSection = () => {
   return (
     <section
       id="tools"
-      className="tools py-20 bg-gradient-to-br from-blue-50 via-white to-gray-100"
+      className="py-20 bg-gradient-to-br from-blue-50 via-white to-gray-100"
     >
       <div className="container mx-auto text-center px-4">
-        <h2
-          className="text-4xl font-bold text-gray-800 mb-8"
-          data-aos="fade-up"
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-16"
         >
-          Tools I Use
-        </h2>
-        <p
-          className="text-lg text-gray-600 mb-12"
-          data-aos="fade-up"
-          data-aos-delay="100"
-        >
-          These tools empower me to build fast, scalable, and intelligent digital solutions.
-        </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+          <h2 className="text-4xl font-bold text-gray-800 mb-4">
+            Tools I <span className="text-primary">Use</span>
+          </h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            These tools empower me to build fast, scalable, and intelligent digital solutions.
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {tools.map((tool, index) => (
-            <div
+            <motion.div
               key={index}
-              className="tool-card bg-white shadow-lg rounded-xl p-6 text-center transform transition hover:-translate-y-2 hover:shadow-xl"
-              data-aos="zoom-in"
-              data-aos-delay={index * 100}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.05 }}
+              whileHover={{ y: -10, scale: 1.02 }}
+              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 flex flex-col items-center"
             >
-              <div className="flex items-center justify-center h-20 mb-4">
+              <div className="w-20 h-20 mb-6 flex items-center justify-center bg-gray-50 rounded-full p-4 shadow-inner">
                 <img
                   src={tool.logo}
                   alt={tool.name}
-                  className="w-16 h-16 object-contain transition-transform duration-300 ease-in-out hover:scale-110"
+                  className="w-full h-full object-contain"
                 />
               </div>
-              <h3 className="text-xl font-semibold text-blue-600">
+              <h3 className="text-xl font-bold text-gray-800 mb-3">
                 {tool.name}
               </h3>
-              <p className="text-gray-500 mt-2">{tool.description}</p>
-            </div>
+              <p className="text-gray-500 text-sm leading-relaxed">
+                {tool.description}
+              </p>
+            </motion.div>
           ))}
         </div>
       </div>

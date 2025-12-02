@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Plus, Minus } from "lucide-react";
 
 const FAQAccordion = () => {
   const [openIndex, setOpenIndex] = useState(null);
@@ -46,31 +48,56 @@ const FAQAccordion = () => {
   ];
 
   return (
-    <section id="faq" className="faq py-20 bg-gray-100">
-      <div className="container mx-auto text-center">
-        <h2 className="text-3xl font-semibold mb-8">Frequently Asked Questions</h2>
-        <div className="space-y-6">
+    <section id="faq" className="py-20 bg-white text-gray-900">
+      <div className="container mx-auto px-6 md:px-20">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl sm:text-5xl font-bold mb-4 text-gray-900">
+            Frequently Asked <span className="text-primary">Questions</span>
+          </h2>
+          <p className="text-gray-600">
+            Everything you need to know about my services and process.
+          </p>
+        </motion.div>
+
+        <div className="max-w-3xl mx-auto space-y-4">
           {faqs.map((faq, index) => (
-            <div
+            <motion.div
               key={index}
-              className="faq-item bg-white shadow-md rounded-lg p-6 transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className="border border-gray-200 rounded-xl overflow-hidden bg-gray-50 hover:border-primary/30 transition-colors duration-300 shadow-sm hover:shadow-md"
             >
-              <h3
-                className="text-xl font-semibold text-blue-600 cursor-pointer hover:text-blue-800 transition-colors duration-200"
+              <button
                 onClick={() => toggleAccordion(index)}
+                className="w-full flex items-center justify-between p-6 text-left hover:bg-gray-100 transition-colors"
               >
-                {faq.question}
-              </h3>
-              <div
-                className={`transition-all duration-500 overflow-hidden mt-2 ${
-                  openIndex === index ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
-                }`}
-              >
+                <span className="text-lg font-medium text-gray-900">{faq.question}</span>
+                <span className="text-primary">
+                  {openIndex === index ? <Minus size={20} /> : <Plus size={20} />}
+                </span>
+              </button>
+              <AnimatePresence>
                 {openIndex === index && (
-                  <p className="text-gray-500">{faq.answer}</p>
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <div className="p-6 pt-0 text-gray-600 border-t border-gray-200">
+                      {faq.answer}
+                    </div>
+                  </motion.div>
                 )}
-              </div>
-            </div>
+              </AnimatePresence>
+            </motion.div>
           ))}
         </div>
       </div>

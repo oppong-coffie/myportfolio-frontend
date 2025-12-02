@@ -1,62 +1,111 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-scroll';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Menu, X } from 'lucide-react';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const navLinks = [
+    { name: 'Home', to: '_home' },
+    { name: 'About', to: 'about' },
+    { name: 'Skills', to: 'skills' },
+    { name: 'Projects', to: 'projects' },
+    { name: 'Certifications', to: 'certifications' },
+    { name: 'Voluntary', to: 'voluntary' },
+    { name: 'Gallery', to: 'gallery' },
+    { name: 'FAQ', to: 'faq' },
+    { name: 'Contact', to: 'contact' },
+  ];
+
   return (
-    <div className="flex flex-col md:flex-row justify-between items-center text-white px-6 py-4 bg-gradient-to-r from-indigo-950 to-slate-900 shadow-lg fixed top-0 left-0 w-full z-50">
-      {/* Logo and Hamburger */}
-      <div className="flex justify-between items-center w-full md:w-auto">
+    <motion.nav
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5 }}
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? 'glass-panel py-4' : 'bg-transparent py-6'
+        }`}
+    >
+      <div className="container mx-auto px-6 flex justify-between items-center">
         {/* Brand Name */}
-        <div id="home" className="font-extrabold text-2xl tracking-tighter">
-          Oppong
+        <div className="font-extrabold text-2xl tracking-tighter text-white cursor-pointer">
+          <Link to="_home" smooth={true} duration={500} className="flex items-center gap-2">
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold text-xl shadow-lg">
+              O
+            </div>
+            <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300">
+              Oppong
+            </span>
+          </Link>
         </div>
 
-        {/* Hamburger Menu for Mobile */}
-        <button
-          className="md:hidden text-2xl focus:outline-none"
-          onClick={toggleMenu}
-          aria-label="Toggle navigation"
-        >
-          ☰
-        </button>
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex space-x-8">
+          {navLinks.map((link) => (
+            <Link
+              key={link.name}
+              to={link.to}
+              smooth={true}
+              duration={500}
+              className="text-gray-300 hover:text-primary transition-colors duration-300 cursor-pointer font-medium"
+            >
+              {link.name}
+            </Link>
+          ))}
+        </div>
+
+        {/* Mobile Menu Button */}
+        <div className="md:hidden">
+          <button
+            onClick={toggleMenu}
+            className="text-white focus:outline-none"
+            aria-label="Toggle navigation"
+          >
+            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+        </div>
       </div>
 
-      {/* Navigation Links */}
-      <div
-        className={`${
-          isMenuOpen ? 'flex' : 'hidden'
-        } flex-col md:flex md:flex-row items-center w-full md:w-auto space-y-4 md:space-y-0 space-x-0 md:space-x-16 mt-4 md:mt-0 text-lg`}
-      >
-        {[
-          { name: 'Home', to: '_home' },
-          { name: 'About', to: 'about' },
-          { name: 'Skills', to: 'skills' },
-          { name: 'Projects', to: 'projects' },
-          { name: 'Certifications', to: 'certifications' },
-          { name: 'Voluntary', to: 'voluntary' },
-          { name: 'Gallery', to: 'gallery' },
-          { name: 'FAQ', to: 'faq' },
-          { name: 'Contact', to: 'contact' },
-        ].map((link) => (
-          <Link
-          
-            to={link.to}
-            smooth={true}
-            duration={500}
-            className="hover:text-[#9747FF] transition duration-300 ease-in-out cursor-pointer"
-            onClick={() => setIsMenuOpen(false)} // Close menu on link click 
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden glass-panel border-t border-white/10 overflow-hidden"
           >
-            {link.name}
-          </Link>
-        ))}
-      </div>
-    </div>
+            <div className="flex flex-col items-center py-8 space-y-6">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  to={link.to}
+                  smooth={true}
+                  duration={500}
+                  className="text-xl text-gray-200 hover:text-primary transition-colors duration-300 cursor-pointer"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.nav>
   );
 };
 

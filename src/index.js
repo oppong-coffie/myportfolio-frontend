@@ -4,6 +4,20 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+// Polyfill for navigator.userAgentData
+if (typeof window !== 'undefined' && window.navigator && window.navigator.userAgentData) {
+  if (!window.navigator.userAgentData.brands) {
+    try {
+      Object.defineProperty(window.navigator.userAgentData, 'brands', {
+        value: [],
+        writable: true
+      });
+    } catch (e) {
+      console.warn('Failed to polyfill navigator.userAgentData.brands', e);
+    }
+  }
+}
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
