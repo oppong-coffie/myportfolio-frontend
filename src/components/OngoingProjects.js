@@ -15,14 +15,7 @@ const OngoingProjects = () => {
     }
   };
 
-  const sectionVariants = {
-    hidden: { y: 40, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
-    }
-  };
+
 
   return (
     <div className="min-h-screen bg-slate-950 text-white font-sans selection:bg-amber-500/30">

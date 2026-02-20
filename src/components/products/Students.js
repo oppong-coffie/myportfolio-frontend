@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, CheckCircle, Code, Cpu, ShieldCheck, Zap, GraduationCap, Building2, Layers } from 'lucide-react';
+import { ExternalLink, CheckCircle, Code, ShieldCheck, Zap, GraduationCap, Building2, Layers } from 'lucide-react';
 
 const Students = () => {
   const containerVariants = {
