@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Code, Cpu, ShieldCheck, Zap, Building2, Layers, ShoppingBag } from 'lucide-react';
+import { ExternalLink, Code, CheckCircle, Cpu, ShieldCheck, Zap, Building2, Layers, ShoppingBag } from 'lucide-react';
 
 const Fashion = () => {
   const containerVariants = {

@@ -9,6 +9,7 @@ import mongodb from '../images/mongodb.jpg';
 import sql from '../images/sql.jpg';
 import php from '../images/php.png';
 import nextjs from '../images/nextjs.jpg';
+import laravel from '../images/laravel.jpg';
 
 const skillsData = [
   {
