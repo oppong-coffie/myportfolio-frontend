@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import cursorLogo from "../images/cursor.avif";
 import postman from "../images/postman2.png";
 import trello from "../images/trello.png";
-import vercel from "../images/vercel.png";
 import botpress from "../images/botpress.png";
 import twilio from "../images/twillo.png";
 import gupshup from "../images/gupshup.png";

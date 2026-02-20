@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, ArrowLeft, Globe, CheckCircle, Code, Cpu, Layers, ShieldCheck, Zap, Building2 } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { ExternalLink, CheckCircle, Code, Cpu, Layers, ShieldCheck, Zap, Building2 } from 'lucide-react';
 
 const Ipa = () => {
   const containerVariants = {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, CheckCircle, Code, Cpu, ShieldCheck, Zap, Mail, Building2, Layers } from 'lucide-react';
+import { ExternalLink, CheckCircle, Code, ShieldCheck, Zap, Mail, Building2, Layers } from 'lucide-react';
 
 const sms = () => {
   const containerVariants = {
@@ -8,7 +8,7 @@ const sms = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1
+        staggerChildren: 0.1  
       }
     }
   };

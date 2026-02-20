@@ -12,12 +12,8 @@ import PasswordGenerator from './products/PasswordGenerator';
 import TimeTracker from './products/TimeTracker';
 import GuduGames from './products/GuduGames';
 import Students from './products/Students';
-import izone from './products/izone';
-import prume from './products/prume';
-import aakt from './products/aakt';
 import RozeyMobile from './products/RozeyMobile';
 import Stallion from './products/Stallion';
-import sms from './products/sms';
 import Fashion from './products/Fashion';
 import Contributed from './products/Contributed';
 

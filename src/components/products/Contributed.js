@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, CheckCircle, Code, Cpu, ShieldCheck, Zap, Users, Building2, Layers, GitBranch, Share2 } from 'lucide-react';
+import { ExternalLink, Users, GitBranch, Share2 } from 'lucide-react';
 
 const Contributed = () => {
   const containerVariants = {

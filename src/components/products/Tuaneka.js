@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, CheckCircle, Code, Cpu, Layers, ShieldCheck, Zap, Sparkles, Building2 } from 'lucide-react';
+import { ExternalLink, CheckCircle, Code, Cpu, Layers, ShieldCheck, Sparkles, Building2 } from 'lucide-react';
 
 const Tuaneka = () => {
   const containerVariants = {

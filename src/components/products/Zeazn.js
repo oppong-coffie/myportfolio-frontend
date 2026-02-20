@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Globe, CheckCircle, Code, Cpu, Layers, ShieldCheck, Zap, Building2 } from 'lucide-react';
+import { ExternalLink, CheckCircle, Code, Cpu, Layers, ShieldCheck, Zap, Building2 } from 'lucide-react';
 
 const Zeazn = () => {
   const containerVariants = {

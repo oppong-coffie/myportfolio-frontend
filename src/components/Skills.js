@@ -1,18 +1,13 @@
 import React from 'react';
 import { motion } from "framer-motion";
 import { Tooltip } from "@nextui-org/react";
-import html from '../images/html.png';
-import js from '../images/js.png';
 import react from '../images/react.png';
-import Bootstrap from '../images/Bootstrap.png';
 import css from '../images/rn.png';
-import Tailwind from '../images/Tailwind.png';
 import node from '../images/node.png';
 import express from '../images/express.png';
 import mongodb from '../images/mongodb.jpg';
 import sql from '../images/sql.jpg';
 import php from '../images/php.png';
-import laravel from '../images/Laravel.svg.png';
 import nextjs from '../images/nextjs.jpg';
 
 const skillsData = [

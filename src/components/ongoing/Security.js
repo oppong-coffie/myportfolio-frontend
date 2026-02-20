@@ -2,18 +2,13 @@ import React from "react";
 import { motion } from "framer-motion";
 import {
   Building2,
-  CheckCircle,
   Clock,
   Target,
-  Loader2,
-  Circle,
   Github,
-  ArrowRight,
   ShieldCheck,
   Activity,
   Lock,
   Globe,
-  FileText,
 } from "lucide-react";
 const sectionVariants = {
   hidden: { opacity: 0, y: 30 },

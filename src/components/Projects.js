@@ -4,9 +4,7 @@ import { ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import zeazn from '../images/zeazn.png';
 import zulupromo from '../images/zulupromr.png';
-import game from '../images/game.png';
 import password from '../images/password.png';
-import news from '../images/news.png';
 import team from '../images/team.png';
 
 export const projects = [

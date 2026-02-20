@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, CheckCircle, Code, Cpu, ShieldCheck, Zap, Smartphone, Building2, Layers } from 'lucide-react';
+import { ExternalLink, CheckCircle, Code, Cpu, ShieldCheck, Smartphone, Building2, Layers } from 'lucide-react';
 
 const RozeyMobile = () => {
   const containerVariants = {

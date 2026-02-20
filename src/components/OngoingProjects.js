@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, ExternalLink, CheckCircle, Code, Cpu, ShieldCheck, Zap, Layers, Globe, Gamepad2, Ship, Github } from 'lucide-react';
+import { ArrowLeft, Layers} from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Security from './ongoing/Security';
 

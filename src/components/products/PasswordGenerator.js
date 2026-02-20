@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, CheckCircle, Code, Cpu, ShieldCheck, Zap, Layers, Building2 } from 'lucide-react';
+import { ExternalLink, Code, Cpu, ShieldCheck, Layers } from 'lucide-react';
 
 const PasswordGenerator = () => {
   const containerVariants = {
