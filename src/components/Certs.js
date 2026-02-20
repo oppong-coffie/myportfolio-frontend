@@ -6,7 +6,7 @@ import { Award, ExternalLink, Calendar, Building2, X, Download } from 'lucide-re
 
 // Import certificate images
 import reactCert from '../images/certs/ip.jpg';
-import jsCert from '../images/certs/cert1.png';
+import ttu from '../images/certs/ttu.jpg';
 import botpressCert from '../images/certs/cert2.png';
 import nodejsCert from '../images/certs/cert3.png';
 import reactNativeCert from '../images/certs/cert3.png';
@@ -112,6 +112,16 @@ const Certs = () => {
       image: nodejsCert,
       description: 'Full-stack development skills including RESTful APIs, authentication, and database integration',
     },
+    {
+      id: 5,
+      title: 'Degree in Software Engineering',
+      issuer: 'Takoradi Technical University',
+      date: 'September 2024',
+      category: 'Degree',
+      link: '#',
+      image: ttu,
+      description: 'Full-stack development skills including RESTful APIs, authentication, and database integration',
+    },
 
 
  
@@ -189,7 +199,7 @@ const Certs = () => {
                     ${cert.category === 'cyber' ? 'bg-blue-500/80' : ''}
                     ${cert.category === 'ai' ? 'bg-purple-500/80' : ''}
                     ${cert.category === 'cloud' ? 'bg-orange-500/80' : ''}
-                    ${cert.category === 'mobile' ? 'bg-green-500/80' : ''}
+                    ${cert.category === 'Degree' ? 'bg-green-500/80' : ''}
                     ${cert.category === 'Law' ? 'bg-red-500/80' : ''}
                     `}>
                     {cert.category.toUpperCase()}

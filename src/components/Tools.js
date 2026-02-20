@@ -28,30 +28,30 @@ const ToolsSection = () => {
         "A flexible task management tool using boards, lists, and cards to visually organize projects and track progress.",
       logo: trello,
     },
-    {
-      name: "Git",
-      description:
-        "A powerful version control system enabling developers to manage code, track changes, and collaborate seamlessly.",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/e/e0/Git-logo.svg",
-    },
+    // {
+    //   name: "Git",
+    //   description:
+    //     "A powerful version control system enabling developers to manage code, track changes, and collaborate seamlessly.",
+    //   logo: "https://upload.wikimedia.org/wikipedia/commons/e/e0/Git-logo.svg",
+    // },
     {
       name: "Figma",
       description:
         "A collaborative design platform used for creating UI/UX designs, prototypes, and real-time team collaboration.",
       logo: "https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg",
     },
-    {
-      name: "Vercel",
-      description:
-        "A deployment and hosting platform optimized for frontend frameworks, enabling fast and secure delivery.",
-      logo: vercel,
-    },
-    {
-      name: "Slack",
-      description:
-        "A real-time messaging and collaboration tool that helps teams communicate efficiently through channels and integrations.",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Slack_icon_2019.svg",
-    },
+    // {
+    //   name: "Vercel",
+    //   description:
+    //     "A deployment and hosting platform optimized for frontend frameworks, enabling fast and secure delivery.",
+    //   logo: vercel,
+    // },
+    // {
+    //   name: "Slack",
+    //   description:
+    //     "A real-time messaging and collaboration tool that helps teams communicate efficiently through channels and integrations.",
+    //   logo: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Slack_icon_2019.svg",
+    // },
     {
       name: "Gupshup",
       description:

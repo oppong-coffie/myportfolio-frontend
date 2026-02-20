@@ -13,6 +13,7 @@ import mongodb from '../images/mongodb.jpg';
 import sql from '../images/sql.jpg';
 import php from '../images/php.png';
 import laravel from '../images/Laravel.svg.png';
+import nextjs from '../images/nextjs.jpg';
 
 const skillsData = [
   {
@@ -42,18 +43,19 @@ const skillsData = [
 ];
 
 const techStack = [
-  { title: "HTML", content: "Structure of websites.", icon: html, tooltip: "Hypertext Markup Language" },
-  { title: "JavaScript", content: "Dynamic and interactive websites.", icon: js, tooltip: "JavaScript (JS)" },
+  // { title: "HTML", content: "Structure of websites.", icon: html, tooltip: "Hypertext Markup Language" },
+  // { title: "JavaScript", content: "Dynamic and interactive websites.", icon: js, tooltip: "JavaScript (JS)" },
   { title: "React", content: "Building UI components.", icon: react, tooltip: "React.js" },
+  { title: "Next", content: "framework for javascript.", icon: nextjs, tooltip: "Next.js" },
+  { title: "React Native", content: "Building mobile apps.", icon: css, tooltip: "React Native" },
   { title: "PHP", content: "Dynamic web pages & databases.", icon: php, tooltip: "PHP" },
   { title: "Laravel", content: "A popular PHP framework.", icon: laravel, tooltip: "Laravel" },
-  { title: "React Native", content: "Building mobile apps.", icon: css, tooltip: "React Native" },
-  { title: "Tailwind CSS", content: "Utility-first CSS framework.", icon: Tailwind, tooltip: "Tailwind CSS" },
-  { title: "Bootstrap", content: "Responsive design framework.", icon: Bootstrap, tooltip: "Bootstrap" },
+  { title: "SQL", content: "Structured query language.", icon: sql, tooltip: "SQL Databases" },
+  // { title: "Tailwind CSS", content: "Utility-first CSS framework.", icon: Tailwind, tooltip: "Tailwind CSS" },
+  // { title: "Bootstrap", content: "Responsive design framework.", icon: Bootstrap, tooltip: "Bootstrap" },
   { title: "Node.js", content: "JavaScript runtime for server-side.", icon: node, tooltip: "Node.js" },
   { title: "Express.js", content: "Backend framework for Node.js.", icon: express, tooltip: "Express.js" },
   { title: "MongoDB", content: "NoSQL Database.", icon: mongodb, tooltip: "MongoDB" },
-  { title: "SQL", content: "Structured query language.", icon: sql, tooltip: "SQL Databases" }
 ];
 
 const Skills = () => {

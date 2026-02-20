@@ -19,6 +19,7 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  // navigation links
   const navLinks = [
     { name: 'Home', to: '_home' },
     { name: 'About', to: 'about' },
@@ -43,8 +44,8 @@ const Navbar = () => {
         {/* Brand Name */}
         <div className="font-extrabold text-2xl tracking-tighter text-white cursor-pointer">
           <Link to="_home" smooth={true} duration={500} className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold text-xl shadow-lg">
-              O
+            <div className="w-8">
+              <img src="/logo3.png" alt="" />
             </div>
             <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300">
               Oppong

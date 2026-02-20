@@ -3,12 +3,12 @@ import { Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-dark border-t border-white/10 text-gray-300 py-12">
+    <footer className="bg-dark border-t border-white/10 text-gray-300 py-5">
       <div className="container mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Brand Section */}
-          <div className="space-y-4">
-            <h2 className="text-2xl font-bold text-white">Oppong<span className="text-primary">.</span></h2>
+          <div className="space-y-2">
+            <img className="w-32 h-32" src="/logo4.png" alt="" />
             <p className="text-sm text-gray-400 leading-relaxed">
               Building digital experiences that matter. Let's create something amazing together.
             </p>
