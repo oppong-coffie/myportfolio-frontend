@@ -17,7 +17,6 @@ import Students from './products/Students';
 import RozeyMobile from './products/RozeyMobile';
 import Fashion from './products/Fashion';
 import Contributed from './products/Contributed';
-import Aakt from './products/Aakt';
 import Sms from './products/Sms';
 
 const AllProjects = () => {
