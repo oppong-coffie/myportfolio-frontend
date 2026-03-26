@@ -19,7 +19,6 @@ import RozeyMobile from './products/RozeyMobile';
 import Stallion from './products/Stallion';
 import Fashion from './products/Fashion';
 import Contributed from './products/Contributed';
-import Izone from './products/Izone';
 import Prume from './products/Prume';
 import Aakt from './products/Aakt';
 import Sms from './products/Sms';
