@@ -1,8 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, CheckCircle, Code, Cpu, ShieldCheck, Zap, Scissors, Building2, Layers } from 'lucide-react';
+import { ExternalLink, CheckCircle, Code, Cpu, ShieldCheck, Zap, Building2, Layers } from 'lucide-react';
 
-const Prume = () => {
+const GuduGames = () => {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -22,17 +22,17 @@ const Prume = () => {
   };
 
   const features = [
-    "Integrated inventory management",
-    "Digital booking and scheduling",
-    "Customer relationship management",
-    "Mobile-first responsive design"
+    "Interactive gaming platform",
+    "High-performance rendering engine",
+    "Multiplayer connectivity",
+    "Real-time leaderboards and stats"
   ];
 
   const techStack = [
-    { name: "Frontend", value: "React Dashboard", icon: <Code size={18} /> },
-    { name: "Styling", value: "Tailwind CSS", icon: <Layers size={18} /> },
+    { name: "Frontend", value: "React / Canvas", icon: <Code size={18} /> },
+    { name: "Backend", value: "Node.js / Socket.io", icon: <Layers size={18} /> },
     { name: "Animations", value: "Framer Motion", icon: <Cpu size={18} /> },
-    { name: "Framework", value: "Vite / JS", icon: <Zap size={18} /> }
+    { name: "Database", value: "MongoDB", icon: <Zap size={18} /> }
   ];
 
   return (
@@ -42,7 +42,7 @@ const Prume = () => {
           <div className="flex flex-col items-center">
             <h1 className="text-base font-black tracking-[0.2em] text-gray-900 flex items-center gap-2 uppercase">
               <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-              Prume <span className="text-primary">Studio</span>
+              Gudu<span className="text-primary">Games</span>
             </h1>
             <div className="h-0.5 w-8 bg-primary/20 rounded-full mt-0.5" />
           </div>
@@ -57,10 +57,13 @@ const Prume = () => {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="relative rounded-[2rem] overflow-hidden shadow-2xl border border-gray-100 mb-2 bg-gray-50 aspect-video group"
           >
-            <div className="w-full h-full flex items-center justify-center bg-rose-900">
-              <Scissors size={80} className="text-white animate-pulse" />
-              <span className="ml-4 text-2xl font-black text-white tracking-widest uppercase">Prume Preview Coming Soon</span>
-            </div>
+            <div className="w-full h-full flex items-center justify-center bg-slate-900">
+              <iframe sandbox="allow-scripts allow-same-origin"
+                src="https://www.gudustudios.com"
+                title="GuduGames Preview"
+                className="w-full h-full border-none shadow-inner"
+              />         
+                 </div>
           </motion.div>
 
           <motion.div
@@ -79,7 +82,7 @@ const Prume = () => {
                       Category
                     </span>
                     <span className="text-sm font-bold text-primary tracking-wide">
-                      Service Platform
+                      Gaming Tech
                     </span>
                   </div>
                 </div>
@@ -111,15 +114,15 @@ const Prume = () => {
                       />
                       <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.8)]" />
                     </div>
-                    Schedule Booking
+                    Visit Live Platform
                     <ExternalLink size={20} className="ml-2 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                   </motion.a>
                 </motion.div>
               </div>
 
               <p className="text-xl text-gray-500 leading-relaxed font-medium mb-5">
-                Prume is a modern service management platform designed for studios and lifestyle businesses.
-                It simplifies the booking process and provides powerful tools for customer management.
+                GuduGames is a high-performance interactive gaming platform designed for seamless user engagement.
+                It features real-time multiplayer capabilities and a robust backend for global scaling.
               </p>
             </motion.div>
 
@@ -174,4 +177,4 @@ const Prume = () => {
   );
 };
 
-export default Prume;
+export default GuduGames;

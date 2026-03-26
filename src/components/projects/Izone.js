@@ -1,8 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, CheckCircle, Code, Cpu, ShieldCheck, Zap, Building2, Layers } from 'lucide-react';
+import { CheckCircle, Code, ShieldCheck, Zap, Building2, Layers, ExternalLink } from 'lucide-react';
 
-const GuduGames = () => {
+const Izone = () => {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -22,17 +22,17 @@ const GuduGames = () => {
   };
 
   const features = [
-    "Interactive gaming platform",
-    "High-performance rendering engine",
-    "Multiplayer connectivity",
-    "Real-time leaderboards and stats"
+    "High-speed networking architecture",
+    "Secure cloud-based data isolation",
+    "Real-time monitoring and analytics",
+    "Scalable infrastructure for enterprise"
   ];
 
   const techStack = [
-    { name: "Frontend", value: "React / Canvas", icon: <Code size={18} /> },
-    { name: "Backend", value: "Node.js / Socket.io", icon: <Layers size={18} /> },
-    { name: "Animations", value: "Framer Motion", icon: <Cpu size={18} /> },
-    { name: "Database", value: "MongoDB", icon: <Zap size={18} /> }
+    { name: "Frontend", value: "React Dashboard", icon: <Code size={18} /> },
+    { name: "Infrastructure", value: "AWS / Kubernetes", icon: <Layers size={18} /> },
+    { name: "Security", value: "SSL / OAuth 2.0", icon: <ShieldCheck size={18} /> },
+    { name: "Performance", value: "CloudFront", icon: <Zap size={18} /> }
   ];
 
   return (
@@ -42,7 +42,7 @@ const GuduGames = () => {
           <div className="flex flex-col items-center">
             <h1 className="text-base font-black tracking-[0.2em] text-gray-900 flex items-center gap-2 uppercase">
               <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-              Gudu<span className="text-primary">Games</span>
+              i<span className="text-primary">Zone</span>
             </h1>
             <div className="h-0.5 w-8 bg-primary/20 rounded-full mt-0.5" />
           </div>
@@ -57,12 +57,12 @@ const GuduGames = () => {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="relative rounded-[2rem] overflow-hidden shadow-2xl border border-gray-100 mb-2 bg-gray-50 aspect-video group"
           >
-            <div className="w-full h-full flex items-center justify-center bg-slate-900">
-              <iframe sandbox="allow-scripts allow-same-origin"
-                src="https://www.gudustudios.com"
+            <div className="w-full h-full flex items-center justify-center bg-zinc-900">
+    <iframe sandbox="allow-scripts allow-same-origin"
+                src="https://izone-ihvi.vercel.app/login"
                 title="GuduGames Preview"
                 className="w-full h-full border-none shadow-inner"
-              />            </div>
+              />             </div>
           </motion.div>
 
           <motion.div
@@ -81,7 +81,7 @@ const GuduGames = () => {
                       Category
                     </span>
                     <span className="text-sm font-bold text-primary tracking-wide">
-                      Gaming Tech
+                      Cloud Infrastructure
                     </span>
                   </div>
                 </div>
@@ -113,15 +113,15 @@ const GuduGames = () => {
                       />
                       <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.8)]" />
                     </div>
-                    Visit Live Platform
+                    Verify Network Status
                     <ExternalLink size={20} className="ml-2 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                   </motion.a>
                 </motion.div>
               </div>
 
               <p className="text-xl text-gray-500 leading-relaxed font-medium mb-5">
-                GuduGames is a high-performance interactive gaming platform designed for seamless user engagement.
-                It features real-time multiplayer capabilities and a robust backend for global scaling.
+                iZone provides a highly secure and isolated networking environment for enterprise-scale applications.
+                It simplifies infrastructure management while ensuring maximum performance and reliability.
               </p>
             </motion.div>
 
@@ -176,4 +176,4 @@ const GuduGames = () => {
   );
 };
 
-export default GuduGames;
+export default Izone;

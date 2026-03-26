@@ -1,8 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { CheckCircle, Code, ShieldCheck, Zap, Globe, Building2, Layers, ExternalLink } from 'lucide-react';
+import { ExternalLink, CheckCircle, Code, Cpu, ShieldCheck, Building2, Layers } from 'lucide-react';
 
-const Izone = () => {
+const Aakt = () => {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -22,17 +22,17 @@ const Izone = () => {
   };
 
   const features = [
-    "High-speed networking architecture",
-    "Secure cloud-based data isolation",
-    "Real-time monitoring and analytics",
-    "Scalable infrastructure for enterprise"
+    "Advanced technical consultancy",
+    "Tailored software solutions",
+    "Expert training and workshop portal",
+    "Industry-leading R&D insights"
   ];
 
   const techStack = [
-    { name: "Frontend", value: "React Dashboard", icon: <Code size={18} /> },
-    { name: "Infrastructure", value: "AWS / Kubernetes", icon: <Layers size={18} /> },
-    { name: "Security", value: "SSL / OAuth 2.0", icon: <ShieldCheck size={18} /> },
-    { name: "Performance", value: "CloudFront", icon: <Zap size={18} /> }
+    { name: "Framework", value: "React Dashboard", icon: <Code size={18} /> },
+    { name: "Infrastructure", value: "Cloud-Native", icon: <Layers size={18} /> },
+    { name: "Security", value: "Standardized", icon: <ShieldCheck size={18} /> },
+    { name: "UI/UX", value: "Figma Derived", icon: <Cpu size={18} /> }
   ];
 
   return (
@@ -42,7 +42,7 @@ const Izone = () => {
           <div className="flex flex-col items-center">
             <h1 className="text-base font-black tracking-[0.2em] text-gray-900 flex items-center gap-2 uppercase">
               <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-              i<span className="text-primary">Zone</span>
+              AAKT <span className="text-primary">Consult</span>
             </h1>
             <div className="h-0.5 w-8 bg-primary/20 rounded-full mt-0.5" />
           </div>
@@ -57,10 +57,13 @@ const Izone = () => {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="relative rounded-[2rem] overflow-hidden shadow-2xl border border-gray-100 mb-2 bg-gray-50 aspect-video group"
           >
-            <div className="w-full h-full flex items-center justify-center bg-zinc-900">
-              <Globe size={80} className="text-primary animate-spin-slow" />
-              <span className="ml-4 text-2xl font-black text-white tracking-widest uppercase">iZone Preview Coming Soon</span>
-            </div>
+            <div className="w-full h-full flex items-center justify-center bg-teal-900">
+    <iframe sandbox="allow-scripts allow-same-origin"
+                src="https://www.aakt.io"
+                title="GuduGames Preview"
+                className="w-full h-full border-none shadow-inner"
+              />            </div>
+           
           </motion.div>
 
           <motion.div
@@ -79,7 +82,7 @@ const Izone = () => {
                       Category
                     </span>
                     <span className="text-sm font-bold text-primary tracking-wide">
-                      Cloud Infrastructure
+                      Tech Consultancy
                     </span>
                   </div>
                 </div>
@@ -111,15 +114,14 @@ const Izone = () => {
                       />
                       <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.8)]" />
                     </div>
-                    Verify Network Status
+                    Contact AAkt
                     <ExternalLink size={20} className="ml-2 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                   </motion.a>
                 </motion.div>
               </div>
 
               <p className="text-xl text-gray-500 leading-relaxed font-medium mb-5">
-                iZone provides a highly secure and isolated networking environment for enterprise-scale applications.
-                It simplifies infrastructure management while ensuring maximum performance and reliability.
+                AAKT is a premier technical consultancy portal providing expert-driven software solutions and tailored training for industry leaders.
               </p>
             </motion.div>
 
@@ -174,4 +176,4 @@ const Izone = () => {
   );
 };
 
-export default Izone;
+export default Aakt;

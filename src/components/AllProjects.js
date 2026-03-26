@@ -5,22 +5,23 @@ import axios from "axios";
 import { motion } from 'framer-motion';
 import { ArrowLeft, Home } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import Ipa from './products/Ipa.js';
-import Zeazn from './products/Zeazn.js';
-import ZuluDesk from './products/ZuluDesk.js';
-import TeamAlfy from './products/TeamAlfy.js';
-import WhatsAppBot from './products/WhatsAppBot.js';
-import PasswordGenerator from './products/PasswordGenerator.js';
-import TimeTracker from './products/TimeTracker.js';
-import GuduGames from './products/GuduGames.js';
-import Students from './products/Students.js';
-import RozeyMobile from './products/RozeyMobile.js';
-import Fashion from './products/Fashion.js';
-import Contributed from './products/Contributed.js';
-import Izone from './products/Izone.js';
-import Prume from './products/Prume.js';
-import Aakt from './products/Aakt.js';
-import Sms from './products/Sms.js';
+import Ipa from './projects/Ipa.js';
+import Zeazn from './projects/Zeazn.js';
+import ZuluDesk from './projects/ZuluDesk.js';
+import TeamAlfy from './projects/TeamAlfy.js';
+import WhatsAppBot from './projects/WhatsAppBot.js';
+import PasswordGenerator from './projects/PasswordGenerator.js';
+import TimeTracker from './projects/TimeTracker.js';
+import GuduGames from './projects/GuduGames.js';
+import Students from './projects/Students.js';
+import RozeyMobile from './projects/RozeyMobile.js';
+import Fashion from './projects/Fashion.js';
+import Contributed from './projects/Contributed.js';
+import Izone from './projects/Izone.js';
+import Prume from './projects/Prume.js';
+import Aakt from './projects/Aakt.js';
+import Sms from './projects/Sms.js';
+import MemoryGame from './projects/MemoryGame.js';
 
 const AllProjects = () => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
@@ -171,7 +172,9 @@ const AllProjects = () => {
         <GuduGames />
         <Students />
         <Izone />
+        <MemoryGame />
         <Prume />
+
         <Aakt />
         <RozeyMobile />
         {/* <Stallion /> */}
