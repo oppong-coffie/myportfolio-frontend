@@ -9,17 +9,14 @@ import Ipa from './products/Ipa';
 import Zeazn from './products/Zeazn';
 import ZuluDesk from './products/ZuluDesk';
 import TeamAlfy from './products/TeamAlfy';
-import Tuaneka from './products/Tuaneka';
 import WhatsAppBot from './products/WhatsAppBot';
 import PasswordGenerator from './products/PasswordGenerator';
 import TimeTracker from './products/TimeTracker';
 import GuduGames from './products/GuduGames';
 import Students from './products/Students';
 import RozeyMobile from './products/RozeyMobile';
-import Stallion from './products/Stallion';
 import Fashion from './products/Fashion';
 import Contributed from './products/Contributed';
-import Prume from './products/Prume';
 import Aakt from './products/Aakt';
 import Sms from './products/Sms';
 
