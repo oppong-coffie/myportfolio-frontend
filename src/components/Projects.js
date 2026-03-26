@@ -14,7 +14,7 @@ export const projects = [
     link: "https://zeazn.com",
     mainlink: "https://zeazn.com",
     image: zeazn,
-    tags: ["React", "Tailwind", "Business"],
+    tags: ["React", "Tailwind"],
     description: "A comprehensive business website for Zeazn Limited, featuring a modern design and responsive layout.",
   },
   {
@@ -23,7 +23,7 @@ export const projects = [
     link: "https://zulupromo.vercel.app",
     mainlink: "https://zuludesks.com",
     image: zulupromo,
-    tags: ["Next.js", "E-commerce"],
+    tags: ["Next.js", "MongoDB", "TailwindCSS"],
     description: "An e-commerce platform built with Next.js, providing a seamless shopping experience.",
   },
   {
@@ -32,7 +32,7 @@ export const projects = [
     link: "https://password-generator-oppongcoffies-projects.vercel.app",
     mainlink: "https://password-generator-oppongcoffies-projects.vercel.app",
     image: password,
-    tags: ["Utility", "React"],
+    tags: ["TailwindCSS", "React"],
     description: "A secure and customizable password generation tool built with React.",
   },
   {
@@ -41,7 +41,7 @@ export const projects = [
     link: "https://team-alfy.vercel.app/",
     mainlink: "https://teamalfy.com",
     image: team,
-    tags: ["Corporate", "Design"],
+    tags: ["React", "TailwindCSS"],
     description: "Official company website for TeamAlfy, showcasing their services and design portfolio.",
   },
   {
@@ -50,7 +50,7 @@ export const projects = [
     link: "https://fake-whatsapp-chat-virid.vercel.app",
     mainlink: "https://wa.me/233595394667?text=hi%20Adwoa%2C%20tell%20me%20what%20you%20can%20do",
     image: team,
-    tags: ["WhatsApp", "Bot"],
+    tags: ["WhatsApp", "Botpress", "JavaScript"],
     description: "A specialized AI chatbot integrated with WhatsApp for automated communication.",
   },
   {
@@ -59,7 +59,7 @@ export const projects = [
     link: "https://ipagh.org",
     mainlink: "https://www.ipagh.org",
     image: team,
-    tags: ["NGO", "Website"],
+    tags: ["Next.js", "TailwindCSS"],
     description: "Web portal for IPAGH NGO, facilitating community engagement and information dissemination.",
   },
 ];
@@ -100,6 +100,7 @@ const Projects = () => {
                   src={project.link}
                   title={project.name}
                   loading="lazy"
+                  sandbox="allow-scripts allow-same-origin"
                   className="w-[200%] h-[200%] transform scale-50 origin-top-left border-none pointer-events-none"
                   tabIndex="-1"
                 />
@@ -121,12 +122,14 @@ const Projects = () => {
               </h3>
 
               <div className="flex justify-between items-center mt-4">
-                <Link
-                  to={`/projects/${project.slug}`}
+                <a
+                  href={project.mainlink}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-sm font-medium text-primary hover:underline transition-all"
                 >
                   View Details
-                </Link>
+                </a>
                 <a
                   href={project.mainlink}
                   target="_blank"

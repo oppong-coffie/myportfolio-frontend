@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Layers} from 'lucide-react';
+import { ArrowLeft, Layers } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Security from './ongoing/Security';
 
@@ -29,7 +29,7 @@ const OngoingProjects = () => {
             <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform" />
             Back to Projects
           </Link>
-          
+
           <div className="flex flex-col items-center">
             <h1 className="text-base font-black tracking-[0.2em] uppercase bg-gradient-to-r from-amber-200 to-amber-500 bg-clip-text text-transparent">
               Ongoing <span className="text-white">Projects</span>
@@ -51,11 +51,10 @@ const OngoingProjects = () => {
           animate="visible"
           className="space-y-40"
         >
-        
 
-          {/* Section 1: iZone Cloud */}
-          <Security />
-          
+
+
+<Security />
         </motion.div>
       </main>
 
@@ -63,11 +62,11 @@ const OngoingProjects = () => {
       <footer className="py-32 px-6 border-t border-white/5 text-center bg-slate-950">
         <div className="max-w-3xl mx-auto space-y-8">
           <div className="w-16 h-16 rounded-full bg-amber-500/10 border border-amber-500/20 flex items-center justify-center mx-auto text-amber-500">
-             <Layers size={32} />
+            <Layers size={32} />
           </div>
           <h3 className="text-4xl font-black tracking-tight">Evolving the Future</h3>
           <p className="text-slate-400 text-lg font-medium leading-relaxed">
-            These projects represent the frontline of my current research and development. 
+            These projects represent the frontline of my current research and development.
             Check back often as I move these from laboratory to live production.
           </p>
           <div className="h-px w-24 bg-amber-500/30 mx-auto" />

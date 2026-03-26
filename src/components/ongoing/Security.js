@@ -1,15 +1,33 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { Input, Textarea, Button, Spinner, Modal, ModalContent, ModalHeader, ModalBody, useDisclosure } from "@nextui-org/react";
+import emailjs from "@emailjs/browser";
+import axios from "axios";
 import { motion } from "framer-motion";
 import {
   Building2,
-  Clock,
-  Target,
   Github,
   ShieldCheck,
+  Handshake,
+  Coins,
+  Cpu,
+  Server,
+  Network,
+  Zap,
+  Users,
+  LayoutDashboard,
+  Store,
+  Calendar,
+  Timer,
+  Target,
+  AlertCircle,
+  ArrowUpRight,
+  TrendingUp,
+  History,
+  CheckCircle2,
   Activity,
-  Lock,
-  Globe,
+  Layers,
 } from "lucide-react";
+
 const sectionVariants = {
   hidden: { opacity: 0, y: 30 },
   visible: {
@@ -18,322 +36,544 @@ const sectionVariants = {
     transition: {
       duration: 0.8,
       ease: "easeOut",
-      staggerChildren: 0.2,
+      staggerChildren: 0.1,
     },
   },
 };
 
 const Security = () => {
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [feedback, setFeedback] = useState("");
+  const [intent, setIntent] = useState("");
+
+  useEffect(() => {
+    emailjs.init("T5HMx10wLGbYc1M3F");
+  }, []);
+
+  const sendSms = async () => {
+    try {
+      await axios.post(
+        'https://myportfolio-backend-nu.vercel.app/sms/sendme',
+        { name, phone },
+        { headers: { 'Content-Type': 'application/json' } }
+      );
+      await axios.post(
+        'https://myportfolio-backend-nu.vercel.app/sms/sendsms',
+        { name, phone },
+        { headers: { 'Content-Type': 'application/json' } }
+      );
+    } catch (error) {
+      console.error('Error sending SMS:', error.message);
+    }
+  }
+
+  const sendEmail = (event) => {
+    event.preventDefault();
+
+    if (!name || !email || !message) {
+      setFeedback("Please fill in all required fields.");
+      return;
+    }
+
+    setLoading(true);
+    setFeedback("");
+
+    const params = { name, phone, email, message: `Intent: ${intent}\n\n${message}` };
+    const serviceID = "service_2whq5dc";
+    const templateID = "template_5a8k82b";
+
+    emailjs
+      .send(serviceID, templateID, params)
+      .then(() => {
+        setFeedback("Message sent successfully!");
+        setLoading(false);
+        setName("");
+        setPhone("");
+        setEmail("");
+        setMessage("");
+        sendSms();
+      })
+      .catch((error) => {
+        setFeedback("Failed to send message. Please try again.");
+        console.error("EmailJS error:", error);
+        setLoading(false);
+      });
+  };
+  // Hero Image Path from Artifacts
+  const heroImagePath = "/izone_cloud_hero_1772185937321.png";
+
+  const activityLog = [
+    { date: "Jan 2024", task: "Initiated", status: "completed" },
+    {
+      date: "Feb 2024",
+      task: "Designing ",
+      status: "completed",
+    },
+    {
+      date: "Mar 2024",
+      task: "Frontend Development",
+      status: "completed",
+    },
+    {
+      date: "May 2024",
+      task: "Backend Development",
+      status: "completed",
+    },
+    { date: "June 2024", task: "Testing", status: "active" },
+    { date: "Aug 2024", task: "Deployment", status: "pending" },
+  ];
+
   return (
-    <div className="relative group/main">
+    <div className="relative group/main overflow-visible">
       <motion.section
         variants={sectionVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="relative p-10 md:p-16 rounded-[3.5rem] border border-white/20 overflow-hidden bg-slate-950/60 backdrop-blur-2xl transition-all duration-700 hover:border-blue-500/30 shadow-2xl"
+        className="relative p-6 md:p-20 rounded-[5rem] border border-white/10 overflow-hidden bg-slate-950/40 backdrop-blur-3xl transition-all duration-700 hover:border-blue-500/40 shadow-[0_32px_128px_-32px_rgba(0,0,0,0.8)]"
       >
-        {/* Animated Background Orbs */}
-        <motion.div
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.6, 0.9, 0.6],
-            x: [0, 20, 0],
-            y: [0, -20, 0],
-          }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -top-40 -right-40 w-[600px] h-[600px] bg-blue-600/20 blur-[130px] rounded-full"
-        />
-        <motion.div
-          animate={{
-            scale: [1, 1.3, 1],
-            opacity: [0.4, 0.7, 0.4],
-            x: [0, -30, 0],
-            y: [0, 30, 0],
-          }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -bottom-44 -left-44 w-[600px] h-[600px] bg-indigo-600/15 blur-[130px] rounded-full"
-        />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.05)_0%,transparent_70%)] pointer-events-none" />
+        {/* Decorative Background Orbs */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <motion.div
+            animate={{
+              scale: [1, 1.2, 1],
+              opacity: [0.3, 0.5, 0.3],
+            }}
+            transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute -top-60 -right-60 w-[800px] h-[800px] bg-blue-500/10 blur-[160px] rounded-full"
+          />
+        </div>
 
-        <div className="relative z-10 grid lg:grid-cols-[1.1fr,0.9fr] gap-16 items-start">
-          {/* LEFT CONTENT */}
-          <div className="space-y-10">
-            {/* Title & Description */}
-            <div className="space-y-6">
-              <motion.h2
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6 }}
-                className="text-5xl md:text-7xl font-black tracking-tighter leading-[0.9] bg-gradient-to-br from-white via-white to-white/40 bg-clip-text text-transparent"
-              >
-                iZone Cloud
-              </motion.h2>
-              <p className="text-lg md:text-xl text-slate-300 font-medium leading-relaxed max-w-xl">
-                Architechting a{" "}
-                <span className="text-blue-400 font-bold italic">
-                  zero-trust
-                </span>{" "}
-                infrastructure for enterprise-grade isolated networking and
-                automated secure orchestration.
-              </p>
-            </div>
-
-            {/* Progress & ETA Cards */}
-            <div className="grid sm:grid-cols-2 gap-6">
-              <motion.div
-                whileHover={{ y: -5, borderColor: "rgba(59,130,246,0.3)" }}
-                className="rounded-3xl border border-white/10 bg-white/5 p-6 transition-colors group/card"
-              >
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-[11px] uppercase tracking-[0.25em] text-slate-400 font-black">
-                    Development Completion
-                  </span>
-                  <span className="text-lg font-black text-blue-400">72%</span>
-                </div>
-
-                <div className="h-2.5 w-full rounded-full bg-white/5 overflow-hidden ring-1 ring-white/5">
-                  <motion.div
-                    initial={{ width: 0 }}
-                    whileInView={{ width: "72%" }}
-                    transition={{ duration: 1.5, ease: "circOut" }}
-                    className="h-full rounded-full bg-gradient-to-r from-blue-600 via-blue-400 to-indigo-400 shadow-[0_0_15px_rgba(59,130,246,0.4)]"
-                  />
-                </div>
-
-                <div className="mt-4 flex items-center gap-2.5 text-xs text-slate-300 font-bold">
-                  <Activity size={16} className="text-blue-400 animate-pulse" />
-                  <span>
-                    Phase 3:{" "}
-                    <span className="text-blue-200">System Hardening</span>
-                  </span>
-                </div>
-              </motion.div>
-
-              <motion.div
-                whileHover={{ y: -5, borderColor: "rgba(16,185,129,0.3)" }}
-                className="rounded-3xl border border-white/10 bg-white/5 p-6 transition-colors"
-              >
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-[11px] uppercase tracking-[0.25em] text-slate-400 font-black">
-                    Estimated Launch
-                  </span>
-                  <span className="text-lg font-black text-emerald-400">
-                    Mar 2026
-                  </span>
-                </div>
-
-                <div className="space-y-3">
-                  <div className="flex items-center justify-between text-sm">
-                    <span className="flex items-center gap-2 text-slate-400 font-bold">
-                      <Clock size={16} className="text-emerald-400" />
-                      Time Remaining
-                    </span>
-                    <span className="font-black text-emerald-100">
-                      ~21 Days
-                    </span>
+        <div className="relative z-10 space-y-32">
+          {/* HERO SECTION WITH IMAGE */}
+          <div className="grid lg:grid-cols-[1.1fr,0.9fr] gap-16 items-center">
+            <div className="space-y-10">
+              <div className="space-y-4">
+                <h2 className="text-7xl md:text-[4rem] font-black tracking-tighter leading-[0.8] bg-gradient-to-br from-white via-white to-slate-500 bg-clip-text text-transparent italic">
+                  Blaccbook {"   "}
+                  <span className="text-blue-500 ml-10 not-italic">Services</span>
+                </h2>
+                <div className="space-y-8 bg-white/5 p-2 rounded-[1rem] border border-white/10 backdrop-blur-2xl">
+                  <div className="flex items-center gap-1 border-b border-white/5">
+                    <div className="p-1 rounded-2xl bg-red-400/10 border border-red-500/20 text-red-400">
+                      <AlertCircle size={16} />
+                    </div>
+                    <h3 className="text-xl font-black text-white uppercase italic">
+                      The Problem
+                    </h3>
                   </div>
-                  <div className="flex items-center justify-between text-sm">
-                    <span className="flex items-center gap-2 text-slate-400 font-bold">
-                      <Target size={16} className="text-blue-400" />
-                      Deployment Ready
+                  <p className="text-lg text-slate-400 font-medium leading-relaxed">
+                    Legacy cloud systems in the public sector are{" "}
+                    <span className="text-white border-b border-red-500/50">
+                      perimetrically fragile
                     </span>
-                    <span className="font-black text-blue-100">
-                      94% Confidence
-                    </span>
-                  </div>
+                    . Once the outer layer is breached, internal data silos are
+                    exposed. iZone Cloud solves this with sub-node isolation.
+                  </p>
                 </div>
-              </motion.div>
-            </div>
-
-            {/* Project Roadmap */}
-            <div className="space-y-6">
-              <div className="flex items-end justify-between px-2">
-                <h3 className="text-xs font-black uppercase tracking-[0.3em] text-blue-400/80">
-                  Project Roadmap
-                </h3>
-                <span className="text-[11px] text-slate-500 font-bold uppercase tracking-widest">
-                  Infrastructure Cycle
-                </span>
               </div>
 
-              <div className="grid gap-3">
+              <div className="grid grid-cols-3 gap-8 py-8 border-y border-white/5">
                 {[
-                  {
-                    title: "Discovery & Threat Modeling",
-                    status: "done",
-                    icon: ShieldCheck,
-                  },
-                  {
-                    title: "Security Architecture Design",
-                    status: "done",
-                    icon: Lock,
-                  },
-                  {
-                    title: "Hardening & Implementation",
-                    status: "active",
-                    icon: Activity,
-                  },
-                  {
-                    title: "Vulnerability Scanning & QA",
-                    status: "pending",
-                    icon: Globe,
-                  },
-                ].map((item, idx) => (
-                  <motion.div
-                    key={item.title}
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: idx * 0.1 }}
-                    whileHover={{
-                      x: 8,
-                      backgroundColor: "rgba(255,255,255,0.08)",
-                    }}
-                    className="flex items-center justify-between rounded-2xl border border-white/10 bg-white/5 px-5 py-4 transition-all group"
-                  >
-                    <div className="flex items-center gap-4">
-                      <div
-                        className={`p-2 rounded-xl border ${
-                          item.status === "done"
-                            ? "bg-emerald-500/10 border-emerald-500/20 text-emerald-400"
-                            : item.status === "active"
-                              ? "bg-blue-500/10 border-blue-500/20 text-blue-400"
-                              : "bg-white/5 border-white/10 text-slate-500"
-                        }`}
-                      >
-                        <item.icon
-                          size={18}
-                          className={
-                            item.status === "active" ? "animate-pulse" : ""
-                          }
-                        />
-                      </div>
-                      <span className="text-[15px] font-bold text-slate-100 group-hover:text-blue-200 transition-colors">
-                        {item.title}
-                      </span>
-                    </div>
+                  { icon: Users, label: "Client", value: "iota Web" },
+                  { icon: Timer, label: "Timeline", value: "8 Months" },
+                  { icon: Building2, label: "Sponsor", value: "None" },
+                ].map((stat) => (
+                  <div key={stat.label} className="space-y-1">
+                    <stat.icon size={16} className="text-blue-500/50" />
+                    <p className="text-[9px] font-black text-slate-500 uppercase tracking-widest">
+                      {stat.label}
+                    </p>
+                    <p className="text-sm font-black text-white">
+                      {stat.value}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
 
-                    <div
-                      className={`text-[10px] font-black uppercase tracking-[0.2em] px-4 py-1.5 rounded-full border shadow-sm ${
-                        item.status === "done"
-                          ? "text-emerald-400 bg-emerald-500/5 border-emerald-500/20"
-                          : item.status === "active"
-                            ? "text-blue-400 bg-blue-500/10 border-blue-500/20 animate-pulse"
-                            : "text-slate-500 bg-white/5 border-white/10"
-                      }`}
-                    >
-                      {item.status === "done"
-                        ? "Complete"
-                        : item.status === "active"
-                          ? "Ongoing"
-                          : "Queue"}
+            <motion.div
+              whileHover={{ scale: 1.02, rotateY: -5 }}
+              transition={{ type: "spring", stiffness: 200, damping: 20 }}
+              className="relative aspect-square md:aspect-video lg:aspect-square rounded-[4rem] overflow-hidden border border-white/10 shadow-2xl group/hero"
+            >
+              <img
+                src={heroImagePath}
+                alt="iZone Cloud Neural Infrastructure"
+                className="w-full h-full object-cover transition-transform duration-1000 group-hover/hero:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60" />
+              <div className="absolute bottom-8 left-8 flex items-center gap-3 px-4 py-2 rounded-2xl bg-slate-950/80 border border-white/10 backdrop-blur-xl">
+                <Activity size={14} className="text-blue-400 animate-pulse" />
+                <span className="text-[10px] font-black text-white uppercase tracking-widest">
+                  Final Phase: Deployment active
+                </span>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Start:: Progress Section */}
+          <div className="bg-blue-500/5 p-10 lg:p-4 rounded-[2rem] border border-white/10 backdrop-blur-xl flex flex-col">
+
+            {/* LIVE ACTIVITY FEED */}
+            <div className="space-y-4 flex flex-col">
+              <div className="flex items-center gap-4 border-b border-white/5 pb-1">
+                <div className="p-3.5 rounded-2xl bg-slate-800 border border-white/10 text-slate-300">
+                  <History size={20} />
+                </div>
+                <h3 className="text-xl font-black uppercase tracking-[0.2em] text-white">
+                  Activity Feed
+                </h3>
+              </div>
+
+              <div className="flex gap-8 overflow-x-auto pb-6 relative snap-x snap-mandatory scrollbar-thin scrollbar-thumb-blue-500/20 scrollbar-track-transparent">
+                {activityLog.map((log, idx) => (
+                  <motion.div
+                    key={log.task}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: idx * 0.1 }}
+                    className="relative group flex-shrink-0 w-38 snap-start"
+                  >
+                    {/* Horizontal connector line */}
+                    {idx !== activityLog.length - 1 && (
+                      <div className="absolute top-2 left-6 right-[-2.5rem] h-px bg-gradient-to-r from-blue-500/50 via-white/10 to-transparent pointer-events-none" />
+                    )}
+
+                    <div className="flex flex-col gap-2 p-2 rounded-2xl transition-all hover:bg-white/[0.03] border border-transparent hover:border-white/5">
+                      <div className="flex items-center gap-2">
+                        <div
+                          className={`z-10 h-4 w-4 rounded-full border-2 border-[#090e1a] shadow-sm flex-shrink-0 transition-transform group-hover:scale-125 ${log.status === "completed"
+                            ? "bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.5)]"
+                            : log.status === "active"
+                              ? "bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.5)] animate-pulse"
+                              : "bg-slate-700"
+                            }`}
+                        />
+                        <span className="text-[10px] font-black text-blue-400 uppercase tracking-widest bg-blue-500/10 w-fit px-2 py-0.5 rounded-full">
+                          {log.date}
+                        </span>
+
+                      </div>
+                      <div className="space-y-0">
+                        <p
+                          className={`text-sm font-bold tracking-wide leading-relaxed ${log.status === "pending" ? "text-slate-500" : "text-white"}`}
+                        >
+                          {log.task}
+                        </p>
+                      </div>
                     </div>
                   </motion.div>
                 ))}
               </div>
             </div>
 
-         
+            {/* IMPACT PROGRESSION */}
+            <div className="space-y-1">
+              {/* Background glow */}
+              <div className="absolute top-0 right-0 -mr-20 -mt-20 w-80 h-80 bg-blue-500/20 rounded-full blur-[100px] opacity-50 group-hover:opacity-100 transition-opacity duration-700" />
+
+              <div className="relative z-10 space-y-10 pb-4">
+                <div className="space-y-6">
+                  <div className="flex justify-between items-end">
+                    <div className="relative z-10 flex flex-col md:flex-row md:items-center gap-1">
+                      <div className="text-blue-400 w-fit">
+                        <TrendingUp size={28} />
+                      </div>
+                      <div>
+                        <h3 className="text-xl lg:text-2xl font-black text-white uppercase italic tracking-wide">
+                          Impact Progression
+                        </h3>
+                      </div>
+                    </div>
+                    <span className="text-6xl lg:text-7xl font-black text-blue-400 italic leading-none drop-shadow-[0_0_15px_rgba(59,130,246,0.3)]">
+                      94%.
+                    </span>
+                  </div>
+                  <div className="h-5 w-full bg-slate-900/80 rounded-full overflow-hidden border border-white/10 p-1 shadow-inner">
+                    <motion.div
+                      initial={{ width: 0 }}
+                      whileInView={{ width: "94%" }}
+                      transition={{ duration: 1.5, ease: "easeOut" }}
+                      className="h-full bg-gradient-to-r from-blue-600 to-blue-400 rounded-full relative overflow-hidden shadow-[0_0_20px_rgba(59,130,246,0.5)]"
+                    >
+                      <motion.div
+                        animate={{ x: ["-100%", "300%"] }}
+                        transition={{ repeat: Infinity, duration: 2.5, ease: "linear" }}
+                        className="absolute top-0 left-0 w-1/3 h-full bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12"
+                      />
+                    </motion.div>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-4 p-5 rounded-3xl bg-emerald-500/10 border border-emerald-500/20">
+                  <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_12px_rgba(16,185,129,0.8)] flex-shrink-0" />
+                  <p className="text-sm text-emerald-400 font-medium tracking-wide">
+                    <span className="text-white font-bold">Current Status:</span> Testing . . .
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
           </div>
+          {/* End:: Progress Section */}
 
-          {/* RIGHT PREVIEW */}
-          <div className="sticky top-8">
-            {/* Main Preview Container */}
-            <motion.div
-              whileHover={{ rotateY: -3, rotateX: 2, scale: 1.01 }}
-              transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className="relative aspect-[4/5] rounded-[3rem] overflow-hidden border border-white/20 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.6)] group/preview"
-            >
-              <div className="absolute inset-0 bg-blue-600/10 opacity-0 group-hover/preview:opacity-100 transition-opacity duration-1000 z-10 pointer-events-none" />
 
-              <motion.img
-                src="/me.jpg"
-                alt="iZone Cloud Visualization"
-                className="w-full h-full object-cover transition-transform duration-1000 group-hover/preview:scale-105"
-              />
+          {/* Start:: Architecture Section */}
+          <div className="space-y-3">
+            <div className="flex flex-col md:flex-row justify-between items-end gap-8 border-b border-white/5">
+              <div className="max-w-3xl">
+                <h3 className="text-4xl md:text-4xl font-black text-white tracking-tighter uppercase italic">
+                  Architecture.
+                </h3>
+                <p className="text-xl text-slate-400 font-medium">
+                  Three core functional units operating in parallel.
+                </p>
+              </div>
+            </div>
 
-              {/* Security Scan Overlay Animation */}
-              <motion.div
-                animate={{ top: ["0%", "100%", "0%"] }}
-                transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
-                className="absolute left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-blue-500 to-transparent z-20 opacity-40 shadow-[0_0_15px_rgba(59,130,246,0.8)] pointer-events-none"
-              />
+            <div className="grid lg:grid-cols-3 gap-8">
+              {[
+                {
+                  id: "01",
+                  icon: LayoutDashboard,
+                  title: "User",
+                  tag: "Dashboard",
+                  color: "blue",
+                  features: [
+                    { name: "Main dashboard", status: "completed" },
+                    { name: "Profile page", status: "completed" },
+                    { name: "Service listing", status: "completed" },
+                    { name: "Products listing", status: "completed" },
+                    { name: "Firebase sync", status: "completed" },
+                  ],
+                },
+                {
+                  id: "02",
+                  icon: Users,
+                  title: "Admin",
+                  tag: "IAM Layer",
+                  color: "indigo",
+                  features: [
+                    { name: "Main dashboard", status: "completed" },
+                    { name: "Profile page", status: "completed" },
+                    { name: "Service listing", status: "completed" },
+                    { name: "Products listing", status: "completed" },
+                    { name: "Firebase sync", status: "completed" },
+                  ],
+                },
+                {
+                  id: "03",
+                  icon: Store,
+                  title: "Super Admin",
+                  tag: "Listings",
+                  color: "emerald",
+                  features: [
+                    { name: "Main dashboard", status: "completed" },
+                    { name: "Profile page", status: "completed" },
+                    { name: "Service listing", status: "completed" },
+                    { name: "Products listing", status: "uncompleted" },
+                    { name: "Firebase sync", status: "uncompleted" },
+                  ],
+                },
+              ].map((unit) => (
+                <motion.div
+                  key={unit.id}
+                  whileHover={{ y: -10 }}
+                  className="group relative rounded-[1rem] overflow-hidden border border-white/10 bg-white/[0.02] flex flex-col items-start justify-between p-3 transition-colors hover:bg-white/[0.04]"
+                >
+                  {/* Background Accent */}
+                  <div className="absolute top-0 right-0 -mr-16 -mt-16 w-48 h-48 bg-blue-500/10 rounded-full blur-3xl group-hover:bg-blue-500/20 transition-colors" />
 
-              {/* Bottom Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-80 z-20" />
-
-              {/* Floating Status Badge */}
-              <div className="absolute bottom-8 left-8 right-8 z-30">
-                <div className="p-6 rounded-[2rem] bg-slate-900/80 border border-white/10 backdrop-blur-xl space-y-3 shadow-2xl">
-                  <div className="flex items-center gap-3">
-                    <ShieldCheck size={20} className="text-emerald-400" />
-                    <span className="text-sm font-black text-white uppercase tracking-widest">
-                      Tech Stack
+                  <div className="flex items-center justify-between w-full relative z-10">
+                    <div className="text-blue-400 group-hover:scale-110 transition-transform duration-500">
+                      <unit.icon size={36} strokeWidth={1.5} />
+                    </div>
+                    <span className="text-5xl font-black text-white/5 italic select-none uppercase">
+                      {unit.id}
                     </span>
                   </div>
 
-                  <div className="flex gap-4 pt-1">
-                    <div className="flex items-center gap-2 text-[10px] font-black text-blue-400 uppercase tracking-tighter">
-                      <div className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />{" "}
-                      React
+                  <div className="space-y-6 w-full relative z-10">
+                    <div className="space-y-2">
+
+                      <h4 className="text-xl font-black text-white uppercase tracking-wide">
+                        {unit.title}
+                      </h4>
                     </div>
-                    <div className="flex items-center gap-2 text-[10px] font-black text-emerald-400 uppercase tracking-tighter">
-                      <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />{" "}
-                      Next.js
-                    </div>
-                    <div className="flex items-center gap-2 text-[10px] font-black text-emerald-400 uppercase tracking-tighter">
-                      <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />{" "}
-                      Next.js
-                    </div>
-                    <div className="flex items-center gap-2 text-[10px] font-black text-emerald-400 uppercase tracking-tighter">
-                      <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />{" "}
-                      Next.js
-                    </div>
-                    <div className="flex items-center gap-2 text-[10px] font-black text-emerald-400 uppercase tracking-tighter">
-                      <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />{" "}
-                      Next.js
-                    </div>
+
+                    <ul className="space-y-4">
+                      {unit.features.map((f, i) => (
+                        <li
+                          key={i}
+                          className="text-xs font-bold text-slate-400 uppercase tracking-widest flex items-center gap-3 group/feat cursor-default"
+                        >
+                          {f.status === "completed" ? (
+                            <div className="relative flex items-center justify-center flex-shrink-0">
+                              <div className="absolute inset-0 bg-emerald-500/20 blur-sm rounded-full" />
+                              <CheckCircle2 size={16} className="text-emerald-400 relative z-10" strokeWidth={2.5} />
+                            </div>
+                          ) : (
+                            <div className="w-4 h-4 rounded-full border border-slate-600 bg-slate-800/50 flex-shrink-0 transition-colors group-hover/feat:border-blue-500/50" />
+                          )}
+                          <span className={`transition-colors duration-300 ${f.status === "completed" ? "text-slate-200" : "group-hover/feat:text-slate-300"}`}>
+                            {f.name}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                </div>
-              </div>
-            </motion.div>
 
-            {/* client */}
-            <div className="flex justify-center gap-4 mt-8">
-                  <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full cursor-default"
-            >
-              <Building2 size={16} className="text-blue-400" />
-              <span className="text-[11px] uppercase tracking-[0.25em] text-blue-200/60 font-medium">
-                Client:
-              </span>
-              <span className="text-[13px] font-black tracking-wide text-white">
-                IPA GH
-              </span>
-            </motion.div>
+                  <div className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-blue-600/0 via-blue-500 to-blue-600/0 scale-x-0 group-hover:scale-x-100 transition-transform duration-700" />
+                </motion.div>
+              ))}
             </div>
-
-               {/* Call to Actions */}
-            <div className="flex flex-col sm:flex-row gap-5 pt-4">
-              <motion.a
-                href="https://github.com/oppong-coffie"
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{
-                  scale: 1.02,
-                  backgroundColor: "rgba(255,255,255,0.15)",
-                }}
-                whileTap={{ scale: 0.98 }}
-                className="flex-1 inline-flex items-center justify-center gap-3 px-8 py-4.5 rounded-2xl font-black
-                           bg-white/10 border border-white/10 text-white transition-all shadow-lg shadow-black/20"
-              >
-                Source Code <Github size={20} />
-              </motion.a>
-
-         
-            </div>
+            {/* End:: Architecture Section */}
           </div>
+
+          {/* GLOBAL ACTIONS */}
+          <div className="flex flex-col md:flex-row items-center justify-center gap-8 py-20 border-t border-white/5">
+            <motion.button
+              onClick={() => { setIntent("Collaborate"); onOpen(); }}
+              whileHover={{ scale: 1.05, filter: "brightness(1.2)" }}
+              whileTap={{ scale: 0.98 }}
+              className="flex items-center gap-6 px-12 py-6 bg-blue-600 rounded-[2.5rem] font-black text-white text-xl shadow-[0_32px_64px_-16px_rgba(37,99,235,0.6)] group cursor-pointer"
+            >
+              <Handshake
+                size={28}
+                className="group-hover:rotate-12 transition-transform"
+              />
+              <span>Collaborate</span>
+            </motion.button>
+
+            <motion.button
+              onClick={() => { setIntent("Invest"); onOpen(); }}
+              whileHover={{
+                scale: 1.05,
+                backgroundColor: "rgba(255,255,255,0.05)",
+              }}
+              whileTap={{ scale: 0.98 }}
+              className="flex items-center gap-6 px-12 py-6 bg-transparent border border-white/10 rounded-[2.5rem] font-black text-white text-xl backdrop-blur-3xl group cursor-pointer"
+            >
+              <Coins size={28} className="text-amber-400" />
+              <span>Invest</span>
+            </motion.button>
+
+            <motion.a
+              href="https://github.com/oppong-coffie"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.1, rotate: 5 }}
+              className="p-6 bg-slate-800 rounded-3xl border border-white/10 hover:border-blue-500/50 transition-all shadow-xl"
+            >
+              <Github size={28} className="text-slate-300" />
+            </motion.a>
+          </div>
+
+          {/* CONTACT MODAL */}
+          <Modal
+            isOpen={isOpen}
+            onOpenChange={onOpenChange}
+            backdrop="blur"
+            classNames={{
+              base: "bg-slate-900 border border-white/10 shadow-2xl pb-6",
+              header: "border-b border-white/5",
+              closeButton: "hover:bg-white/5 active:bg-white/10",
+            }}
+          >
+            <ModalContent>
+              {(onClose) => (
+                <>
+                  <ModalHeader className="flex flex-col gap-1 text-white text-2xl font-black italic uppercase tracking-wider">
+                    {intent === "Invest" ? "Investment Inquiry" : "Collaboration"}
+                  </ModalHeader>
+                  <ModalBody>
+                    <form onSubmit={sendEmail} className="space-y-6 mt-4">
+                      <div className="space-y-4">
+                        <Input
+                          type="text"
+                          label="Name"
+                          variant="bordered"
+                          value={name}
+                          onChange={(e) => setName(e.target.value)}
+                          classNames={{
+                            inputWrapper: "border-white/20 group-data-[focus=true]:border-blue-500",
+                            label: "text-slate-400",
+                            input: "text-white"
+                          }}
+                          required
+                        />
+                        <Input
+                          type="email"
+                          label="Email"
+                          variant="bordered"
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                          classNames={{
+                            inputWrapper: "border-white/20 group-data-[focus=true]:border-blue-500",
+                            label: "text-slate-400",
+                            input: "text-white"
+                          }}
+                          required
+                        />
+                        <Input
+                          type="tel"
+                          label="Phone"
+                          variant="bordered"
+                          value={phone}
+                          onChange={(e) => setPhone(e.target.value)}
+                          classNames={{
+                            inputWrapper: "border-white/20 group-data-[focus=true]:border-blue-500",
+                            label: "text-slate-400",
+                            input: "text-white"
+                          }}
+                        />
+                        <Textarea
+                          label="Message"
+                          variant="bordered"
+                          minRows={4}
+                          value={message}
+                          onChange={(e) => setMessage(e.target.value)}
+                          classNames={{
+                            inputWrapper: "border-white/20 group-data-[focus=true]:border-blue-500",
+                            label: "text-slate-400",
+                            input: "text-white"
+                          }}
+                          required
+                        />
+                      </div>
+
+                      <Button
+                        type="submit"
+                        className="w-full py-6 bg-blue-600 text-white font-bold text-lg rounded-xl shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:bg-blue-500 transition-all"
+                        disabled={loading}
+                      >
+                        {loading ? <Spinner color="white" size="sm" /> : "Send Message"}
+                      </Button>
+
+                      {feedback && (
+                        <motion.p
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          className={`mt-4 text-center font-bold text-sm bg-black/20 p-3 rounded-lg ${feedback.includes("successfully") ? "text-emerald-400 border border-emerald-500/20" : "text-red-400 border border-red-500/20"
+                            }`}
+                        >
+                          {feedback}
+                        </motion.p>
+                      )}
+                    </form>
+                  </ModalBody>
+                </>
+              )}
+            </ModalContent>
+          </Modal>
+
         </div>
       </motion.section>
     </div>

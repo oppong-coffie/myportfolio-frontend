@@ -1,8 +1,73 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { Input, Textarea, Button, Spinner, Modal, ModalContent, ModalHeader, ModalBody, useDisclosure } from "@nextui-org/react";
+import emailjs from "@emailjs/browser";
+import axios from "axios";
 import { motion } from 'framer-motion';
 import { ExternalLink, Users, GitBranch, Share2 } from 'lucide-react';
 
 const Contributed = () => {
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [feedback, setFeedback] = useState("");
+
+  useEffect(() => {
+    emailjs.init("T5HMx10wLGbYc1M3F");
+  }, []);
+
+  const sendSms = async () => {
+    try {
+      await axios.post(
+        'https://myportfolio-backend-nu.vercel.app/sms/sendme',
+        { name, phone },
+        { headers: { 'Content-Type': 'application/json' } }
+      );
+      await axios.post(
+        'https://myportfolio-backend-nu.vercel.app/sms/sendsms',
+        { name, phone },
+        { headers: { 'Content-Type': 'application/json' } }
+      );
+    } catch (error) {
+      console.error('Error sending SMS:', error.message);
+    }
+  }
+
+  const sendEmail = (event) => {
+    event.preventDefault();
+
+    if (!name || !email || !message) {
+      setFeedback("Please fill in all required fields.");
+      return;
+    }
+
+    setLoading(true);
+    setFeedback("");
+
+    const params = { name, phone, email, message: `Intent: Collaboration\n\n${message}` };
+    const serviceID = "service_2whq5dc";
+    const templateID = "template_5a8k82b";
+
+    emailjs
+      .send(serviceID, templateID, params)
+      .then(() => {
+        setFeedback("Message sent successfully!");
+        setLoading(false);
+        setName("");
+        setPhone("");
+        setEmail("");
+        setMessage("");
+        sendSms();
+      })
+      .catch((error) => {
+        setFeedback("Failed to send message. Please try again.");
+        console.error("EmailJS error:", error);
+        setLoading(false);
+      });
+  };
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -23,7 +88,7 @@ const Contributed = () => {
 
   const contributions = [
     {
-      title: "Open Source UI Library",
+      title: "Blaccbook",
       role: "Core Contributor",
       description: "Contributed to specialized React components and accessibility audits.",
       tech: ["React", "TypeScript", "Tailwind"],
@@ -38,7 +103,7 @@ const Contributed = () => {
     },
     {
       title: "Medical Record System",
-      role: "UI Architect",
+      role: "Team Lead",
       description: "Developed a high-fidelity design system and component architecture.",
       tech: ["React Native", "Figma", "Redux"],
       link: "#"
@@ -62,7 +127,7 @@ const Contributed = () => {
       <main className="py-12 md:py-20 px-6">
         <div className="container mx-auto max-w-5xl">
           {/* Section Hero */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-center mb-20"
@@ -80,7 +145,7 @@ const Contributed = () => {
           </motion.div>
 
           {/* Contributions List */}
-          <motion.div 
+          <motion.div
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
@@ -88,7 +153,7 @@ const Contributed = () => {
             className="grid gap-8"
           >
             {contributions.map((project, i) => (
-              <motion.div 
+              <motion.div
                 key={i}
                 variants={itemVariants}
                 className="group relative p-8 rounded-[2rem] bg-gray-50 border border-gray-100 hover:border-blue-500/20 hover:bg-white transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/5 overflow-hidden"
@@ -121,22 +186,22 @@ const Contributed = () => {
                     </div>
                   </div>
 
-                  <motion.a 
+                  {/* <motion.a
                     href={project.link}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="inline-flex items-center justify-center p-4 bg-gray-900 text-white rounded-2xl hover:bg-blue-600 transition-all shadow-lg group"
+                    className="inline-flex items-center justify-center px-4 py-2 bg-gray-900 text-white rounded-[2rem] font-bold transition-all hover:bg-blue-600 group"
                   >
                     View Contribution
                     <ExternalLink size={18} className="ml-2 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                  </motion.a>
+                  </motion.a> */}
                 </div>
               </motion.div>
             ))}
           </motion.div>
 
           {/* Footer CTA */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             className="mt-20 p-10 rounded-[2.5rem] bg-slate-900 text-white text-center overflow-hidden relative"
@@ -147,17 +212,118 @@ const Contributed = () => {
               <p className="text-slate-400 mb-8 max-w-xl mx-auto">
                 I'm always looking for interesting projects to contribute to. Let's build something exceptional together.
               </p>
-              <motion.button 
+              <motion.button
+                onClick={onOpen}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-blue-500 text-white rounded-2xl font-black text-lg shadow-xl shadow-blue-500/30 hover:bg-blue-400 transition-colors"
+                className="px-6 py-3 bg-blue-500 text-white rounded-[2rem] font-black text-lg shadow-xl shadow-blue-500/30 hover:bg-blue-400 transition-colors inline-flex items-center justify-center cursor-pointer"
               >
-                Inquire for Collaboration
+                Contact for Collaboration
               </motion.button>
             </div>
           </motion.div>
         </div>
       </main>
+
+      {/* CONTACT MODAL */}
+      <Modal
+        isOpen={isOpen}
+        onOpenChange={onOpenChange}
+        backdrop="blur"
+        classNames={{
+          base: "bg-slate-900 border border-white/10 shadow-2xl pb-6",
+          header: "border-b border-white/5",
+          closeButton: "hover:bg-white/5 active:bg-white/10",
+        }}
+      >
+        <ModalContent>
+          {(onClose) => (
+            <>
+              <ModalHeader className="flex flex-col gap-1 text-white text-2xl font-black italic uppercase tracking-wider">
+                Collaboration Request
+              </ModalHeader>
+              <ModalBody>
+                <form onSubmit={sendEmail} className="space-y-6 mt-4">
+                  <div className="space-y-4">
+                    <Input
+                      type="text"
+                      label="Name"
+                      variant="bordered"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      classNames={{
+                        inputWrapper: "border-white/20 group-data-[focus=true]:border-blue-500",
+                        label: "text-slate-400",
+                        input: "text-white"
+                      }}
+                      required
+                    />
+                    <Input
+                      type="email"
+                      label="Email"
+                      variant="bordered"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      classNames={{
+                        inputWrapper: "border-white/20 group-data-[focus=true]:border-blue-500",
+                        label: "text-slate-400",
+                        input: "text-white"
+                      }}
+                      required
+                    />
+                    <Input
+                      type="tel"
+                      label="Phone"
+                      variant="bordered"
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value)}
+                      classNames={{
+                        inputWrapper: "border-white/20 group-data-[focus=true]:border-blue-500",
+                        label: "text-slate-400",
+                        input: "text-white"
+                      }}
+                    />
+                    <Textarea
+                      label="Message"
+                      variant="bordered"
+                      minRows={4}
+                      value={message}
+                      onChange={(e) => setMessage(e.target.value)}
+                      classNames={{
+                        inputWrapper: "border-white/20 group-data-[focus=true]:border-blue-500",
+                        label: "text-slate-400",
+                        input: "text-white"
+                      }}
+                      required
+                      placeholder="Tell me a bit about how you'd like to collaborate..."
+                    />
+                  </div>
+
+                  <Button
+                    type="submit"
+                    className="w-full py-6 bg-blue-600 text-white font-bold text-lg rounded-xl shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:bg-blue-500 transition-all"
+                    disabled={loading}
+                  >
+                    {loading ? <Spinner color="white" size="sm" /> : "Send Message"}
+                  </Button>
+
+                  {feedback && (
+                    <motion.p
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className={`mt-4 text-center font-bold text-sm bg-black/20 p-3 rounded-lg ${feedback.includes("successfully") ? "text-emerald-400 border border-emerald-500/20" : "text-red-400 border border-red-500/20"
+                        }`}
+                    >
+                      {feedback}
+                    </motion.p>
+                  )}
+                </form>
+              </ModalBody>
+            </>
+          )}
+        </ModalContent>
+      </Modal>
+
     </div>
   );
 };

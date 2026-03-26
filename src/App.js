@@ -1,13 +1,15 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import './App.css';
-import MainLayout from './components/MainLayout';
-import AllProjects from './components/AllProjects';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import "./App.css";
+import MainLayout from "./components/MainLayout";
+import AllProjects from "./components/AllProjects";
+import ScrollToTop from "./components/ScrollToTop";
 
-import OngoingProjects from './components/OngoingProjects';
+import OngoingProjects from "./components/OngoingProjects";
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="App">
         <Routes>
           <Route path="/" element={<MainLayout />} />

@@ -90,24 +90,15 @@ const Certs = () => {
   
     {
       id: 2,
-      title: 'Systen Engineer',
+      title: 'System Engineer',
       issuer: 'IPMC',
       date: 'June 2022',
       category: 'cyber',
       link: '#',
       image: botpressCert,
-      description: 'Mastered system engineering principles and practices',
+      description: 'Mastered Hardware engineering and networking principles',
     },
-    {
-      id: 4,
-      title: 'Node.js Backend Development',
-      issuer: 'Udemy',
-      date: 'September 2023',
-      category: 'ai',
-      link: '#',
-      image: nodejsCert,
-      description: 'Full-stack development skills including RESTful APIs, authentication, and database integration',
-    },
+
     {
       id: 5,
       title: 'Degree in Software Engineering',
@@ -116,7 +107,7 @@ const Certs = () => {
       category: 'Degree',
       link: '#',
       image: ttu,
-      description: 'Full-stack development skills including RESTful APIs, authentication, and database integration',
+      description: 'Full-stack Software development skills',
     },
 
 
