@@ -30,7 +30,6 @@ const AllProjects = () => {
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
   const [feedback, setFeedback] = useState("");
-  const [intent, setIntent] =useState("");
 
   useEffect(() => {
     emailjs.init("T5HMx10wLGbYc1M3F");
@@ -186,7 +185,7 @@ const AllProjects = () => {
         <div className="container mx-auto text-center">
           <h2 className="text-4xl font-bold mb-8">Ready to build something amazing?</h2>
           <button
-            onClick={() => { setIntent("Idea"); onOpen(); }}
+            onClick={() => {onOpen(); }}
             className="inline-flex items-center px-10 py-5 bg-gradient-to-r from-primary-500 to-secondary-500 text-white rounded-2xl font-black text-xl hover:scale-105 transition-transform shadow-[0_20px_40px_-10px_rgba(59,130,246,0.3)]"
           >
             Describe your idea and i will bring it to life <Home className="ml-3" size={24} />

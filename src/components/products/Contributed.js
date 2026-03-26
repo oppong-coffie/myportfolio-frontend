@@ -3,7 +3,7 @@ import { Input, Textarea, Button, Spinner, Modal, ModalContent, ModalHeader, Mod
 import emailjs from "@emailjs/browser";
 import axios from "axios";
 import { motion } from 'framer-motion';
-import { ExternalLink, Users, GitBranch, Share2 } from 'lucide-react';
+import { Users, GitBranch, Share2 } from 'lucide-react';
 
 const Contributed = () => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();

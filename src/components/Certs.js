@@ -8,7 +8,6 @@ import { Award, ExternalLink, Calendar, Building2, X, Download } from 'lucide-re
 import reactCert from '../images/certs/ip.jpg';
 import ttu from '../images/certs/ttu.jpg';
 import botpressCert from '../images/certs/cert2.png';
-import nodejsCert from '../images/certs/cert3.png';
 
 const Certs = () => {
   const [selectedCert, setSelectedCert] = useState(null);

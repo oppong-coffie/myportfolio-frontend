@@ -6,26 +6,17 @@ import { motion } from "framer-motion";
 import {
   Building2,
   Github,
-  ShieldCheck,
   Handshake,
   Coins,
-  Cpu,
-  Server,
-  Network,
-  Zap,
   Users,
   LayoutDashboard,
   Store,
-  Calendar,
   Timer,
-  Target,
   AlertCircle,
-  ArrowUpRight,
   TrendingUp,
   History,
   CheckCircle2,
   Activity,
-  Layers,
 } from "lucide-react";
 
 const sectionVariants = {
