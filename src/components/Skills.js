@@ -17,38 +17,42 @@ const skillsData = [
     description: "I build stunning and responsive interfaces using Tailwind CSS, ReactJS.",
   },
   {
+    title: "🔧 Backend Development",
+    description: "I build robust and scalable backend systems using Node.js, Express.js, and MongoDB.",
+  },
+  {
     title: "📱 Mobile App Development",
     description: "I create cross-platform mobile apps using React Native and Expo for smooth user experiences.",
+  },
+  {
+    title: "🎨 Graphics Designer",
+    description: "I create stunning visuals using Canva, Figma, and Adobe Creative Suite to bring ideas to life.",
   },
   {
     title: "🤖 AI Automation",
     description: "I automate workflows using OpenAI, BotPress, and APIs to boost productivity and user interaction.",
   },
   {
-    title: "🧠 Problem-Solving",
-    description: "I deliver smart solutions to complex challenges with clean, scalable code.",
+    title: "⚙️ Cloud Practitioner",
+    description: "I design, deploy, and manage scalable cloud applications on AWS, Azure, and GCP to optimize performance and reduce costs.",
   },
   {
-    title: "🤝 Team Leadership",
-    description: "I excel at leading and motivating teams, ensuring collaboration through Git, monday.com, and clear communication.",
+    title: "🔧 Hardware Engineer",
+    description: "I design, build, and maintain computer hardware systems, including circuit boards, processors, and other electronic components.",
   },
   {
-    title: "📚 Continuous Learning",
-    description: "I stay current with web trends and technologies to build innovative, future-ready products.",
+    title: "🔧 Digital Marketer",
+    description: "I use various online marketing strategies to promote products or services and increase brand awareness.",
   },
 ];
 
 const techStack = [
-  // { title: "HTML", content: "Structure of websites.", icon: html, tooltip: "Hypertext Markup Language" },
-  // { title: "JavaScript", content: "Dynamic and interactive websites.", icon: js, tooltip: "JavaScript (JS)" },
   { title: "React", content: "Building UI components.", icon: react, tooltip: "React.js" },
   { title: "Next", content: "framework for javascript.", icon: nextjs, tooltip: "Next.js" },
   { title: "React Native", content: "Building mobile apps.", icon: css, tooltip: "React Native" },
   { title: "PHP", content: "Dynamic web pages & databases.", icon: php, tooltip: "PHP" },
   { title: "Laravel", content: "A popular PHP framework.", icon: laravel, tooltip: "Laravel" },
   { title: "SQL", content: "Structured query language.", icon: sql, tooltip: "SQL Databases" },
-  // { title: "Tailwind CSS", content: "Utility-first CSS framework.", icon: Tailwind, tooltip: "Tailwind CSS" },
-  // { title: "Bootstrap", content: "Responsive design framework.", icon: Bootstrap, tooltip: "Bootstrap" },
   { title: "Node.js", content: "JavaScript runtime for server-side.", icon: node, tooltip: "Node.js" },
   { title: "Express.js", content: "Backend framework for Node.js.", icon: express, tooltip: "Express.js" },
   { title: "MongoDB", content: "NoSQL Database.", icon: mongodb, tooltip: "MongoDB" },

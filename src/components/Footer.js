@@ -1,4 +1,3 @@
-import { Link } from 'react-scroll';
 import { Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
 
 const Footer = () => {
@@ -14,20 +13,23 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* Quick Links */}
+          {/* Roles I Can Fit */}
           <div>
-            <h3 className="text-lg font-semibold text-white mb-6">Quick Links</h3>
-            <ul className="space-y-3">
-              {['Home', 'Projects', 'Gallery', 'Contact'].map((item) => (
-                <li key={item}>
-                  <Link
-                    to={item === 'Home' ? '_home' : item.toLowerCase()}
-                    smooth={true}
-                    duration={500}
-                    className="hover:text-primary transition-colors duration-300 cursor-pointer text-sm"
-                  >
-                    {item}
-                  </Link>
+            <h3 className="text-lg font-semibold text-white mb-6">Roles I Can Fit</h3>
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-sm text-gray-400">
+              {[
+                "AI Chatbot Builder",
+                "Frontend Developer",
+                "Backend Developer",
+                "Hardware Engineer",
+                "Cloud Practitioner",
+                "Graphics Designer",
+                "Digital Marketer",
+                "Project Manager"
+              ].map((role, idx) => (
+                <li key={idx} className="flex items-center gap-2 hover:text-primary transition-colors duration-300">
+                  <span className="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>
+                  <span>{role}</span>
                 </li>
               ))}
             </ul>

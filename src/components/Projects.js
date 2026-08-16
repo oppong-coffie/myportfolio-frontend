@@ -4,8 +4,7 @@ import { ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import zeazn from '../images/zeazn.png';
 import zulupromo from '../images/zulupromr.png';
-import password from '../images/password.png';
-import team from '../images/team.png';
+import game from '../images/game.png';
 
 export const projects = [
   {
@@ -18,50 +17,29 @@ export const projects = [
     description: "A comprehensive business website for Zeazn Limited, featuring a modern design and responsive layout.",
   },
   {
-    name: "ZuluDesk Business Website",
-    slug: "zuludesk",
-    link: "https://zulupromo.vercel.app",
-    mainlink: "https://zuludesks.com",
-    image: zulupromo,
-    tags: ["Next.js", "MongoDB", "TailwindCSS"],
-    description: "An e-commerce platform built with Next.js, providing a seamless shopping experience.",
-  },
-  {
-    name: "Password Generator",
-    slug: "password-generator",
-    link: "https://password-generator-oppongcoffies-projects.vercel.app",
-    mainlink: "https://password-generator-oppongcoffies-projects.vercel.app",
-    image: password,
-    tags: ["TailwindCSS", "React"],
-    description: "A secure and customizable password generation tool built with React.",
+    name: "Memory Game",
+    slug: "memory-game",
+    link: "https://game-mocha-zeta-14.vercel.app",
+    image: game, 
+    tags: ["React", "Framer Motion", "TailwindCSS"],
+    description: "An interactive memory card matching game with smooth animations and score tracking.",
   },
   {
     name: "TeamAlfy Company Website",
     slug: "teamalfy",
     link: "https://team-alfy.vercel.app/",
-    mainlink: "https://teamalfy.com",
-    image: team,
+    image: zulupromo,
     tags: ["React", "TailwindCSS"],
     description: "Official company website for TeamAlfy, showcasing their services and design portfolio.",
   },
-  {
-    name: "Ai WhatApp Chatbot",
-    slug: "whatsapp-bot",
-    link: "https://fake-whatsapp-chat-virid.vercel.app",
-    mainlink: "https://wa.me/233595394667?text=hi%20Adwoa%2C%20tell%20me%20what%20you%20can%20do",
-    image: team,
-    tags: ["WhatsApp", "Botpress", "JavaScript"],
-    description: "A specialized AI chatbot integrated with WhatsApp for automated communication.",
-  },
-  {
-    name: "IPA Website",
-    slug: "ipa",
-    link: "https://ipagh.org",
-    mainlink: "https://www.ipagh.org",
-    image: team,
-    tags: ["Next.js", "TailwindCSS"],
-    description: "Web portal for IPAGH NGO, facilitating community engagement and information dissemination.",
-  },
+  // {
+  //   name: "IPA Website",
+  //   slug: "ipa",
+  //   link: "https://ipagh.org",
+  //   image: ipa,
+  //   tags: ["Next.js", "TailwindCSS"],
+  //   description: "Web portal for IPAGH NGO, facilitating community engagement and information dissemination.",
+  // },
 ];
 
 const Projects = () => {
@@ -93,20 +71,20 @@ const Projects = () => {
             transition={{ delay: idx * 0.1 }}
             className="group bg-gray-50 rounded-2xl overflow-hidden border border-gray-200 hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/20"
           >
-            <div className="relative h-[250px] overflow-hidden bg-gray-100">
-              {/* Iframe Preview with Overlay */}
-              <div className="absolute inset-0 transform group-hover:scale-105 transition-transform duration-500">
-                <iframe
-                  src={project.link}
-                  title={project.name}
-                  loading="lazy"
-                  sandbox="allow-scripts allow-same-origin"
-                  className="w-[200%] h-[200%] transform scale-50 origin-top-left border-none pointer-events-none"
-                  tabIndex="-1"
-                />
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-gray-50 to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
-            </div>
+            <a
+              href={project.mainlink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block relative h-[250px] overflow-hidden bg-slate-900 flex items-center justify-center p-2"
+            >
+              {/* Image Preview with Overlay */}
+              <img
+                src={project.image}
+                alt={project.name}
+                className="max-h-full max-w-full w-auto h-auto object-contain transform group-hover:scale-105 transition-transform duration-500 rounded-lg"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/40 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity pointer-events-none" />
+            </a>
 
             <div className="p-6">
               <div className="flex flex-wrap gap-2 mb-4">

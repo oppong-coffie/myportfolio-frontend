@@ -86,7 +86,7 @@ const MainSection = () => {
                     </h1>
                     <h2 className="font-bold text-4xl sm:text-5xl lg:text-6xl mb-6 leading-tight">
                         <span className="text-violet-500 bg-clip-text bg-gradient-to-r from-primary to-secondary">
-                            <TypewriterEffect roles={["Ai chatbot builder", "Frontend developer", "Project manager"]} />
+                            <TypewriterEffect roles={["Ai chatbot builder", "Frontend developer", "Backend developer", "Hardware engineer", "Cloud Practitioner", "Graphics designer", "Digital marketer", "Project manager"]} />
                         </span>
                     </h2>
 

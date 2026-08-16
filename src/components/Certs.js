@@ -8,6 +8,8 @@ import { Award, ExternalLink, Calendar, Building2, X, Download } from 'lucide-re
 import reactCert from '../images/certs/ip.jpg';
 import ttu from '../images/certs/ttu.jpg';
 import botpressCert from '../images/certs/cert2.png';
+import aws from '../images/certs/aws.jpg';
+import amalitech from '../images/certs/va.jpg';
 
 const Certs = () => {
   const [selectedCert, setSelectedCert] = useState(null);
@@ -96,6 +98,27 @@ const Certs = () => {
       link: '#',
       image: botpressCert,
       description: 'Mastered Hardware engineering and networking principles',
+    },
+    {
+      id: 3,
+      title: 'AWS Certified Cloud Practitioner',
+      issuer: 'AWS',
+      date: 'March 2026',
+      category: 'cloud',
+      link: '#',
+      image: aws,
+      description: 'Mastered Cloud Computing using AWS',
+    },
+
+     {
+      id: 4,
+      title: 'Virtual Assistant',
+      issuer: 'Amalitech',
+      date: 'March 2024',
+      category: 'Assistance',
+      link: '#',
+      image: amalitech,
+      description: 'Mastered skills in communication,organization and basic IT skills',
     },
 
     {
@@ -195,28 +218,35 @@ const Certs = () => {
 
               {/* Content */}
               <div className="p-6">
-                <h3 className="text-xl font-bold mb-2 text-white group-hover:text-blue-400 transition-colors duration-300">
+                <h3 className="text-xl font-bold mb-3 text-white group-hover:text-blue-400 transition-colors duration-300">
                   {cert.title}
                 </h3>
-                <div className="flex items-center gap-2 text-gray-400 mb-3">
-                  <Building2 className="w-4 h-4" />
-                  <span className="text-sm">{cert.issuer}</span>
-                </div>
-                <p className="text-gray-400 text-sm mb-4 line-clamp-2">
-                  {cert.description}
-                </p>
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2 text-gray-500 text-sm">
-                    <Calendar className="w-4 h-4" />
-                    <span>{cert.date}</span>
+                <div className="flex items-start justify-between gap-4">
+                  {/* Left Side: Issuer & Description */}
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 text-gray-400 mb-2">
+                      <Building2 className="w-4 h-4 text-blue-400 flex-shrink-0" />
+                      <span className="text-sm font-medium">{cert.issuer}</span>
+                    </div>
+                    <p className="text-gray-400 text-sm line-clamp-2">
+                      {cert.description}
+                    </p>
                   </div>
-                  <button
-                    onClick={() => openModal(cert)}
-                    className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg text-white text-sm font-semibold transition-all duration-300 transform hover:scale-105 group-hover:shadow-lg group-hover:shadow-blue-500/50 cursor-pointer"
-                  >
-                    View
-                    <ExternalLink className="w-4 h-4" />
-                  </button>
+
+                  {/* Right Side: Date & Button */}
+                  <div className="flex flex-col items-end gap-2 flex-shrink-0">
+                    <div className="flex items-center gap-1.5 text-gray-400 text-xs">
+                      <Calendar className="w-3.5 h-3.5 text-purple-400" />
+                      <span>{cert.date}</span>
+                    </div>
+                    <button
+                      onClick={() => openModal(cert)}
+                      className="flex items-center gap-1.5 px-3 py-1.5 bg-blue-600 hover:bg-blue-700 rounded-lg text-white text-xs font-semibold transition-all duration-300 transform hover:scale-105 group-hover:shadow-lg group-hover:shadow-blue-500/50 cursor-pointer mt-1"
+                    >
+                      View
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
                 </div>
               </div>
 

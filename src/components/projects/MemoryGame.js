@@ -1,180 +1,180 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { RefreshCw, Trophy, Brain, Target, Star, Heart, Cloud, Sun, Moon, Zap } from 'lucide-react';
-
-const icons = [
-  { icon: Brain, color: 'text-purple-500' },
-  { icon: Target, color: 'text-red-500' },
-  { icon: Star, color: 'text-yellow-500' },
-  { icon: Heart, color: 'text-pink-500' },
-  { icon: Cloud, color: 'text-blue-500' },
-  { icon: Sun, color: 'text-orange-500' },
-  { icon: Moon, color: 'text-indigo-500' },
-  { icon: Zap, color: 'text-cyan-500' }
-];
+import React from 'react';
+import { motion } from 'framer-motion';
+import { ExternalLink, CheckCircle, Code, Cpu, ShieldCheck, Zap, Building2, Layers } from 'lucide-react';
 
 const MemoryGame = () => {
-  const [cards, setCards] = useState([]);
-  const [flippedCards, setFlippedCards] = useState([]);
-  const [matchedCards, setMatchedCards] = useState([]);
-  const [moves, setMoves] = useState(0);
-  const [score, setScore] = useState(0);
-  const [gameStarted, setGameStarted] = useState(false);
-
-  const initializeGame = () => {
-    const shuffledCards = [...icons, ...icons]
-      .map((item, index) => ({ ...item, id: index, isMatched: false }))
-      .sort(() => Math.random() - 0.5);
-    setCards(shuffledCards);
-    setFlippedCards([]);
-    setMatchedCards([]);
-    setMoves(0);
-    setScore(0);
-    setGameStarted(true);
-  };
-
-  useEffect(() => {
-    initializeGame();
-  }, []);
-
-  useEffect(() => {
-    if (flippedCards.length === 2) {
-      const [first, second] = flippedCards;
-      if (cards[first].icon === cards[second].icon) {
-        setMatchedCards(prev => [...prev, first, second]);
-        setScore(prev => prev + 10);
-        setFlippedCards([]);
-      } else {
-        setTimeout(() => setFlippedCards([]), 1000);
-      }
-      setMoves(prev => prev + 1);
-    }
-  }, [flippedCards, cards]);
-
-  const handleCardClick = (index) => {
-    if (flippedCards.length === 2 || flippedCards.includes(index) || matchedCards.includes(index)) return;
-    setFlippedCards(prev => [...prev, index]);
-  };
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.1 }
+      transition: {
+        staggerChildren: 0.1
+      }
     }
   };
 
   const itemVariants = {
     hidden: { y: 20, opacity: 0 },
-    visible: { y: 0, opacity: 1 }
+    visible: {
+      y: 0,
+      opacity: 1
+    }
   };
 
-  return (
-    <div className="min-h-screen bg-white text-gray-900 font-sans py-20 px-6">
-      <div className="container mx-auto max-w-5xl">
-        {/* Header Section */}
-        <header className="mb-12 text-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 bg-primary/10 border border-primary/20 rounded-full mb-4"
-          >
-            <Brain size={16} className="text-primary" />
-            <span className="text-[10px] uppercase tracking-[0.25em] text-primary/70 font-bold">Interactive Lab</span>
-          </motion.div>
-          <h2 className="text-5xl font-black tracking-tight mb-4 uppercase italic">
-            Memory <span className="text-primary">Vault.</span>
-          </h2>
-          <p className="text-xl text-gray-500 font-medium max-w-2xl mx-auto">
-            A high-performance reactive memory game built to demonstrate state management and fluid animations.
-          </p>
-        </header>
+  const features = [
+    "Interactive memory card matching",
+    "Real-time score tracking",
+    "Mobile-responsive design",
+    "Smooth flip animations"
+  ];
 
-        {/* Stats Section */}
-        <div className="flex justify-center gap-8 mb-12">
+  const techStack = [
+    { name: "Frontend", value: "React.js", icon: <Code size={18} /> },
+    { name: "Animations", value: "Framer Motion", icon: <Cpu size={18} /> },
+    { name: "Styling", value: "Tailwind CSS", icon: <Layers size={18} /> },
+    { name: "Deployment", value: "Vercel", icon: <Zap size={18} /> }
+  ];
+
+  return (
+    <div className="min-h-screen bg-white text-gray-900 font-sans">
+      <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100 px-6 py-3">
+        <div className="container mx-auto flex justify-center items-center">
           <div className="flex flex-col items-center">
-            <span className="text-[10px] font-black uppercase tracking-widest text-gray-400">Moves</span>
-            <span className="text-3xl font-black text-gray-900">{moves}</span>
-          </div>
-          <div className="flex flex-col items-center">
-            <span className="text-[10px] font-black uppercase tracking-widest text-gray-400">Score</span>
-            <span className="text-3xl font-black text-primary">{score}</span>
-          </div>
-          <div className="flex flex-col items-center">
-            <button
-              onClick={initializeGame}
-              className="p-3 bg-gray-900 text-white rounded-2xl hover:bg-primary transition-colors shadow-lg group"
-              title="Reset Game"
-            >
-              <RefreshCw size={24} className="group-hover:rotate-180 transition-transform duration-500" />
-            </button>
+            <h1 className="text-base font-black tracking-[0.2em] text-gray-900 flex items-center gap-2 uppercase">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+              Memory<span className="text-primary">Game</span>
+            </h1>
+            <div className="h-0.5 w-8 bg-primary/20 rounded-full mt-0.5" />
           </div>
         </div>
+      </header>
 
-        {/* Game Grid */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="grid grid-cols-4 gap-4 md:gap-6 max-w-2xl mx-auto"
-        >
-          {cards.map((card, index) => {
-            const isFlipped = flippedCards.includes(index) || matchedCards.includes(index);
-            const Icon = card.icon;
+      <main className="py-12 md:py-20 px-6">
+        <div className="container mx-auto max-w-5xl">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.98 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="relative rounded-[2rem] overflow-hidden shadow-2xl border border-gray-100 mb-2 bg-gray-50 aspect-video group"
+          >
+            <div className="w-full h-full flex items-center justify-center bg-slate-900">
+              <iframe sandbox="allow-scripts allow-same-origin"
+                src="https://memory-game-delta-ten.vercel.app/"
+                title="MemoryGame Preview"
+                className="w-full h-full border-none shadow-inner"
+              />         
+            </div>
+          </motion.div>
 
-            return (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => handleCardClick(index)}
-                className="relative aspect-square cursor-pointer perspective-1000"
-              >
-                <div className={`relative w-full h-full transition-transform duration-500 preserve-3d ${isFlipped ? 'rotate-y-180' : ''}`}>
-                  {/* Front (Hidden) */}
-                  <div className="absolute inset-0 bg-gray-100 border-2 border-gray-200 rounded-3xl flex items-center justify-center backface-hidden shadow-sm">
-                    <div className="w-8 h-8 rounded-full bg-gray-200/50 flex items-center justify-center">
-                      <div className="w-2 h-2 rounded-full bg-gray-300" />
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="space-y-0"
+          >
+            <motion.div variants={itemVariants} className="">
+              <div className="flex justify-between items-center">
+                <div className="flex justify-between items-center mb-0">
+                  <div className="flex items-center gap-2 px-4 py-1.5 bg-primary/10 border border-primary/20 rounded-full backdrop-blur-sm">
+                    <Building2 size={16} className="text-primary" />
+                    <span className="text-[10px] uppercase tracking-[0.25em] text-primary/70">
+                      Category
+                    </span>
+                    <span className="text-sm font-bold text-primary tracking-wide">
+                      Interactive Game
+                    </span>
+                  </div>
+                </div>
+                {/* Call to Action */}
+                <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-5">
+                  <motion.a
+                    href="https://memory-game-delta-ten.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    animate={{
+                      boxShadow: [
+                        "0 0 0 0px rgba(34, 197, 94, 0)",
+                        "0 0 0 12px rgba(34, 197, 94, 0.15)",
+                        "0 0 0 0px rgba(34, 197, 94, 0)"
+                      ]
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="inline-flex items-center justify-center px-4 py-2 bg-gray-900 text-white rounded-[2rem] font-bold transition-all hover:bg-green-600 group"
+                  >
+                    <div className="relative flex h-3 w-3 mr-3">
+                      <motion.span
+                        animate={{ scale: [1, 2.5], opacity: [0.5, 0] }}
+                        transition={{ duration: 1.5, repeat: Infinity, ease: "easeOut" }}
+                        className="absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"
+                      />
+                      <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.8)]" />
                     </div>
-                  </div>
+                    Play Live Game
+                    <ExternalLink size={20} className="ml-2 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                  </motion.a>
+                </motion.div>
+              </div>
 
-                  {/* Back (Icon) */}
-                  <div className="absolute inset-0 bg-white border-2 border-primary/20 rounded-3xl flex items-center justify-center rotate-y-180 backface-hidden shadow-xl">
-                    <Icon size={40} className={card.color} />
+              <p className="text-xl text-gray-500 leading-relaxed font-medium mb-5">
+                An interactive Memory Game that challenges users to match pairs of cards within a limited number of moves. 
+                Built with a focus on smooth animations and reactive state management.
+              </p>
+            </motion.div>
+
+            <div className="grid lg:grid-cols-2 gap-16">
+              <motion.div variants={itemVariants} className="">
+                <h3 className="text-2xl font-black flex items-center gap-1 tracking-tight">
+                  <div className="w-10 h-10 rounded-2xl bg-primary/5 flex items-center justify-center">
+                    <ShieldCheck className="text-primary" size={24} />
                   </div>
+                  Key Features
+                </h3>
+                <ul className="space-y-1">
+                  {features.map((feature, i) => (
+                    <li key={i} className="flex items-start gap-4 text-gray-600 group">
+                      <div className="mt-1 flex-shrink-0 w-5 h-5 rounded-full bg-green-50 flex items-center justify-center group-hover:bg-green-100 transition-colors">
+                        <CheckCircle className="text-green-500" size={14} />
+                      </div>
+                      <span className="font-medium">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+
+              <motion.div variants={itemVariants} className="space-y-1">
+                <h3 className="text-2xl font-black flex items-center gap-3 tracking-tight">
+                  <div className="w-10 h-10 rounded-2xl bg-primary/5 flex items-center justify-center">
+                    <Code className="text-primary" size={24} />
+                  </div>
+                  Technical Stack
+                </h3>
+                <div className="grid sm:grid-cols-2 gap-1">
+                  {techStack.map((tech, i) => (
+                    <div key={i} className="p-1 flex gap-5 rounded-xl bg-gray-50 border border-gray-100 hover:border-primary/20 hover:bg-white transition-all group shadow-sm hover:shadow-md">
+                      <div className="w-10 h-10 rounded-xl bg-white border border-gray-100 flex items-center justify-center text-primary group-hover:scale-110 transition-transform shadow-sm">
+                        {tech.icon}
+                      </div>
+                      <div>
+                        <div className="text-[10px] text-gray-400 uppercase font-black tracking-[0.15em]">{tech.name}</div>
+                        <div className="font-bold text-gray-900">{tech.value}</div>
+
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </motion.div>
-            );
-          })}
-        </motion.div>
+            </div>
 
-        {/* Victory Message */}
-        <AnimatePresence>
-          {matchedCards.length === cards.length && gameStarted && (
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 50 }}
-              className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-slate-900/60 backdrop-blur-md"
-            >
-              <div className="bg-white rounded-[3rem] p-12 text-center shadow-2xl max-w-md w-full border border-gray-100">
-                <div className="w-24 h-24 bg-yellow-400/10 rounded-full flex items-center justify-center mx-auto mb-8">
-                  <Trophy size={48} className="text-yellow-500" />
-                </div>
-                <h3 className="text-4xl font-black text-gray-900 mb-2 uppercase italic tracking-tight">Vault Secured</h3>
-                <p className="text-gray-500 font-medium mb-10">You've successfully cleared the memory grid with {moves} moves!</p>
-                <button
-                  onClick={initializeGame}
-                  className="w-full py-5 bg-primary text-white font-black text-xl rounded-2xl shadow-[0_20px_40px_-10px_rgba(59,130,246,0.3)] hover:scale-105 transition-transform"
-                >
-                  Play Again
-                </button>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
+          </motion.div>
+        </div>
+      </main>
     </div>
   );
 };
