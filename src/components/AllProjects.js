@@ -240,8 +240,7 @@ const projectsData = [
     ],
     techStack: ['Adobe Premiere Pro', 'After Effects', 'CapCut']
   },
-  ,
-    {
+  {
     id: 'Passport ad',
     name: 'Ghana Passport Video Ad',
     client: 'Telaxben',
