@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Brand Section */}
           <div className="space-y-2">
-            <img className="w-32 h-32" src="/logo4.png" alt="" />
+            <img className="w-32 h-32 rounded-full overflow-hidden" src="/logo.png" alt="" />
             <p className="text-sm text-gray-400 leading-relaxed">
               Building digital experiences that matter. Let's create something amazing together.
             </p>

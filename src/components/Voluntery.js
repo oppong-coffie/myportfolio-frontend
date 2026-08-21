@@ -80,7 +80,7 @@ const Voluntery = () => {
 
       <div className="container mx-auto relative z-10">
         {/* Header */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -93,7 +93,7 @@ const Voluntery = () => {
             Giving back to the community through mentorship, workshops, and leadership.
             I believe in the power of sharing knowledge. 🌍✨
           </p>
-        </motion.div>
+        </motion.div> */}
 
         {/* Highlight Image */}
         <motion.div

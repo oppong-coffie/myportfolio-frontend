@@ -44,11 +44,11 @@ const Navbar = () => {
         {/* Brand Name */}
         <div className="font-extrabold text-2xl tracking-tighter text-white cursor-pointer">
           <Link to="_home" smooth={true} duration={500} className="flex items-center gap-2">
-            <div className="w-8">
-              <img src="/logo3.png" alt="" />
+            <div className="w-12 h-12 rounded-full overflow-hidden">
+              <img src="/logo.png" alt="" />
             </div>
             <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300">
-              Oppong
+              Mr. Oppong
             </span>
           </Link>
         </div>

@@ -16,27 +16,12 @@ import telaxben from '../images/telaxben.png';
 import prime from '../images/prime.jpeg';
 import aurafits from '../images/aurafits.png';
 import nextlogic from '../images/nextlogic.png';
-import flyer from '../images/flyer.jpg';
+import quay from '../images/quay.png';
+import eco from '../images/eco.jpeg';
+import bcm from '../images/bcm.png';
+import aura from '../images/aura.png';
 
 const projectsData = [
-  {
-    id: 'emmanuel-promotional-flyer',
-    name: 'Software & AI Development Flyer',
-    client: 'Emmanuel Oppong Coffie',
-    category: 'Graphic Design',
-    link: '',
-    image: flyer,
-    tags: ['Figma', 'Photoshop', 'Branding', 'Flyer Design'],
-    description: 'A high-impact promotional flyer highlighting full-stack software development, AI chatbot integration, mobile apps, graphic design, and commercial video ad services.',
-    hasDetails: true,
-    features: [
-      'Modern dark mode visual identity with glassmorphism cards',
-      'Vibrant neon gradient typography and 3D tech icons',
-      'High-resolution print-ready and social media format',
-      'Clear call-to-action badges and contact channels'
-    ],
-    techStack: ['Adobe Photoshop', 'Figma', 'Canva']
-  },
   {
     id: 'zeazn',
     name: 'Zeazn Limited Website',
@@ -45,7 +30,7 @@ const projectsData = [
     link: 'https://zeazn.com',
     image: zeazn,
     tags: ['React', 'Tailwind CSS', 'Framer Motion'],
-    description: 'A comprehensive corporate web portal for Zeazn Limited, engineered with high performance, clean aesthetics, and responsive layout to present core business services.',
+    description: 'A web portal for Zeazn Limited, engineered with high performance and responsive layout to present business services.',
     hasDetails: true,
     features: [
       'Fully responsive layout across all device viewports',
@@ -63,7 +48,7 @@ const projectsData = [
     link: 'https://ipagh.org',
     image: ipa,
     tags: ['Next.js', 'Tailwind CSS', 'Framer Motion'],
-    description: 'A high-impact web portal for IPAGH NGO, designed to facilitate community engagement, streamline information dissemination, and strengthen advocacy across Ghana.',
+    description: 'A web portal for IPAGH NGO, designed to facilitate community engagement and streamline information.',
     hasDetails: true,
     features: [
       'Interactive community advocacy & updates center',
@@ -81,7 +66,7 @@ const projectsData = [
     link: 'https://game-mocha-zeta-14.vercel.app',
     image: game,
     tags: ['React', 'Framer Motion', 'Tailwind CSS'],
-    description: 'An engaging memory card matching game featuring fluid card flipping animations, real-time score tracking, move counters, and custom win states.',
+    description: 'A memory card matching game',
     hasDetails: true,
     features: [
       'Fluid 3D card-flip animations with Framer Motion',
@@ -92,6 +77,24 @@ const projectsData = [
     techStack: ['React.js', 'Tailwind CSS', 'Framer Motion', 'Vercel']
   },
   {
+    id: 'aurafit',
+    name: 'Aurafits Website',
+    client: 'aurafits',
+    category: 'Web App',
+    link: 'https://aurafitsgh.org',
+    image: aura,
+    tags: ['Next.jx', 'MongoDB', 'AWS'],
+    description: 'E-commerce website for easy online shopping experience. Online ordering, secure checkout, and convenient delivery—designed to attract customers.',
+    hasDetails: true,
+    features: [
+      'Modern project portfolio showcase grid',
+      'Service overview and client testimonials',
+      'Streamlined contact form & lead capture setup',
+      'Fast responsive page loading'
+    ],
+    techStack: ['Next.js', 'Tailwind CSS']
+  },
+    {
     id: 'teamalfy',
     name: 'TeamAlfy Company Website',
     client: 'TeamAlfy',
@@ -108,6 +111,42 @@ const projectsData = [
       'Fast responsive page loading'
     ],
     techStack: ['React.js', 'Tailwind CSS', 'Vercel']
+  },
+    {
+    id: 'quay',
+    name: 'Quay Company Website',
+    client: 'Quay',
+    category: 'Web App',
+    link: 'https://quay-production.up.railway.app',
+    image: quay,
+    tags: ['React', 'Tailwind CSS'],
+    description: 'An E-commerce website for online ordering, secure checkout, and convenient delivery—designed to attract customers.',
+    hasDetails: true,
+    features: [
+      'Modern project portfolio showcase grid',
+      'Service overview and client testimonials',
+      'Streamlined contact form & lead capture setup',
+      'Fast responsive page loading'
+    ],
+    techStack: ['Next.js', 'Tailwind CSS', 'MongoDB', 'supabase', 'aws']
+  },
+    {
+    id: 'bcm',
+    name: 'BCM Company Website',
+    client: 'Quay',
+    category: 'Web App',
+    link: 'https://ghabcm-production.up.railway.app',
+    image: bcm,
+    tags: ['React', 'Tailwind CSS'],
+    description: 'Environmental website designed to helps users understand atmospheric carbon and its impact on the environment.',
+    hasDetails: true,
+    features: [
+      'Modern project portfolio showcase grid',
+      'Service overview and client testimonials',
+      'Streamlined contact form & lead capture setup',
+      'Fast responsive page loading'
+    ],
+    techStack: ['Next.js', 'Tailwind CSS', 'MongoDB', 'supabase', 'aws']
   },
   {
     id: 'sms-portal',
@@ -151,9 +190,9 @@ const projectsData = [
     category: 'Video Ads',
     link: '',
     image: nextlogic,
-    videoUrl: 'https://drive.google.com/file/d/1lYLF0_CEb2P8JU5DnUub998H9tOAz_b4/view?usp=sharing', // Add direct MP4 video URL or video file path here
+    videoUrl: 'https://drive.google.com/file/d/1lYLF0_CEb2P8JU5DnUub998H9tOAz_b4/view?usp=sharing',
     tags: [],
-    description: 'High-converting video advertisements, promotional reels, and motion graphic clips crafted for social media ad campaigns and brand awareness.',
+    description: 'Video and social media ad created to showcase IT solutions, software development, websites, AI automation, and digital services. Increase brand awareness, and generate new business leads',
     hasDetails: true,
     features: [
       'High-converting promotional video ad edits',
@@ -172,7 +211,7 @@ const projectsData = [
     image: aurafits,
     videoUrl: 'https://drive.google.com/file/d/1_xPf4yv3HI_ujXttETyn6mr8mZZ30NU7/view?usp=sharing',
     tags: [],
-    description: 'High-converting video advertisement, promotional reel, and motion graphic clip crafted for social media ad campaigns and brand awareness.',
+    description: 'video ad created to showcase stylish clothing and an easy online shopping experience.',
     hasDetails: true,
     features: [
       'High-converting promotional video ad edits',
@@ -191,7 +230,27 @@ const projectsData = [
     image: telaxben,
     videoUrl: 'https://drive.google.com/file/d/1yrONnKlQkfQW6CFh3eU03BfwmFsT1XC-/view?usp=sharing',
     tags: [],
-    description: 'High-converting video advertisement, promotional reel, and motion graphic clip crafted for social media ad campaigns and brand awareness.',
+    description: 'Promotional social media ad to showcase stylish clothing, attract new customers, and drive sales.',
+    hasDetails: true,
+    features: [
+      'High-converting promotional video ad edits',
+      'Motion graphics, animated titles, and lower thirds',
+      'Optimized video ratios for TikTok, Instagram Reels, and YouTube Shorts',
+      'Professional audio mixing and sound design'
+    ],
+    techStack: ['Adobe Premiere Pro', 'After Effects', 'CapCut']
+  },
+  ,
+    {
+    id: 'Passport ad',
+    name: 'Ghana Passport Video Ad',
+    client: 'Telaxben',
+    category: 'Video Ads',
+    link: '',
+    image: eco,
+    videoUrl: 'https://drive.google.com/file/d/1kGu_7GuK2-nQLlC7KdNboGpijZEO1Dg3/view?usp=sharing',
+    tags: [],
+    description: 'Social media ad created to promote Ghana passport application assistance, processing, and doorstep delivery. Designed to attract customers.',
     hasDetails: true,
     features: [
       'High-converting promotional video ad edits',
@@ -227,7 +286,9 @@ const contributionsData = [
   }
 ];
 
-const categories = ['All', 'Web App', 'Mobile', 'AI & Automation', 'Systems', 'Games', 'Graphic Design', 'Video Ads'];
+const categories = ['All', 'Web App', 'Systems', 'Games', 'Graphic Design', 'Video Ads'];
+
+//  'Mobile', 'AI & Automation',
 
 const formatVideoEmbedUrl = (url) => {
   if (!url) return '';

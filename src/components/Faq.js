@@ -36,11 +36,6 @@ const FAQAccordion = () => {
         "Yes, I am comfortable working on existing codebases and can help with improvements, bug fixes, and feature enhancements.",
     },
     {
-      question: "What is your process for working on a project?",
-      answer:
-        "I follow a structured approach: requirement gathering, design, development, testing, and delivery. I ensure continuous communication with the client throughout the project.",
-    },
-    {
       question: "Do you offer a free consultation?",
       answer:
         "Yes, I offer a free initial consultation to discuss your project, requirements, and how I can help you achieve your goals.",
