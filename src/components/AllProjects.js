@@ -20,6 +20,8 @@ import quay from '../images/quay.png';
 import eco from '../images/eco.jpeg';
 import bcm from '../images/bcm.png';
 import aura from '../images/aura.png';
+import betty1 from '../images/betty1.png';
+import betty2 from '../images/betty2.png';
 
 const projectsData = [
   {
@@ -79,7 +81,7 @@ const projectsData = [
   {
     id: 'aurafit',
     name: 'Aurafits Website',
-    client: 'aurafits',
+    client: 'AurafitsGH Shop',
     category: 'Web App',
     link: 'https://aurafitsgh.org',
     image: aura,
@@ -114,8 +116,8 @@ const projectsData = [
   },
     {
     id: 'quay',
-    name: 'Quay Company Website',
-    client: 'Quay',
+    name: 'Quay Shopping App',
+    client: 'Quay Sunglasses Shop',
     category: 'Web App',
     link: 'https://quay-production.up.railway.app',
     image: quay,
@@ -132,8 +134,8 @@ const projectsData = [
   },
     {
     id: 'bcm',
-    name: 'BCM Company Website',
-    client: 'Quay',
+    name: 'BCM Environmental Website',
+    client: 'Mr. Lord',
     category: 'Web App',
     link: 'https://ghabcm-production.up.railway.app',
     image: bcm,
@@ -169,7 +171,7 @@ const projectsData = [
   {
     id: 'graphic-designs',
     name: 'Graphic Design & Brand Marketing',
-    client: 'Prime Quarm Travel & Tours',
+    client: 'Prime Quarm Travel Consult',
     category: 'Graphic Design',
     link: '',
     image: prime,
@@ -204,7 +206,7 @@ const projectsData = [
   },
     {
     id: 'aurafits-video-ad',
-    name: 'AurafitsGH Promotional Video Ad',
+    name: 'AurafitsGH Video Ad',
     client: 'AurafitsGH',
     category: 'Video Ads',
     link: '',
@@ -224,7 +226,7 @@ const projectsData = [
     {
     id: 'Telaxben-video-ad',
     name: 'Telaxben Promotional Video Ad',
-    client: 'Telaxben',
+    client: 'Telaxben Shop',
     category: 'Video Ads',
     link: '',
     image: telaxben,
@@ -243,13 +245,50 @@ const projectsData = [
   {
     id: 'Passport ad',
     name: 'Ghana Passport Video Ad',
-    client: 'Telaxben',
+    client: 'Personal Project',
     category: 'Video Ads',
     link: '',
     image: eco,
     videoUrl: 'https://drive.google.com/file/d/1kGu_7GuK2-nQLlC7KdNboGpijZEO1Dg3/view?usp=sharing',
     tags: [],
     description: 'Social media ad created to promote Ghana passport application assistance, processing, and doorstep delivery. Designed to attract customers.',
+    hasDetails: true,
+    features: [
+      'High-converting promotional video ad edits',
+      'Motion graphics, animated titles, and lower thirds',
+      'Optimized video ratios for TikTok, Instagram Reels, and YouTube Shorts',
+      'Professional audio mixing and sound design'
+    ],
+    techStack: ['Adobe Premiere Pro', 'After Effects', 'CapCut']
+  },
+  {
+    id: 'betty',
+    name: 'Betty Collections Flyer',
+    client: 'Betty Collections',
+    category: 'Graphic Design',
+    link: '',
+    image: betty1,
+    tags: [],
+    description: 'Flyer created to promote Ghana passport application assistance, processing, and doorstep delivery. Designed to attract customers.',
+    hasDetails: true,
+    features: [
+      'High-converting promotional video ad edits',
+      'Motion graphics, animated titles, and lower thirds',
+      'Optimized video ratios for TikTok, Instagram Reels, and YouTube Shorts',
+      'Professional audio mixing and sound design'
+    ],
+    techStack: ['Google Flow', 'ElevenLabs','pixabay', 'CapCut']
+  },
+  {
+    id: 'betty ad',
+    name: 'Betty Video Ad',
+    client: 'Betty Collections',
+    category: 'Video Ads',
+    link: '',
+    image: betty2,
+    videoUrl: 'https://drive.google.com/file/d/1Pa6C-n6mv9xq8xYFt1ZKQLtn8ba2p7wj/view?usp=sharing',
+    tags: [],
+    description: 'Video add to showcase different perfumes for ladies and guys, increase brand awareness, and generate new business leads',
     hasDetails: true,
     features: [
       'High-converting promotional video ad edits',
@@ -490,7 +529,7 @@ const AllProjects = () => {
                 className="group relative bg-slate-900/90 border border-slate-800/80 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-blue-500/10 hover:border-blue-500/40 transition-all duration-300 flex flex-col justify-between"
               >
                 {/* Top Image Preview (No iFrame) */}
-                <div>
+                <div className="">
                   <div className="relative h-64 overflow-hidden bg-slate-950 flex items-center justify-center p-2">
                     <img
                       src={project.image}
@@ -509,21 +548,22 @@ const AllProjects = () => {
 
                   {/* Card Content */}
                   <div className="p-6">
-                    <div className="flex items-center gap-2 text-xs text-slate-400 font-medium mb-2">
-                      <Building2 size={14} className="text-blue-400" />
-                      <span>{project.client}</span>
-                    </div>
+                
 
-                    <h3 className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors mb-3">
+                    <h3 className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">
                       {project.name}
                     </h3>
+                    <div className="flex items-center gap-2 text-xs text-slate-500 font-medium mb-2">
+                      <Building2 size={14} className="text-blue-400" />
+                      <span>Client: {project.client}</span>
+                    </div>
 
-                    <p className="text-slate-400 text-sm line-clamp-3 mb-4 leading-relaxed">
+                    <p className="text-slate-400 text-sm line-clamp-3 mb-3 leading-relaxed">
                       {project.description}
                     </p>
 
                     {/* Tags */}
-                    <div className="flex flex-wrap gap-2 mb-6">
+                    <div className="flex flex-wrap gap-2">
                       {project.tags.map((tag, idx) => (
                         <span
                           key={idx}
@@ -535,9 +575,10 @@ const AllProjects = () => {
                     </div>
                   </div>
                 </div>
+              
 
                 {/* Card Action Footer */}
-                <div className="p-6 pt-0 border-t border-slate-800/50 mt-auto flex items-center justify-between gap-3">
+                <div className="p-3 pt-1 border-t border-slate-800/50 mt-auto flex items-center justify-between gap-3">
                   {/* Left: View Live Website Button (Hidden if no link) */}
                   {project.link ? (
                     <a
