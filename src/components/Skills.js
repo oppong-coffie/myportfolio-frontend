@@ -44,6 +44,10 @@ const skillsData = [
     title: "🔧 Digital Marketer",
     description: "I use various online marketing strategies to promote products or services and increase brand awareness.",
   },
+  {
+    title: "🔧 IT Tutor",
+    description: "I tutor students in computer science and IT related courses.",
+  },
 ];
 
 const techStack = [

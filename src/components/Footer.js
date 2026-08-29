@@ -25,7 +25,8 @@ const Footer = () => {
                 "Cloud Practitioner",
                 "Graphics Designer",
                 "Digital Marketer",
-                "Project Manager"
+                "Project Manager",
+                "IT Tutor"
               ].map((role, idx) => (
                 <li key={idx} className="flex items-center gap-2 hover:text-primary transition-colors duration-300">
                   <span className="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>

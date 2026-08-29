@@ -6,6 +6,7 @@ import trello from "../images/trello.png";
 import botpress from "../images/botpress.png";
 import twilio from "../images/twillo.png";
 import gupshup from "../images/gupshup.png";
+import googleflow from "../images/flow.avif";
 
 const ToolsSection = () => {
   const tools = [
@@ -64,10 +65,10 @@ const ToolsSection = () => {
       logo: twilio,
     },
     {
-      name: "GitHub",
+      name: "Google Flow",
       description:
-        "A popular platform for hosting and managing Git repositories, supporting collaboration, version control, and DevOps workflows.",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg",
+        "Google Flow is a visual development environment for building AI-powered applications and agents.",
+      logo: googleflow,
     },
     {
       name: "n8n",

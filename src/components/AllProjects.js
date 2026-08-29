@@ -80,7 +80,7 @@ const projectsData = [
   },
   {
     id: 'aurafit',
-    name: 'Aurafits Website',
+    name: 'Aurafits Ecommerce Website',
     client: 'AurafitsGH Shop',
     category: 'Web App',
     link: 'https://aurafitsgh.org',
@@ -116,7 +116,7 @@ const projectsData = [
   },
     {
     id: 'quay',
-    name: 'Quay Shopping App',
+    name: 'Quay Shopping Website',
     client: 'Quay Sunglasses Shop',
     category: 'Web App',
     link: 'https://quay-production.up.railway.app',
@@ -187,7 +187,7 @@ const projectsData = [
   },
   {
     id: 'video-ads',
-    name: 'NextLogic Promotional Video Ad',
+    name: 'NextLogic Video Ad',
     client: 'NextLogic Inc',
     category: 'Video Ads',
     link: '',
@@ -225,7 +225,7 @@ const projectsData = [
   },
     {
     id: 'Telaxben-video-ad',
-    name: 'Telaxben Promotional Video Ad',
+    name: 'Telaxben Video Ad',
     client: 'Telaxben Shop',
     category: 'Video Ads',
     link: '',
