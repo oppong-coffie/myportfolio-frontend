@@ -14,6 +14,7 @@ import news2 from "../images/news2.jpg";
 import g1 from "../images/g1.jpg";
 import g2 from "../images/g2.jpg";
 import tutor from "../images/tutor3.png";
+import dodo from "../images/dodo.jpg";
 
 const Gallery = () => {
   const images = [
@@ -32,6 +33,7 @@ const Gallery = () => {
     { src: g1, name: "Remote Meeting", description: "Distance has never been an obstacles. Always have my team virtually around me" },
     { src: g2, name: "Logic Flow", description: "Flows are logically planned before startup" },
     { src: tutor, name: "Home Tutoring", description: "Teaching ICT at home" },
+    { src: dodo, name: "Ai Seminar at UPSA", description: "AI seminar for AI developers at UPSA Campus" },
   ];
 
   return (
